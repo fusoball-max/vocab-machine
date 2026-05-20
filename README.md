@@ -2,7 +2,7 @@
 
 > 一款基於電子墨水屏（E-Ink）視覺風格打造的極簡、護眼、無干擾線上英文單字記憶網頁應用。
 
-[👉 點此立刻線上體驗本產品](https://你的GitHub帳號.github.io/你的專案名稱/) *(請記得將此處修改為你的實際 GitHub Pages 網址)*
+[👉 點此立刻線上體驗本產品](https://fusoball-max.github.io/vocab-machine/) *(請記得將此處修改為你的實際 GitHub Pages 網址)*
 
 ---
 
