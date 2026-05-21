@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-Ink Vocab 智慧單字機</title>
+    <!-- 引入 PWA 資訊 -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#1a1a1a">
+    <!-- iOS 支援 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="icon-192.png">
+    
     <style>
         /* --- 1. E-Ink 風格基本設定 --- */
         :root {
@@ -347,6 +355,15 @@
         let currentWords = [];
         let currentIndex = 0;
         let userProgress = {}; // 格式為 { "word_id": { status: 'mastered' } }
+
+        // 註冊 Service Worker (PWA)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js')
+                    .then(reg => console.log('PWA Service Worker 註冊成功！範圍:', reg.scope))
+                    .catch(err => console.log('Service Worker 註冊失敗:', err));
+            });
+        }
 
         // --- 5. 初始化與選單載入 ---
         window.onload = function() {

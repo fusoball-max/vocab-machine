@@ -1,0 +1,21 @@
+{
+  "short_name": "EInkVocab",
+  "name": "E-Ink Vocab 智慧單字機",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "index.html",
+  "background_color": "#f7f5f0",
+  "display": "standalone",
+  "theme_color": "#1a1a1a",
+  "orientation": "portrait"
+}
