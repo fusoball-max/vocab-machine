@@ -1,3263 +1,3373 @@
-        const vocabDatabase = {
-            "primary": {
-                name: "🌱 小學必備單字",
-                stages: {
-                    //1: [
-                      //  { id: "p1_1", word: "apple", phonetic: "/ˈæp.əl/", translation: "n. 蘋果", example_en: "I eat an apple every morning.", example_zh: "我每天早上吃一個蘋果。" },
-                        //{ id: "p1_2", word: "banana", phonetic: "/bəˈnæn.ə/", translation: "n. 香蕉", example_en: "Monkeys like to eat bananas.", example_zh: "猴子喜歡吃香蕉。" },
-                        //{ id: "p1_3", word: "orange", phonetic: "/ˈɔːr.ɪndʒ/", translation: "n. 柳橙，橘子", example_en: "Orange juice is sweet and sour.", example_zh: "柳橙汁酸酸甜甜的。" }
-                    //],
-                    //2: [
-                      //  { id: "p2_1", word: "rabbit", phonetic: "/ˈræb.ɪt/", translation: "n. 兔子", example_en: "The white rabbit is very cute.", example_zh: "這隻白兔非常可愛。" },
-                        //{ id: "p2_2", word: "yellow", phonetic: "/ˈjel.oʊ/", translation: "adj. 黃色的", example_en: "The sunflower is bright yellow.", example_zh: "向日葵是明亮的黃色。" }
-                    //],
-                    1:[
-  {
-    "id": "p3_1",
-    "word": "family",
-    "phonetic": "/ˈfæm.əl.i/",
-    "translation": "n. 家族，家人",
-    "example_en": "I love my family very much.",
-    "example_zh": "我很愛我的家人。"
-  },
-  {
-    "id": "p3_2",
-    "word": "school",
-    "phonetic": "/skuːl/",
-    "translation": "n. 學校",
-    "example_en": "We go to school by bus.",
-    "example_zh": "我們搭公車去上學。"
-  },
-  {
-    "id": "p3_3",
-    "word": "friend",
-    "phonetic": "/frend/",
-    "translation": "n. 朋友",
-    "example_en": "He is my best friend at school.",
-    "example_zh": "他是我在學校最好的朋友。"
-  },
-  {
-    "id": "p3_4",
-    "word": "teacher",
-    "phonetic": "/ˈtiː.tʃɚ/",
-    "translation": "n. 老師，教師",
-    "example_en": "Our English teacher is very kind.",
-    "example_zh": "我們的英文老師非常親切。"
-  },
-  {
-    "id": "p3_5",
-    "word": "morning",
-    "phonetic": "/ˈmɔːr.nɪŋ/",
-    "translation": "n. 早上，上午",
-    "example_en": "Good morning! How are you?",
-    "example_zh": "早安！你好嗎？"
-  },
-  {
-    "id": "p3_6",
-    "word": "doctor",
-    "phonetic": "/ˈdɑːk.tɚ/",
-    "translation": "n. 醫生",
-    "example_en": "The doctor helped the sick boy.",
-    "example_zh": "醫生幫助了那個生病的小男孩。"
-  },
-  {
-    "id": "p3_7",
-    "word": "water",
-    "phonetic": "/ˈwɑː.t̬ɚ/",
-    "translation": "n. 水",
-    "example_en": "Please drink some warm water.",
-    "example_zh": "請喝一些溫水。"
-  },
-  {
-    "id": "p3_8",
-    "word": "pencil",
-    "phonetic": "/ˈpen.səl/",
-    "translation": "n. 鉛筆",
-    "example_en": "Can I borrow your pencil?",
-    "example_zh": "我可以借你的鉛筆嗎？"
-  },
-  {
-    "id": "p3_9",
-    "word": "elephant",
-    "phonetic": "/ˈel.ə.fənt/",
-    "translation": "n. 大象",
-    "example_en": "The elephant has a long nose.",
-    "example_zh": "大象有一隻長鼻子。"
-  },
-  {
-    "id": "p3_10",
-    "word": "computer",
-    "phonetic": "/kəmˈpjuː.t̬ɚ/",
-    "translation": "n. 電腦",
-    "example_en": "I use the computer to draw pictures.",
-    "example_zh": "我用電腦來畫畫。"
-  },
-  {
-    "id": "p3_11",
-    "word": "flower",
-    "phonetic": "/ˈflaʊ.ɚ/",
-    "translation": "n. 花，花朵",
-    "example_en": "This red flower smells so sweet.",
-    "example_zh": "這朵紅花聞起來好香。"
-  },
-  {
-    "id": "p3_12",
-    "word": "window",
-    "phonetic": "/ˈwɪn.doʊ/",
-    "translation": "n. 窗戶",
-    "example_en": "Please close the window, it is cold.",
-    "example_zh": "請關上窗戶，好冷。"
-  },
-  {
-    "id": "p3_13",
-    "word": "hungry",
-    "phonetic": "/ˈhʌŋ.ɡri/",
-    "translation": "adj. 飢餓的",
-    "example_en": "I am hungry, is dinner ready?",
-    "example_zh": "我餓了，晚餐準備好了嗎？"
-  },
-  {
-    "id": "p3_14",
-    "word": "happy",
-    "phonetic": "/ˈhæp.i/",
-    "translation": "adj. 快樂的，開心的",
-    "example_en": "They are happy to play games.",
-    "example_zh": "他們玩遊戲玩得很開心。"
-  },
-  {
-    "id": "p3_15",
-    "word": "beautiful",
-    "phonetic": "/ˈbjuː.t̬ə.fəl/",
-    "translation": "adj. 美麗的，漂亮的",
-    "example_en": "She wore a beautiful blue dress.",
-    "example_zh": "她穿了一件漂亮的藍色洋裝。"
-  },
-  {
-    "id": "p3_16",
-    "word": "listen",
-    "phonetic": "/ˈlɪs.ən/",
-    "translation": "v. 聽，傾聽",
-    "example_en": "Listen to the music and relax.",
-    "example_zh": "聽聽音樂放鬆一下吧。"
-  },
-  {
-    "id": "p3_17",
-    "word": "sleep",
-    "phonetic": "/sliːp/",
-    "translation": "v. 睡覺",
-    "example_en": "Cats like to sleep on the sofa.",
-    "example_zh": "貓咪喜歡在沙發上睡覺。"
-  },
-  {
-    "id": "p3_18",
-    "word": "clean",
-    "phonetic": "/kliːn/",
-    "translation": "v. 打掃 adj. 乾淨的",
-    "example_en": "We should keep our classroom clean.",
-    "example_zh": "我們應該保持教室乾淨。"
-  },
-  {
-    "id": "p3_19",
-    "word": "tomorrow",
-    "phonetic": "/təˈmɔːr.oʊ/",
-    "translation": "n./adv. 明天",
-    "example_en": "We will have a picnic tomorrow.",
-    "example_zh": "我們明天要去野餐。"
-  },
-  {
-    "id": "p3_20",
-    "word": "together",
-    "phonetic": "/təˈɡeð.ɚ/",
-    "translation": "adv. 一起，共同",
-    "example_en": "Let's sing this song together.",
-    "example_zh": "讓我們一起唱這首歌吧。"
-  },
-  {
-    "id": "p3_21",
-    "word": "animal",
-    "phonetic": "/ˈæn.ɪ.məl/",
-    "translation": "n. 動物",
-    "example_en": "The lion is the king of animals.",
-    "example_zh": "獅子是動物之王。"
-  },
-  {
-    "id": "p3_22",
-    "word": "brother",
-    "phonetic": "/ˈbrʌð.ɚ/",
-    "translation": "n. 兄弟，哥哥，弟弟",
-    "example_en": "My brother is playing basketball.",
-    "example_zh": "我的哥哥正在打籃球。"
-  },
-  {
-    "id": "p3_23",
-    "word": "sister",
-    "phonetic": "/ˈsɪs.tɚ/",
-    "translation": "n. 姐妹，姐姐，妹妹",
-    "example_en": "My little sister loves dolls.",
-    "example_zh": "我的小妹妹很喜歡洋娃娃。"
-  },
-  {
-    "id": "p3_24",
-    "word": "father",
-    "phonetic": "/ˈfɑː.ðɚ/",
-    "translation": "n. 父親，爸爸",
-    "example_en": "My father washes his car on Sundays.",
-    "example_zh": "我爸爸每逢星期日洗車。"
-  },
-  {
-    "id": "p3_25",
-    "word": "mother",
-    "phonetic": "/ˈmʌð.ɚ/",
-    "translation": "n. 母親，媽媽",
-    "example_en": "My mother makes delicious cookies.",
-    "example_zh": "我媽媽會做美味的餅乾。"
-  },
-  {
-    "id": "p3_26",
-    "word": "garden",
-    "phonetic": "/ˈɡɑːr.dən/",
-    "translation": "n. 花園，菜園",
-    "example_en": "There are many red roses in the garden.",
-    "example_zh": "花園裡有許多紅玫瑰。"
-  },
-  {
-    "id": "p3_27",
-    "word": "kitchen",
-    "phonetic": "/ˈkɪtʃ.ən/",
-    "translation": "n. 廚房",
-    "example_en": "Mom is cooking dinner in the kitchen.",
-    "example_zh": "媽媽正在廚房煮晚餐。"
-  },
-  {
-    "id": "p3_28",
-    "word": "bedroom",
-    "phonetic": "/ˈbed.ruːm/",
-    "translation": "n. 臥室，睡房",
-    "example_en": "My bedroom is small but warm.",
-    "example_zh": "我的臥室雖小但很溫馨。"
-  },
-  {
-    "id": "p3_29",
-    "word": "picture",
-    "phonetic": "/ˈpɪk.tʃɚ/",
-    "translation": "n. 照片，圖片，畫畫",
-    "example_en": "Please look at this picture on the wall.",
-    "example_zh": "請看牆上的這幅畫。"
-  },
-  {
-    "id": "p3_30",
-    "word": "crayon",
-    "phonetic": "/ˈkreɪ.ɑːn/",
-    "translation": "n. 蠟筆",
-    "example_en": "Can you pass me the blue crayon?",
-    "example_zh": "你可以把藍色蠟筆拿給我嗎？"
-  },
-  {
-    "id": "p3_31",
-    "word": "rubber",
-    "phonetic": "/ˈrʌb.ɚ/",
-    "translation": "n. 橡皮擦，橡膠",
-    "example_en": "I need a rubber to erase this word.",
-    "example_zh": "我需要一塊橡皮擦來擦掉這個字。"
-  },
-  {
-    "id": "p3_32",
-    "word": "ruler",
-    "phonetic": "/ˈruː.lɚ/",
-    "translation": "n. 尺，尺子",
-    "example_en": "Use a ruler to draw a straight line.",
-    "example_zh": "用尺來畫一條直線。"
-  },
-  {
-    "id": "p3_33",
-    "word": "bottle",
-    "phonetic": "/ˈbɑː.t̬əl/",
-    "translation": "n. 瓶子",
-    "example_en": "The milk bottle is on the table.",
-    "example_zh": "牛奶瓶在桌子上。"
-  },
-  {
-    "id": "p3_34",
-    "word": "pocket",
-    "phonetic": "/ˈpɑː.kɪt/",
-    "translation": "n. 口袋",
-    "example_en": "He put the key in his pocket.",
-    "example_zh": "他把鑰匙放進口袋裡。"
-  },
-  {
-    "id": "p3_35",
-    "word": "jacket",
-    "phonetic": "/ˈdʒæk.ɪt/",
-    "translation": "n. 夾克，短上衣",
-    "example_en": "Put on your jacket before you go out.",
-    "example_zh": "出門前穿上你的夾克。"
-  },
-  {
-    "id": "p3_36",
-    "word": "sweater",
-    "phonetic": "/ˈswet̬.ɚ/",
-    "translation": "n. 毛衣",
-    "example_en": "This yellow sweater is very warm.",
-    "example_zh": "這件黃色毛衣非常溫暖。"
-  },
-  {
-    "id": "p3_37",
-    "word": "shorts",
-    "phonetic": "/ʃɔːrts/",
-    "translation": "n. 短褲",
-    "example_en": "He likes to wear shorts in summer.",
-    "example_zh": "他夏天喜歡穿短褲。"
-  },
-  {
-    "id": "p3_38",
-    "word": "umbrella",
-    "phonetic": "/ʌmˈbrel.ə/",
-    "translation": "n. 雨傘",
-    "example_en": "Take an umbrella because it is raining.",
-    "example_zh": "帶把傘吧，因為正在下雨。"
-  },
-  {
-    "id": "p3_39",
-    "word": "weather",
-    "phonetic": "/ˈweð.ɚ/",
-    "translation": "n. 天氣",
-    "example_en": "What is the weather like today?",
-    "example_zh": "今天的天氣怎麼樣？"
-  },
-  {
-    "id": "p3_40",
-    "word": "season",
-    "phonetic": "/ˈsiː.zən/",
-    "translation": "n. 季節",
-    "example_en": "My favorite season is spring.",
-    "example_zh": "我最喜歡的季節是春天。"
-  },
-  {
-    "id": "p3_41",
-    "word": "spring",
-    "phonetic": "/sprɪŋ/",
-    "translation": "n. 春天，春季",
-    "example_en": "Flowers bloom in the spring.",
-    "example_zh": "花朵在春天盛開。"
-  },
-  {
-    "id": "p3_42",
-    "word": "summer",
-    "phonetic": "/ˈsʌm.ɚ/",
-    "translation": "n. 夏天，夏季",
-    "example_en": "We often go swimming in summer.",
-    "example_zh": "我們夏天常常去游泳。"
-  },
-  {
-    "id": "p3_43",
-    "word": "autumn",
-    "phonetic": "/ˈɑː.t̬əm/",
-    "translation": "n. 秋天，秋季",
-    "example_en": "The leaves turn yellow in autumn.",
-    "example_zh": "秋天時葉子會變黃。"
-  },
-  {
-    "id": "p3_44",
-    "word": "winter",
-    "phonetic": "/ˈwɪn.tɚ/",
-    "translation": "n. 冬天，冬季",
-    "example_en": "It sometimes snows here in winter.",
-    "example_zh": "這裡冬天有時會下雪。"
-  },
-  {
-    "id": "p3_45",
-    "word": "holiday",
-    "phonetic": "/ˈhɑː.lə.deɪ/",
-    "translation": "n. 假日，節日",
-    "example_en": "Where are you going for your holiday?",
-    "example_zh": "你假期要去哪裡玩？"
-  },
-  {
-    "id": "p3_46",
-    "word": "subject",
-    "phonetic": "/ˈsʌb.dʒekt/",
-    "translation": "n. 科目，主題",
-    "example_en": "My favorite subject is English.",
-    "example_zh": "我最喜歡的科目是英文。"
-  },
-  {
-    "id": "p3_47",
-    "word": "science",
-    "phonetic": "/ˈsaɪ.əns/",
-    "translation": "n. 科學，自然科學",
-    "example_en": "We do experiments in the science class.",
-    "example_zh": "我們在自然科學課上做實驗。"
-  },
-  {
-    "id": "p3_48",
-    "word": "history",
-    "phonetic": "/ˈhɪs.t̬ɚ.i/",
-    "translation": "n. 歷史",
-    "example_en": "We learn about ancient China in history class.",
-    "example_zh": "我們在歷史課上學習古代中國。"
-  },
-  {
-    "id": "p3_49",
-    "word": "lesson",
-    "phonetic": "/ˈles.ən/",
-    "translation": "n. 課，課程，教訓",
-    "example_en": "We have an English lesson this afternoon.",
-    "example_zh": "我們今天下午有一堂英文課。"
-  },
-  {
-    "id": "p3_50",
-    "word": "homework",
-    "phonetic": "/ˈhoʊm.wɝːk/",
-    "translation": "n. 家庭作業，功課",
-    "example_en": "I must finish my homework before dinner.",
-    "example_zh": "我必須在晚餐前寫完功課。"
-  },
-  {
-    "id": "p3_51",
-    "word": "question",
-    "phonetic": "/ˈkwes.tʃən/",
-    "translation": "n. 問題 v. 詢問",
-    "example_en": "May I ask a question, please?",
-    "example_zh": "請問我可以問一個問題嗎？"
-  },
-  {
-    "id": "p3_52",
-    "word": "answer",
-    "phonetic": "/ˈæn.sɚ/",
-    "translation": "n. 答案 v. 回答",
-    "example_en": "Write down your answer on the paper.",
-    "example_zh": "把你的答案寫在紙上。"
-  },
-  {
-    "id": "p3_53",
-    "word": "language",
-    "phonetic": "/ˈlæŋ.ɡwɪdʒ/",
-    "translation": "n. 語言",
-    "example_en": "English is a very popular language.",
-    "example_zh": "英文是一門非常受歡迎的語言。"
-  },
-  {
-    "id": "p3_54",
-    "word": "library",
-    "phonetic": "/ˈlaɪ.brer.i/",
-    "translation": "n. 圖書館",
-    "example_en": "I borrow three books from the library.",
-    "example_zh": "我從圖書館借了三本書。"
-  },
-  {
-    "id": "p3_55",
-    "word": "market",
-    "phonetic": "/ˈmɑːr.kɪt/",
-    "translation": "n. 市場，集市",
-    "example_en": "We buy fresh vegetables at the market.",
-    "example_zh": "我們在市場買新鮮蔬菜。"
-  },
-  {
-    "id": "p3_56",
-    "word": "supermarket",
-    "phonetic": "/ˈsuː.pɚˌmɑːr.kɪt/",
-    "translation": "n. 超級市場",
-    "example_en": "Let's buy some fruit at the supermarket.",
-    "example_zh": "我們去超市買些水果吧。"
-  },
-  {
-    "id": "p3_57",
-    "word": "station",
-    "phonetic": "/ˈsteɪ.ʃən/",
-    "translation": "n. 車站，局，電台",
-    "example_en": "The train will arrive at the station soon.",
-    "example_zh": "火車很快就要到站了。"
-  },
-  {
-    "id": "p3_58",
-    "word": "hospital",
-    "phonetic": "/ˈhɑːs.pɪ.t̬əl/",
-    "translation": "n. 醫院",
-    "example_en": "My uncle works as a doctor in that hospital.",
-    "example_zh": "我叔叔在那家醫院當醫生。"
-  },
-  {
-    "id": "p3_59",
-    "word": "restaurant",
-    "phonetic": "/ˈres.tə.rɑːnt/",
-    "translation": "n. 餐廳，飯館",
-    "example_en": "We had dinner in a Chinese restaurant.",
-    "example_zh": "我們在一家中餐廳吃晚餐。"
-  },
-  {
-    "id": "p3_60",
-    "word": "cinema",
-    "phonetic": "/ˈsɪn.ə.mə/",
-    "translation": "n. 電影院",
-    "example_en": "Let's go to the cinema to watch a movie.",
-    "example_zh": "我們去電影院看部電影吧。"
-  },
-  {
-    "id": "p3_61",
-    "word": "country",
-    "phonetic": "/ˈkʌn.tri/",
-    "translation": "n. 國家，鄉下",
-    "example_en": "There are many countries in Asia.",
-    "example_zh": "亞洲有許多國家。"
-  },
-  {
-    "id": "p3_62",
-    "word": "street",
-    "phonetic": "/striːt/",
-    "translation": "n. 街道",
-    "example_en": "Don't play football on the busy street.",
-    "example_zh": "不要在繁忙的街道上踢足球。"
-  },
-  {
-    "id": "p3_63",
-    "word": "bridge",
-    "phonetic": "/brɪdʒ/",
-    "translation": "n. 橋，橋樑",
-    "example_en": "There is a long bridge over the river.",
-    "example_zh": "河上有一座長橋。"
-  },
-  {
-    "id": "p3_64",
-    "word": "river",
-    "phonetic": "/ˈrɪv.ɚ/",
-    "translation": "n. 河流",
-    "example_en": "They are rowing a boat on the river.",
-    "example_zh": "他們正在河上划船。"
-  },
-  {
-    "id": "p3_65",
-    "word": "mountain",
-    "phonetic": "/ˈmaʊn.tən/",
-    "translation": "n. 山，山脈",
-    "example_en": "We climbed a high mountain last weekend.",
-    "example_zh": "我們上週末爬了一座高山。"
-  },
-  {
-    "id": "p3_66",
-    "word": "forest",
-    "phonetic": "/ˈfɔːr.ɪst/",
-    "translation": "n. 森林",
-    "example_en": "Many wild animals live in the deep forest.",
-    "example_zh": "許多野生動物住在深林裡。"
-  },
-  {
-    "id": "p3_67",
-    "word": "island",
-    "phonetic": "/ˈaɪ.lənd/",
-    "translation": "n. 島嶼",
-    "example_en": "Taiwan is a beautiful island.",
-    "example_zh": "台灣是一座美麗的島嶼。"
-  },
-  {
-    "id": "p3_68",
-    "word": "beach",
-    "phonetic": "/biːtʃ/",
-    "translation": "n. 沙灘，海灘",
-    "example_en": "Children love to build sandcastles on the beach.",
-    "example_zh": "孩子們喜歡在沙灘上建造沙堡。"
-  },
-  {
-    "id": "p3_69",
-    "word": "nature",
-    "phonetic": "/ˈneɪ.tʃɚ/",
-    "translation": "n. 自然，大自然",
-    "example_en": "We should protect nature and animals.",
-    "example_zh": "我們應該保護大自然和動物。"
-  },
-  {
-    "id": "p3_70",
-    "word": "world",
-    "phonetic": "/wɝːld/",
-    "translation": "n. 世界",
-    "example_en": "There are many wonderful places in the world.",
-    "example_zh": "世界上有許多奇妙的地方。"
-  },
-  {
-    "id": "p3_71",
-    "word": "people",
-    "phonetic": "/ˈpiː.pəl/",
-    "translation": "n. 人，人們",
-    "example_en": "The park was full of people yesterday.",
-    "example_zh": "公園昨天擠滿了人。"
-  },
-  {
-    "id": "p3_72",
-    "word": "children",
-    "phonetic": "/ˈtʃɪl.drən/",
-    "translation": "n. 孩子們（child 的複數）",
-    "example_en": "The children are playing tag in the park.",
-    "example_zh": "孩子們正在公園裡玩捉迷藏。"
-  },
-  {
-    "id": "p3_73",
-    "word": "cousin",
-    "phonetic": "/ˈkʌz.ən/",
-    "translation": "n. 堂（表）兄弟姐妹",
-    "example_en": "My cousin lives in New York.",
-    "example_zh": "我的表哥住在紐約。"
-  },
-  {
-    "id": "p3_74",
-    "word": "uncle",
-    "phonetic": "/ˈʌŋ.kəl/",
-    "translation": "n. 叔叔，伯伯，舅舅，姑丈",
-    "example_en": "My uncle bought me a new bicycle.",
-    "example_zh": "我叔叔送了我一台新自行車。"
-  },
-  {
-    "id": "p3_75",
-    "word": "aunt",
-    "phonetic": "/ænt/",
-    "translation": "n. 阿姨，姑姑，嬸嬸，伯母",
-    "example_en": "My aunt is a very good cook.",
-    "example_zh": "我的阿姨是個很厲害的廚師。"
-  },
-  {
-    "id": "p3_76",
-    "word": "breakfast",
-    "phonetic": "/ˈbrek.fəst/",
-    "translation": "n. 早餐",
-    "example_en": "I usually have milk and bread for breakfast.",
-    "example_zh": "我早餐通常吃麵包配牛奶。"
-  },
-  {
-    "id": "p3_77",
-    "word": "lunch",
-    "phonetic": "/lʌntʃ/",
-    "translation": "n. 午餐",
-    "example_en": "What did you have for lunch today?",
-    "example_zh": "你今天中午吃了什麼？"
-  },
-  {
-    "id": "p3_78",
-    "word": "dinner",
-    "phonetic": "/ˈdɪn.ɚ/",
-    "translation": "n. 晚餐，晚飯",
-    "example_en": "The whole family has dinner together.",
-    "example_zh": "全家人一起吃晚餐。"
-  },
-  {
-    "id": "p3_79",
-    "word": "vegetable",
-    "phonetic": "/ˈvedʒ.tə.bəl/",
-    "translation": "n. 蔬菜",
-    "example_en": "Eating vegetables is good for your health.",
-    "example_zh": "吃蔬菜對你的健康有好處。"
-  },
-  {
-    "id": "p3_80",
-    "word": "fruit",
-    "phonetic": "/fruːt/",
-    "translation": "n. 水果",
-    "example_en": "Apples and grapes are my favorite fruits.",
-    "example_zh": "蘋果和葡萄是我最愛的水果。"
-  },
-  {
-    "id": "p3_81",
-    "word": "sandwich",
-    "phonetic": "/ˈsæn.wɪdʒ/",
-    "translation": "n. 三明治",
-    "example_en": "I made a ham and cheese sandwich.",
-    "example_zh": "我做了一個火腿起司三明治。"
-  },
-  {
-    "id": "p3_82",
-    "word": "biscuit",
-    "phonetic": "/ˈbɪs.kɪt/",
-    "translation": "n. 餅乾",
-    "example_en": "Would you like a biscuit with your tea?",
-    "example_zh": "你想配茶吃塊餅乾嗎？"
-  },
-  {
-    "id": "p3_83",
-    "word": "butter",
-    "phonetic": "/ˈbʌt̬.ɚ/",
-    "translation": "n. 奶油",
-    "example_en": "Please spread some butter on the bread.",
-    "example_zh": "請在麵包上抹點奶油。"
-  },
-  {
-    "id": "p3_84",
-    "word": "cheese",
-    "phonetic": "/tʃiːz/",
-    "translation": "n. 起司，乳酪",
-    "example_en": "I like to put cheese on my pizza.",
-    "example_zh": "我喜歡在披薩上加起司。"
-  },
-  {
-    "id": "p3_85",
-    "word": "sugar",
-    "phonetic": "/ˈʃʊɡ.ɚ/",
-    "translation": "n. 糖",
-    "example_en": "Don't put too much sugar in your coffee.",
-    "example_zh": "咖啡裡不要加太多糖。"
-  },
-  {
-    "id": "p3_86",
-    "word": "salt",
-    "phonetic": "/sɑːlt/",
-    "translation": "n. 鹽",
-    "example_en": "Could you pass me the salt, please?",
-    "example_zh": "請問可以把鹽拿給我嗎？"
-  },
-  {
-    "id": "p3_87",
-    "word": "soup",
-    "phonetic": "/suːp/",
-    "translation": "n. 湯",
-    "example_en": "The chicken soup smells so good.",
-    "example_zh": "這碗雞湯聞起來好香。"
-  },
-  {
-    "id": "p3_88",
-    "word": "spoon",
-    "phonetic": "/spuːn/",
-    "translation": "n. 湯匙",
-    "example_en": "I eat my soup with a spoon.",
-    "example_zh": "我用湯匙喝湯。"
-  },
-  {
-    "id": "p3_89",
-    "word": "plate",
-    "phonetic": "/pleɪt/",
-    "translation": "n. 盤子，碟子",
-    "example_en": "Put the cake on a clean plate.",
-    "example_zh": "把蛋糕放在乾淨的盤子裡。"
-  },
-  {
-    "id": "p3_90",
-    "word": "glass",
-    "phonetic": "/ɡlæs/",
-    "translation": "n. 玻璃杯，玻璃",
-    "example_en": "He drank a glass of water.",
-    "example_zh": "他喝了一杯水。"
-  },
-  {
-    "id": "p3_91",
-    "word": "animal",
-    "phonetic": "/ˈæn.ɪ.məl/",
-    "translation": "n. 動物",
-    "example_en": "Monkeys are very clever animals.",
-    "example_zh": "猴子是非常聰明的動物。"
-  },
-  {
-    "id": "p3_92",
-    "word": "monkey",
-    "phonetic": "/ˈmʌŋ.ki/",
-    "translation": "n. 猴子",
-    "example_en": "A monkey is climbing the tall tree.",
-    "example_zh": "一隻猴子正在爬那棵高樹。"
-  },
-  {
-    "id": "p3_93",
-    "word": "giraffe",
-    "phonetic": "/dʒɪˈræf/",
-    "translation": "n. 長頸鹿",
-    "example_en": "The giraffe has a very long neck.",
-    "example_zh": "長頸鹿有著很長脖子。"
-  },
-  {
-    "id": "p3_94",
-    "word": "panda",
-    "phonetic": "/ˈpæn.də/",
-    "translation": "n. 熊貓，大熊貓",
-    "example_en": "Pandas love to eat bamboo leaves.",
-    "example_zh": "熊貓熱愛吃竹葉。"
-  },
-  {
-    "id": "p3_95",
-    "word": "dolphin",
-    "phonetic": "/ˈdɑːl.fɪn/",
-    "translation": "n. 海豚",
-    "example_en": "We saw a clever dolphin jumping out of the sea.",
-    "example_zh": "我們看到一隻聰明的海豚跳出海面。"
-  },
-  {
-    "id": "p3_96",
-    "word": "penguin",
-    "phonetic": "/ˈpeŋ.ɡwɪn/",
-    "translation": "n. 企鵝",
-    "example_en": "Penguins cannot fly but they swim well.",
-    "example_zh": "企鵝不會飛，但牠們很會游泳。"
-  },
-  {
-    "id": "p3_97",
-    "word": "squirrel",
-    "phonetic": "/ˈskwɝː.əl/",
-    "translation": "n. 松鼠",
-    "example_en": "The squirrel is gathering nuts for winter.",
-    "example_zh": "松鼠正在收集冬天要吃的堅果。"
-  },
-  {
-    "id": "p3_98",
-    "word": "countryside",
-    "phonetic": "/ˈkʌn.tri.saɪd/",
-    "translation": "n. 鄉下，農村",
-    "example_en": "We love the fresh air of the countryside.",
-    "example_zh": "我們喜愛鄉下新鮮的空氣。"
-  },
-  {
-    "id": "p3_99",
-    "word": "journey",
-    "phonetic": "/ˈdʒɝː.ni/",
-    "translation": "n. 旅程，旅行",
-    "example_en": "Have a safe and pleasant journey!",
-    "example_zh": "祝你旅途安全且愉快！"
-  },
-  {
-    "id": "p3_100",
-    "word": "computer",
-    "phonetic": "/kəmˈpjuː.t̬ɚ/",
-    "translation": "n. 電腦",
-    "example_en": "I use the computer to study English online.",
-    "example_zh": "我用電腦在線上學習英文。"
-  }
-]
-                }
-            },
-            "junior": {
-                name: "🍀 初中必備單字",
-                stages: {
-                    //1: [
-                    //    { id: "j1_1", word: "beautiful", phonetic: "/ˈbjuː.t̬ə.fəl/", translation: "adj. 美麗的，漂亮的", example_en: "What a beautiful sunset!", example_zh: "多麼美麗的日落啊！" },
-                     //   { id: "j1_2", word: "different", phonetic: "/ˈdɪf.ɚ.ənt/", translation: "adj. 不同的", example_en: "They have different opinions.", example_zh: "他們有不同的意見。" }
-                    //],
-                    //2: [
-                   //     { id: "j2_1", word: "exercise", phonetic: "/ˈek.sɚ.saɪz/", translation: "n./v. 運動，鍛鍊", example_en: "We should exercise every day.", example_zh: "我們應該每天運動。" },
-                   //     { id: "j2_2", word: "neighbor", phonetic: "/ˈneɪ.bɚ/", translation: "n. 鄰居", example_en: "Our neighbor is very friendly.", example_zh: "我們的鄰居非常友善。" }
-                   // ],
-                    1:[
-  {
-    "id": "j3_1",
-    "word": "active",
-    "phonetic": "/ˈæk.tɪv/",
-    "translation": "adj. 活躍的，積極的",
-    "example_en": "He is an active member of the school sports club.",
-    "example_zh": "他是學校運動社團的活躍成員。"
-  },
-  {
-    "id": "j3_2",
-    "word": "admire",
-    "phonetic": "/ədˈmaɪr/",
-    "translation": "v. 欽佩，欣賞",
-    "example_en": "I really admire my teacher's patience.",
-    "example_zh": "我非常欽佩我老師的耐心。"
-  },
-  {
-    "id": "j3_3",
-    "word": "afford",
-    "phonetic": "/əˈfɔːrd/",
-    "translation": "v. 買得起，負擔得起",
-    "example_en": "We can't afford to buy a new car right now.",
-    "example_zh": "我們現在買不起新車。"
-  },
-  {
-    "id": "j3_4",
-    "word": "against",
-    "phonetic": "/əˈɡenst/",
-    "translation": "prep. 反對，對抗，緊靠",
-    "example_en": "Our school team played against theirs yesterday.",
-    "example_zh": "我們校隊昨天和他們隊進行了比賽。"
-  },
-  {
-    "id": "j3_5",
-    "word": "agreement",
-    "phonetic": "/əˈɡriː.mənt/",
-    "translation": "n. 協定，協議，同意",
-    "example_en": "They finally reached an agreement on the project.",
-    "example_zh": "他們最終就這個專案達成了解協定。"
-  },
-  {
-    "id": "j3_6",
-    "word": "alive",
-    "phonetic": "/əˈlaɪv/",
-    "translation": "adj. 活著的，有生氣的",
-    "example_en": "The flowers are still alive after a week.",
-    "example_zh": "一週後這些花依然活著。"
-  },
-  {
-    "id": "j3_7",
-    "word": "allow",
-    "phonetic": "/əˈlaʊ/",
-    "translation": "v. 允許，准許",
-    "example_en": "My parents allow me to watch TV on weekends.",
-    "example_zh": "我父母允許我週末看電視。"
-  },
-  {
-    "id": "j3_8",
-    "word": "almost",
-    "phonetic": "/ˈɑːl.moʊst/",
-    "translation": "adv. 幾乎，差不多",
-    "example_en": "I have almost finished my English homework.",
-    "example_zh": "我幾乎寫完我的英文功課了。"
-  },
-  {
-    "id": "j3_9",
-    "word": "although",
-    "phonetic": "/ɑːlˈðoʊ/",
-    "translation": "conj. 雖然，儘管",
-    "example_en": "Although it was raining, we still went hiking.",
-    "example_zh": "雖然下著雨，我們依然去健行了。"
-  },
-  {
-    "id": "j3_10",
-    "word": "amazing",
-    "phonetic": "/əˈmeɪ.zɪŋ/",
-    "translation": "adj. 令人驚奇的，超棒的",
-    "example_en": "We had an amazing time at the amusement park.",
-    "example_zh": "我們在遊樂園度過了一段超棒的時光。"
-  },
-  {
-    "id": "j3_11",
-    "word": "anger",
-    "phonetic": "/ˈæŋ.ɡɚ/",
-    "translation": "n. 生氣，憤怒",
-    "example_en": "He shook his head in anger when he heard the news.",
-    "example_zh": "聽到這個消息時，他憤怒地搖了搖頭。"
-  },
-  {
-    "id": "j3_12",
-    "word": "another",
-    "phonetic": "/əˈnʌð.ɚ/",
-    "translation": "adj./pron. 另一個，再一個",
-    "example_en": "Could I please have another glass of water?",
-    "example_zh": "我可以再要一杯水嗎？"
-  },
-  {
-    "id": "j3_13",
-    "word": "anyway",
-    "phonetic": "/ˈen.i.weɪ/",
-    "translation": "adv. 無論如何，總之",
-    "example_en": "It was raining, but we went out anyway.",
-    "example_zh": "當時在下雨，但我們無論如何還是出門了。"
-  },
-  {
-    "id": "j3_14",
-    "word": "area",
-    "phonetic": "/ˈer.i.ə/",
-    "translation": "n. 區域，地區，面積",
-    "example_en": "There is a beautiful park in this area.",
-    "example_zh": "這個地區有一個漂亮的花園。"
-  },
-  {
-    "id": "j3_15",
-    "word": "argument",
-    "phonetic": "/ˈɑːr.ɡjə.mənt/",
-    "translation": "n. 爭論，論點",
-    "example_en": "They had a big argument about money.",
-    "example_zh": "他們因為錢的事大吵了一架。"
-  },
-  {
-    "id": "j3_16",
-    "word": "arrive",
-    "phonetic": "/əˈraɪv/",
-    "translation": "v. 到達，抵達",
-    "example_en": "We will arrive at the train station soon.",
-    "example_zh": "我們很快就會抵達火車站了。"
-  },
-  {
-    "id": "j3_17",
-    "word": "attention",
-    "phonetic": "/əˈten.ʃən/",
-    "translation": "n. 注意，注意力",
-    "example_en": "Please pay attention to the teacher's instructions.",
-    "example_zh": "請注意聽老師的指示。"
-  },
-  {
-    "id": "j3_18",
-    "word": "attract",
-    "phonetic": "/əˈtrækt/",
-    "translation": "v. 吸引",
-    "example_en": "The bright flowers attract many bees.",
-    "example_zh": "鮮豔的花朵吸引了許多蜜蜂。"
-  },
-  {
-    "id": "j3_19",
-    "word": "average",
-    "phonetic": "/ˈæv.ɚ.ɪdʒ/",
-    "translation": "adj. 平均的，平常的 n. 平均數",
-    "example_en": "The average student studies two hours a day.",
-    "example_zh": "一般的學生每天讀書兩小時。"
-  },
-  {
-    "id": "j3_20",
-    "word": "awake",
-    "phonetic": "/əˈweɪk/",
-    "translation": "adj. 醒著的 v. 喚醒",
-    "example_en": "The noise kept me awake all night.",
-    "example_zh": "噪音讓我整晚都睡不著。"
-  },
-  {
-    "id": "j3_21",
-    "word": "background",
-    "phonetic": "/ˈbæk.ɡraʊnd/",
-    "translation": "n. 背景，學經歷",
-    "example_en": "They come from different cultural backgrounds.",
-    "example_zh": "他們來自不同的文化背景。"
-  },
-  {
-    "id": "j3_22",
-    "word": "banner",
-    "phonetic": "/ˈbæn.ɚ/",
-    "translation": "n. 橫幅，旗幟",
-    "example_en": "They hung a welcome banner at the school gate.",
-    "example_zh": "他們在校門口掛了一條歡迎橫幅。"
-  },
-  {
-    "id": "j3_23",
-    "word": "beat",
-    "phonetic": "/biːt/",
-    "translation": "v. 打敗，跳動，擊打",
-    "example_en": "Our school basketball team beat theirs easily.",
-    "example_zh": "我們學校籃球隊輕鬆打敗了他們隊。"
-  },
-  {
-    "id": "j3_24",
-    "word": "believe",
-    "phonetic": "/bɪˈliːv/",
-    "translation": "v. 相信，信任",
-    "example_en": "I believe that honesty is the best policy.",
-    "example_zh": "我相信誠實為上策。"
-  },
-  {
-    "id": "j3_25",
-    "word": "besides",
-    "phonetic": "/bɪˈsaɪdz/",
-    "translation": "prep. 除...之外 adv. 此外",
-    "example_en": "Besides English, she can speak Spanish.",
-    "example_zh": "除了英文，她還會說西班牙文。"
-  },
-  {
-    "id": "j3_26",
-    "word": "blanket",
-    "phonetic": "/ˈblæŋ.kɪt/",
-    "translation": "n. 毛毯，毯子",
-    "example_en": "It is cold tonight, so I need another blanket.",
-    "example_zh": "今晚很冷，所以我需要再多一條毛毯。"
-  },
-  {
-    "id": "j3_27",
-    "word": "blind",
-    "phonetic": "/blaɪnd/",
-    "translation": "adj. 盲的，看不見的",
-    "example_en": "The blind man used a white cane to walk.",
-    "example_zh": "那名盲人使用白手杖走路。"
-  },
-  {
-    "id": "j3_28",
-    "word": "boring",
-    "phonetic": "/ˈbɔːr.ɪŋ/",
-    "translation": "adj. 無聊的，乏味的",
-    "example_en": "The movie was so boring that I fell asleep.",
-    "example_zh": "這部電影太無聊了，我都睡著了。"
-  },
-  {
-    "id": "j3_29",
-    "word": "borrow",
-    "phonetic": "/ˈbɑːr.oʊ/",
-    "translation": "v. 借入，借來",
-    "example_en": "May I borrow your ruler for a moment?",
-    "example_zh": "我可以借用一下你的尺嗎？"
-  },
-  {
-    "id": "j3_30",
-    "word": "boss",
-    "phonetic": "/bɑːs/",
-    "translation": "n. 老闆，上司",
-    "example_en": "The boss asked us to work overtime today.",
-    "example_zh": "老闆要求我們今天加班。"
-  },
-  {
-    "id": "j3_31",
-    "word": "bother",
-    "phonetic": "/ˈbɑː.ðɚ/",
-    "translation": "v. 打擾，打擾，煩惱",
-    "example_en": "Please don't bother me while I am studying.",
-    "example_zh": "當我讀書時請不要打擾我。"
-  },
-  {
-    "id": "j3_32",
-    "word": "brain",
-    "phonetic": "/breɪn/",
-    "translation": "n. 大腦，智力",
-    "example_en": "Scientists study how the human brain works.",
-    "example_zh": "科學家們研究人類大腦如何運作。"
-  },
-  {
-    "id": "j3_33",
-    "word": "brave",
-    "phonetic": "/breɪv/",
-    "translation": "adj. 勇敢的",
-    "example_en": "The brave firefighter saved the little girl.",
-    "example_zh": "勇敢的消防員救了那個小女孩。"
-  },
-  {
-    "id": "j3_34",
-    "word": "breathe",
-    "phonetic": "/briːð/",
-    "translation": "v. 呼吸",
-    "example_en": "It is hard to breathe at high altitudes.",
-    "example_zh": "在海拔高的地方呼吸很困難。"
-  },
-  {
-    "id": "j3_35",
-    "word": "bright",
-    "phonetic": "/braɪt/",
-    "translation": "adj. 明亮的，聰明的",
-    "example_en": "The sun is very bright today.",
-    "example_zh": "今天的陽光非常明亮。"
-  },
-  {
-    "id": "j3_36",
-    "word": "bucket",
-    "phonetic": "/ˈbʌk.ɪt/",
-    "translation": "n. 水桶",
-    "example_en": "We filled the bucket with warm water.",
-    "example_zh": "我們用水桶裝滿了溫水。"
-  },
-  {
-    "id": "j3_37",
-    "word": "business",
-    "phonetic": "/ˈbɪz.nɪs/",
-    "translation": "n. 生意，商業，公事",
-    "example_en": "My uncle is traveling in New York on business.",
-    "example_zh": "我叔叔因為公事正在紐約出差。"
-  },
-  {
-    "id": "j3_38",
-    "word": "camera",
-    "phonetic": "/ˈkæm.rə/",
-    "translation": "n. 相機，照相機",
-    "example_en": "She took a picture with her new camera.",
-    "example_zh": "她用她的新相機拍了張照片。"
-  },
-  {
-    "id": "j3_39",
-    "word": "candle",
-    "phonetic": "/ˈkæn.dəl/",
-    "translation": "n. 蠟燭",
-    "example_en": "We lit a candle when the power went out.",
-    "example_zh": "停電時我們點燃了一根蠟燭。"
-  },
-  {
-    "id": "j3_40",
-    "word": "careful",
-    "phonetic": "/ˈker.fəl/",
-    "translation": "adj. 小心的，仔細的",
-    "example_en": "Please be careful when you cross the street.",
-    "example_zh": "當你過馬路時請小心。"
-  },
-  {
-    "id": "j3_41",
-    "word": "carrot",
-    "phonetic": "/ˈkær.ət/",
-    "translation": "n. 胡蘿蔔",
-    "example_en": "Rabbits like to eat fresh carrots.",
-    "example_zh": "兔子喜歡吃新鮮的胡蘿蔔。"
-  },
-  {
-    "id": "j3_42",
-    "word": "century",
-    "phonetic": "/ˈsen.tʃər.i/",
-    "translation": "n. 世紀，百年",
-    "example_en": "The temple was built in the eighteenth century.",
-    "example_zh": "這座寺廟建於十八世紀。"
-  },
-  {
-    "id": "j3_43",
-    "word": "certain",
-    "phonetic": "/ˈsɝː.tən/",
-    "translation": "adj. 確定的，某個",
-    "example_en": "Are you certain that the store is open today?",
-    "example_zh": "你確定這家店今天有開嗎？"
-  },
-  {
-    "id": "j3_44",
-    "word": "challenge",
-    "phonetic": "/ˈtʃæl.ɪndʒ/",
-    "translation": "n./v. 挑戰",
-    "example_en": "Learning a new language is a big challenge for me.",
-    "example_zh": "學習一門新語言對我來說是一個巨大的挑戰。"
-  },
-  {
-    "id": "j3_45",
-    "word": "cheap",
-    "phonetic": "/tʃiːp/",
-    "translation": "adj. 便宜的",
-    "example_en": "This store sells cheap and good clothes.",
-    "example_zh": "這家商店賣便宜又好看的衣服。"
-  },
-  {
-    "id": "j3_46",
-    "word": "cheat",
-    "phonetic": "/tʃiːt/",
-    "translation": "v. 欺騙，作弊",
-    "example_en": "He promised never to cheat in exams again.",
-    "example_zh": "他答應再也不在考試中作弊了。"
-  },
-  {
-    "id": "j3_47",
-    "word": "choice",
-    "phonetic": "/tʃɔɪs/",
-    "translation": "n. 選擇",
-    "example_en": "We have no choice but to wait here.",
-    "example_zh": "除了在這裡等，我們沒有別的選擇。"
-  },
-  {
-    "id": "j3_48",
-    "word": "choose",
-    "phonetic": "/tʃuːz/",
-    "translation": "v. 選擇，挑選",
-    "example_en": "It is hard to choose between these two books.",
-    "example_zh": "要在這兩本書之間做選擇很難。"
-  },
-  {
-    "id": "j3_49",
-    "word": "church",
-    "phonetic": "/tʃɝːtʃ/",
-    "translation": "n. 教堂",
-    "example_en": "They go to church every Sunday morning.",
-    "example_zh": "他們每個星期日早上都去教堂。"
-  },
-  {
-    "id": "j3_50",
-    "word": "citizen",
-    "phonetic": "/ˈsɪt̬.ə.zən/",
-    "translation": "n. 公民，市民",
-    "example_en": "Every citizen should keep the city clean.",
-    "example_zh": "每個市民都應該保持城市乾淨。"
-  },
-  {
-    "id": "j3_51",
-    "word": "coach",
-    "phonetic": "/koʊtʃ/",
-    "translation": "n. 教練，大客車",
-    "example_en": "The basketball coach is very strict with us.",
-    "example_zh": "籃球教練對我們非常嚴格。"
-  },
-  {
-    "id": "j3_52",
-    "word": "collect",
-    "phonetic": "/kəˈlekt/",
-    "translation": "v. 收集，收集",
-    "example_en": "My brother loves to collect old coins.",
-    "example_zh": "我弟弟很喜歡收集舊硬幣。"
-  },
-  {
-    "id": "j3_53",
-    "word": "common",
-    "phonetic": "/ˈkɑː.mən/",
-    "translation": "adj. 常見的，共同的",
-    "example_en": "Sore throats are common in winter.",
-    "example_zh": "喉嚨痛在冬天很常見。"
-  },
-  {
-    "id": "j3_54",
-    "word": "company",
-    "phonetic": "/ˈkʌm.pə.ni/",
-    "translation": "n. 公司，陪伴",
-    "example_en": "My father works for a software company.",
-    "example_zh": "我爸爸在一家軟體公司工作。"
-  },
-  {
-    "id": "j3_55",
-    "word": "control",
-    "phonetic": "/kənˈtroʊl/",
-    "translation": "v./n. 控制，管理",
-    "example_en": "It is difficult to control this remote car.",
-    "example_zh": "這輛遙控車很難控制。"
-  },
-  {
-    "id": "j3_56",
-    "word": "courage",
-    "phonetic": "/ˈkɝː.ɪdʒ/",
-    "translation": "n. 勇氣，膽量",
-    "example_en": "It takes courage to speak in front of many people.",
-    "example_zh": "在很多人面前說話需要勇氣。"
-  },
-  {
-    "id": "j3_57",
-    "word": "cruel",
-    "phonetic": "/ˈkruː.əl/",
-    "translation": "adj. 殘忍的，殘酷的",
-    "example_en": "It is cruel to hurt innocent animals.",
-    "example_zh": "傷害無辜的動物是很殘忍的。"
-  },
-  {
-    "id": "j3_58",
-    "word": "culture",
-    "phonetic": "/ˈkʌl.tʃɚ/",
-    "translation": "n. 文化",
-    "example_en": "Learning a language helps us understand its culture.",
-    "example_zh": "學習一門語言有助於我們理解其文化。"
-  },
-  {
-    "id": "j3_59",
-    "word": "curious",
-    "phonetic": "/ˈkjʊr.i.əs/",
-    "translation": "adj. 好奇的",
-    "example_en": "Children are always curious about the world.",
-    "example_zh": "孩子們總是對世界感到好奇。"
-  },
-  {
-    "id": "j3_60",
-    "word": "custom",
-    "phonetic": "/ˈkʌs.təm/",
-    "translation": "n. 習俗，海關",
-    "example_en": "Giving red envelopes is a traditional custom in Taiwan.",
-    "example_zh": "給紅包是台灣的一個傳統習俗。"
-  },
-  {
-    "id": "j3_61",
-    "word": "danger",
-    "phonetic": "/ˈdeɪn.dʒɚ/",
-    "translation": "n. 危險",
-    "example_en": "The sign warned people of the danger ahead.",
-    "example_zh": "那個告示牌警告人們前方有危險。"
-  },
-  {
-    "id": "j3_62",
-    "word": "decision",
-    "phonetic": "/dɪˈsɪʒ.ən/",
-    "translation": "n. 決定，抉擇",
-    "example_en": "Have you made a decision about your major yet?",
-    "example_zh": "你決定好要讀什麼科系了嗎？"
-  },
-  {
-    "id": "j3_63",
-    "word": "decorate",
-    "phonetic": "/ˈdek.ə.reɪt/",
-    "translation": "v. 裝飾，佈置",
-    "example_en": "We decorated the Christmas tree with colorful lights.",
-    "example_zh": "我們用五彩斑斕的燈裝飾了聖誕樹。"
-  },
-  {
-    "id": "j3_64",
-    "word": "deep",
-    "phonetic": "/diːp/",
-    "translation": "adj. 深的",
-    "example_en": "The lake is very deep, so don't swim here.",
-    "example_zh": "這座湖非常深，所以不要在這裡游泳。"
-  },
-  {
-    "id": "j3_65",
-    "word": "defeat",
-    "phonetic": "/dɪˈfiːt/",
-    "translation": "v./n. 擊敗，戰勝，失敗",
-    "example_en": "They managed to defeat the champion in the match.",
-    "example_zh": "他們在比賽中成功擊敗了冠軍。"
-  },
-  {
-    "id": "j3_66",
-    "word": "degree",
-    "phonetic": "/dɪˈɡriː/",
-    "translation": "n. 度數，學位，程度",
-    "example_en": "The temperature dropped below zero degrees.",
-    "example_zh": "溫度降到了零度以下。"
-  },
-  {
-    "id": "j3_67",
-    "word": "delicious",
-    "phonetic": "/dɪˈlɪʃ.əs/",
-    "translation": "adj. 美味的，好吃的",
-    "example_en": "My grandmother made a delicious chocolate cake.",
-    "example_zh": "我奶奶做了一個美味的巧克力蛋糕。"
-  },
-  {
-    "id": "j3_68",
-    "word": "deliver",
-    "phonetic": "/dɪˈlɪv.ɚ/",
-    "translation": "v. 傳遞，投遞",
-    "example_en": "They promise to deliver the package tomorrow.",
-    "example_zh": "他們承諾明天送達包裹。"
-  },
-  {
-    "id": "j3_69",
-    "word": "dentist",
-    "phonetic": "/ˈden.t̬ɪst/",
-    "translation": "n. 牙醫",
-    "example_en": "I go to the dentist twice a year to check my teeth.",
-    "example_zh": "我一年看兩次牙醫來檢查我的牙齒。"
-  },
-  {
-    "id": "j3_70",
-    "word": "depend",
-    "phonetic": "/dɪˈpend/",
-    "translation": "v. 依靠，依賴，取決於",
-    "example_en": "Whether we go or not depends on the weather.",
-    "example_zh": "我們去不去取決於天氣。"
-  },
-  {
-    "id": "j3_71",
-    "word": "describe",
-    "phonetic": "/dɪˈskraɪb/",
-    "translation": "v. 描述，描寫",
-    "example_en": "Can you describe the missing bag?",
-    "example_zh": "你能描述一下那個遺失的袋子嗎？"
-  },
-  {
-    "id": "j3_72",
-    "word": "design",
-    "phonetic": "/dɪˈzaɪn/",
-    "translation": "v./n. 設計",
-    "example_en": "This famous architect designed the library.",
-    "example_zh": "這位著名的建築師設計了這座圖書館。"
-  },
-  {
-    "id": "j3_73",
-    "word": "destroy",
-    "phonetic": "/dɪˈstrɔɪ/",
-    "translation": "v. 破壞，摧毀",
-    "example_en": "The fire destroyed several houses.",
-    "example_zh": "大火摧毀了幾棟房子。"
-  },
-  {
-    "id": "j3_74",
-    "word": "detail",
-    "phonetic": "/ˈdiː.teɪl/",
-    "translation": "n. 細節",
-    "example_en": "Please tell me all the details about the event.",
-    "example_zh": "請告訴我關於這個活動的所有細節。"
-  },
-  {
-    "id": "j3_75",
-    "word": "develop",
-    "phonetic": "/dɪˈvel.əp/",
-    "translation": "v. 發展，開發，培養",
-    "example_en": "The small town has developed into a big city.",
-    "example_zh": "這個小鎮已經發展成了一座大城市。"
-  },
-  {
-    "id": "j3_76",
-    "word": "different",
-    "phonetic": "/ˈdɪf.ɚ.ənt/",
-    "translation": "adj. 不同的",
-    "example_en": "They are identical twins but have different hobbies.",
-    "example_zh": "他們是一模一樣的雙胞胎，但有不同的興趣。"
-  },
-  {
-    "id": "j3_77",
-    "word": "difficult",
-    "phonetic": "/ˈdɪf.ə.kəlt/",
-    "translation": "adj. 困難的，難的",
-    "example_en": "This math question is too difficult for me to solve.",
-    "example_zh": "這道數學題對我來說太難解了。"
-  },
-  {
-    "id": "j3_78",
-    "word": "direct",
-    "phonetic": "/daɪˈrekt/",
-    "translation": "adj. 直接的 v. 指引，導演",
-    "example_en": "He gave me direct answers without hesitating.",
-    "example_zh": "他毫不猶豫地給了我直接的回答。"
-  },
-  {
-    "id": "j3_79",
-    "word": "dirty",
-    "phonetic": "/ˈdɝː.t̬i/",
-    "translation": "adj. 骯髒的",
-    "example_en": "Please wash your dirty hands before dinner.",
-    "example_zh": "晚餐前請清洗你骯髒的手。"
-  },
-  {
-    "id": "j3_80",
-    "word": "discover",
-    "phonetic": "/dɪˈskʌv.ɚ/",
-    "translation": "v. 發現",
-    "example_en": "Columbus discovered America in 1492.",
-    "example_zh": "哥倫布在1492年發現了美洲。"
-  },
-  {
-    "id": "j3_81",
-    "word": "discuss",
-    "phonetic": "/dɪˈskʌs/",
-    "translation": "v. 討論",
-    "example_en": "We will discuss the plan in the next meeting.",
-    "example_zh": "我們將在下次會議中討論這項計劃。"
-  },
-  {
-    "id": "j3_82",
-    "word": "disease",
-    "phonetic": "/dɪˈziːz/",
-    "translation": "n. 疾病",
-    "example_en": "Dirty water can spread dangerous diseases.",
-    "example_zh": "不乾淨的水會傳播危險的疾病。"
-  },
-  {
-    "id": "j3_83",
-    "word": "distance",
-    "phonetic": "/ˈdɪs.təns/",
-    "translation": "n. 距離",
-    "example_en": "The school is a short distance from my home.",
-    "example_zh": "學校離我家距離很短。"
-  },
-  {
-    "id": "j3_84",
-    "word": "divide",
-    "phonetic": "/dɪˈvaɪd/",
-    "translation": "v. 分開，劃分",
-    "example_en": "The teacher divided the class into small groups.",
-    "example_zh": "老師把全班分成了幾個小組。"
-  },
-  {
-    "id": "j3_85",
-    "word": "double",
-    "phonetic": "/ˈdʌb.əl/",
-    "translation": "adj. 雙倍的 v. 翻倍",
-    "example_en": "The price of vegetables doubled during the typhoon.",
-    "example_zh": "颱風期間蔬菜價格翻了一倍。"
-  },
-  {
-    "id": "j3_86",
-    "word": "doubt",
-    "phonetic": "/daʊt/",
-    "translation": "v./n. 懷疑，疑惑",
-    "example_en": "There is no doubt that she will win the competition.",
-    "example_zh": "毫無疑問，她將贏得這次比賽。"
-  },
-  {
-    "id": "j3_87",
-    "word": "dream",
-    "phonetic": "/driːm/",
-    "translation": "n./v. 夢，夢想",
-    "example_en": "My dream is to travel around the world.",
-    "example_zh": "我的夢想是環遊世界。"
-  },
-  {
-    "id": "j3_88",
-    "word": "dress",
-    "phonetic": "/dres/",
-    "translation": "n. 洋裝 v. 穿衣",
-    "example_en": "She wore a beautiful pink dress to the wedding.",
-    "example_zh": "她穿了一件漂亮的粉紅色洋裝去參加婚禮。"
-  },
-  {
-    "id": "j3_89",
-    "word": "driver",
-    "phonetic": "/ˈdraɪ.vɚ/",
-    "translation": "n. 司機，駕駛員",
-    "example_en": "The bus driver was very helpful and polite.",
-    "example_zh": "公車司機非常熱心且有禮貌。"
-  },
-  {
-    "id": "j3_90",
-    "word": "during",
-    "phonetic": "/ˈdʊr.ɪŋ/",
-    "translation": "prep. 在...期間",
-    "example_en": "It snowed heavily during the winter vacation.",
-    "example_zh": "寒假期間下了大雪。"
-  },
-  {
-    "id": "j3_91",
-    "word": "duty",
-    "phonetic": "/ˈduː.t̬i/",
-    "translation": "n. 職責，義務，關稅",
-    "example_en": "It is our duty to keep our neighborhood safe.",
-    "example_zh": "保持我們社區安全是我們的職責。"
-  },
-  {
-    "id": "j3_92",
-    "word": "earn",
-    "phonetic": "/ɝːn/",
-    "translation": "v. 賺取，贏得",
-    "example_en": "He worked part-time to earn money for college.",
-    "example_zh": "他做兼職工作來賺取大學學費。"
-  },
-  {
-    "id": "j3_93",
-    "word": "earth",
-    "phonetic": "/ɝːθ/",
-    "translation": "n. 地球，泥土",
-    "example_en": "The Earth moves around the Sun.",
-    "example_zh": "地球繞著太陽運轉。"
-  },
-  {
-    "id": "j3_94",
-    "word": "easily",
-    "phonetic": "/ˈiː.zəl.i/",
-    "translation": "adv. 輕易地，容易地",
-    "example_en": "She solved the difficult puzzle easily.",
-    "example_zh": "她輕易地解開了那個難題。"
-  },
-  {
-    "id": "j3_95",
-    "word": "education",
-    "phonetic": "/ˌedʒ.əˈkeɪ.ʃən/",
-    "translation": "n. 教育",
-    "example_en": "We must realize the importance of basic education.",
-    "example_zh": "我們必須意識到基礎教育的重要性。"
-  },
-  {
-    "id": "j3_96",
-    "word": "effect",
-    "phonetic": "/əˈfekt/",
-    "translation": "n. 影響，效果",
-    "example_en": "The new law had a positive effect on the economy.",
-    "example_zh": "新法律對經濟產生了積極的影響。"
-  },
-  {
-    "id": "j3_97",
-    "word": "effort",
-    "phonetic": "/ˈef.ɚt/",
-    "translation": "n. 努力，嘗試",
-    "example_en": "The teacher praised her for making a great effort.",
-    "example_zh": "老師稱讚她做出了巨大的努力。"
-  },
-  {
-    "id": "j3_98",
-    "word": "either",
-    "phonetic": "/ˈiː.ðɚ/",
-    "translation": "adj./pron. 兩者之一 adv. 也（不）",
-    "example_en": "You can have either coffee or tea.",
-    "example_zh": "你可以喝咖啡或茶（兩者擇一）。"
-  },
-  {
-    "id": "j3_99",
-    "word": "elderly",
-    "phonetic": "/ˈel.dɚ.li/",
-    "translation": "adj. 年長的，老年的",
-    "example_en": "We volunteered to help the elderly people.",
-    "example_zh": "我們自願去幫助那些年長的人。"
-  },
-  {
-    "id": "j3_100",
-    "word": "electric",
-    "phonetic": "/iˈlek.trɪk/",
-    "translation": "adj. 電的，電動的",
-    "example_en": "Electric cars are becoming more popular in Taiwan.",
-    "example_zh": "電動車在台灣正變得越來越流行。"
-  }
-]
-                }
-            },
-            "senior": {
-                name: "🌿 高中必備單字",
-                stages: {
-                    //1: [
-                      //  { id: "s1_1", word: "consequence", phonetic: "/ˈkɑːn.sə.kwəns/", translation: "n. 後果，結果", example_en: "You must accept the consequences.", example_zh: "你必須承擔後果。" },
-                        //{ id: "s1_2", word: "distinguish", phonetic: "/dɪˈstɪŋ.ɡwɪʃ/", translation: "v. 區分，辨別", example_en: "It's hard to distinguish the twins.", example_zh: "很難分辨這對雙胞胎。" }
-                    //],
-                    //2: [
-                      //  { id: "s2_1", word: "temporary", phonetic: "/ˈtem.pə.rer.i/", translation: "adj. 暫時的，臨時的", example_en: "This is just a temporary solution.", example_zh: "這只是一個暫時的解決方案。" },
-                        //{ id: "s2_2", word: "guarantee", phonetic: "/ˌɡær.ənˈtiː/", translation: "v./n. 保證，擔保", example_en: "We guarantee the quality of our service.", example_zh: "我們保證我們的服務品質。" }
-                    //],
-                    1:[
-  {
-    "id": "s3_1",
-    "word": "abandon",
-    "phonetic": "/əˈbæn.dən/",
-    "translation": "v. 拋棄，放棄",
-    "example_en": "The sailors had to abandon the sinking ship.",
-    "example_zh": "船員們不得不放棄那艘即將下沉的船。"
-  },
-  {
-    "id": "s3_2",
-    "word": "accumulate",
-    "phonetic": "/əˈkjuː.mjə.leɪt/",
-    "translation": "v. 累積，積聚",
-    "example_en": "Dust began to accumulate on the unused books.",
-    "example_zh": "灰塵開始累積在沒被使用的書本上。"
-  },
-  {
-    "id": "s3_3",
-    "word": "accustomed",
-    "phonetic": "/əˈkʌs.təmd/",
-    "translation": "adj. 習慣於...的",
-    "example_en": "She quickly became accustomed to her new environment.",
-    "example_zh": "她很快就習慣了她的新環境。"
-  },
-  {
-    "id": "s3_4",
-    "word": "adolescent",
-    "phonetic": "/ˌæd.əˈles.ənt/",
-    "translation": "n. 青少年 adj. 青春期的",
-    "example_en": "Adolescents often experience rapid changes in emotion.",
-    "example_zh": "青少年經常經歷劇烈的情緒變化。"
-  },
-  {
-    "id": "s3_5",
-    "word": "advocate",
-    "phonetic": "/ˈæd.və.keɪt/",
-    "translation": "v. 提倡，主張 n. 擁護者",
-    "example_en": "The organization advocates for environmental protection.",
-    "example_zh": "該組織提倡環境保護。"
-  },
-  {
-    "id": "s3_6",
-    "word": "alternative",
-    "phonetic": "/ɑːlˈtɝː.nə.t̬ɪv/",
-    "translation": "n. 選擇，替代方案 adj. 替代的",
-    "example_en": "Solar power is a clean alternative to coal.",
-    "example_zh": "太陽能是替代煤炭的乾淨能源選擇。"
-  },
-  {
-    "id": "s3_7",
-    "word": "anticipate",
-    "phonetic": "/ænˈtɪs.ə.peɪt/",
-    "translation": "v. 預期，期待",
-    "example_en": "We anticipate that prices will rise next year.",
-    "example_zh": "我們預期明年物價會上漲。"
-  },
-  {
-    "id": "s3_8",
-    "word": "artificial",
-    "phonetic": "/ˌɑːr.t̬əˈfɪʃ.əl/",
-    "translation": "adj. 人工的，人造的",
-    "example_en": "The flowers are artificial, but they look very real.",
-    "example_zh": "這些花是人造的，但看起來非常逼真。"
-  },
-  {
-    "id": "s3_9",
-    "word": "aspect",
-    "phonetic": "/ˈæs.pekt/",
-    "translation": "n. 方面，層面",
-    "example_en": "We must consider every aspect of the problem.",
-    "example_zh": "我們必須考慮這個問題的每個層面。"
-  },
-  {
-    "id": "s3_10",
-    "word": "bachelor",
-    "phonetic": "/ˈbætʃ.əl.ɚ/",
-    "translation": "n. 單身漢，學士學位",
-    "example_en": "He obtained a bachelor's degree in computer science.",
-    "example_zh": "他獲得了資訊科學的學士學位。"
-  },
-  {
-    "id": "s3_11",
-    "word": "barrier",
-    "phonetic": "/ˈbær.i.ɚ/",
-    "translation": "n. 障礙，阻礙",
-    "example_en": "Language barriers can sometimes cause misunderstandings.",
-    "example_zh": "語言障礙有時會導致誤解。"
-  },
-  {
-    "id": "s3_12",
-    "word": "broadcast",
-    "phonetic": "/ˈbrɑːd.kæst/",
-    "translation": "v./n. 廣播，播放",
-    "example_en": "The news is broadcast live around the world.",
-    "example_zh": "這則新聞向全世界進行現場直播。"
-  },
-  {
-    "id": "s3_13",
-    "word": "calculation",
-    "phonetic": "/ˌkæl.kjəˈleɪ.ʃən/",
-    "translation": "n. 計算，估算",
-    "example_en": "The complex calculation was done by a supercomputer.",
-    "example_zh": "這個複雜的計算是由超級電腦完成的。"
-  },
-  {
-    "id": "s3_14",
-    "word": "campaign",
-    "phonetic": "/kæmˈpeɪn/",
-    "translation": "n. （政治或商業）活動 v. 發起運動",
-    "example_en": "The group launched a campaign against smoking.",
-    "example_zh": "該小組發起了一項反對吸菸的活動。"
-  },
-  {
-    "id": "s3_15",
-    "word": "candidate",
-    "phonetic": "/ˈkæn.dɪ.deɪt/",
-    "translation": "n. 候選人，申請人",
-    "example_en": "She is the best candidate for the job.",
-    "example_zh": "她是這份工作最合適的候選人。"
-  },
-  {
-    "id": "s3_16",
-    "word": "capacity",
-    "phonetic": "/kəˈpæs.ə.t̬i/",
-    "translation": "n. 容量，能力",
-    "example_en": "The theater has a seating capacity of 500 people.",
-    "example_zh": "這家劇院的座位容量為 500 人。"
-  },
-  {
-    "id": "s3_17",
-    "word": "casual",
-    "phonetic": "/ˈkæʒ.u.əl/",
-    "translation": "adj. 非正式的，隨便的",
-    "example_en": "You can wear casual clothes to the party.",
-    "example_zh": "你可以穿非正式的休閒服去參加派對。"
-  },
-  {
-    "id": "s3_18",
-    "word": "circulate",
-    "phonetic": "/ˈsɝː.kjə.leɪt/",
-    "translation": "v. 循環，流通，流傳",
-    "example_en": "Fresh air needs to circulate through the room.",
-    "example_zh": "房間裡需要有新鮮空氣循環。"
-  },
-  {
-    "id": "s3_19",
-    "word": "circumstance",
-    "phonetic": "/ˈsɝː.kəm.stæns/",
-    "translation": "n. 情況，處境",
-    "example_en": "Under no circumstances should you open this door.",
-    "example_zh": "在任何情況下你都不應該打開這扇門。"
-  },
-  {
-    "id": "s3_20",
-    "word": "collapse",
-    "phonetic": "/kəˈlæps/",
-    "translation": "v./n. 倒塌，崩潰",
-    "example_en": "The old wooden bridge collapsed during the storm.",
-    "example_zh": "那座老舊的木橋在暴風雨中倒塌了。"
-  },
-  {
-    "id": "s3_21",
-    "word": "compensation",
-    "phonetic": "/ˌkɑːm.penˈseɪ.ʃən/",
-    "translation": "n. 補償，賠償金",
-    "example_en": "The company offered compensation to the injured workers.",
-    "example_zh": "公司向受傷的工人提供了賠償金。"
-  },
-  {
-    "id": "s3_22",
-    "word": "complex",
-    "phonetic": "/kɑːmˈpleks/",
-    "translation": "adj. 複雜的 n. 綜合大樓",
-    "example_en": "The human brain is an extremely complex organ.",
-    "example_zh": "人類的大腦是一個極其複雜的器官。"
-  },
-  {
-    "id": "s3_23",
-    "word": "comprise",
-    "phonetic": "/kəmˈpraɪz/",
-    "translation": "v. 由...組成，包含",
-    "example_en": "The committee comprises ten highly skilled members.",
-    "example_zh": "該委員會由十位高技術的成員組成。"
-  },
-  {
-    "id": "s3_24",
-    "word": "concentration",
-    "phonetic": "/ˌkɑːn.sənˈtreɪ.ʃən/",
-    "translation": "n. 專注，集中，濃度",
-    "example_en": "Noise in the classroom disturbed my concentration.",
-    "example_zh": "教室裡的噪音干擾了我的專注力。"
-  },
-  {
-    "id": "s3_25",
-    "word": "conservative",
-    "phonetic": "/kənˈsɝː.və.t̬ɪv/",
-    "translation": "adj. 保守的，傳統的",
-    "example_en": "His grandfather has very conservative ideas about dating.",
-    "example_zh": "他的祖父對於約會抱持著非常保守的觀念。"
-  },
-  {
-    "id": "s3_26",
-    "word": "constantly",
-    "phonetic": "/ˈkɑːn.stənt.li/",
-    "translation": "adv. 不斷地，時常地",
-    "example_en": "The world is constantly changing around us.",
-    "example_zh": "我們周圍的世界正在不斷地改變。"
-  },
-  {
-    "id": "s3_27",
-    "word": "contribute",
-    "phonetic": "/kənˈtrɪb.juːt/",
-    "translation": "v. 貢獻，捐助，促成",
-    "example_en": "Many factors contribute to global warming.",
-    "example_zh": "許多因素促成了全球暖化。"
-  },
-  {
-    "id": "s3_28",
-    "word": "controversial",
-    "phonetic": "/ˌkɑːn.trəˈvɝː.ʃəl/",
-    "translation": "adj. 有爭議的",
-    "example_en": "The death penalty remains a controversial issue.",
-    "example_zh": "死刑依然是一個有爭議的議題。"
-  },
-  {
-    "id": "s3_29",
-    "word": "convince",
-    "phonetic": "/kənˈvɪns/",
-    "translation": "v. 說服，使相信",
-    "example_en": "I tried to convince her that the plan would work.",
-    "example_zh": "我試圖說服她這個計劃是行得通的。"
-  },
-  {
-    "id": "s3_30",
-    "word": "criticism",
-    "phonetic": "/ˈkrɪt̬.ɪ.sɪz.əm/",
-    "translation": "n. 批評，評論",
-    "example_en": "The politician faced strong criticism from the public.",
-    "example_zh": "這位政治人物面臨來自大眾的強烈批評。"
-  },
-  {
-    "id": "s3_31",
-    "word": "declare",
-    "phonetic": "/dɪˈkler/",
-    "translation": "v. 宣佈，聲明，申報",
-    "example_en": "The country declared independence in 1960.",
-    "example_zh": "該國於 1960 年宣佈獨立。"
-  },
-  {
-    "id": "s3_32",
-    "word": "depression",
-    "phonetic": "/dɪˈpreʃ.ən/",
-    "translation": "n. 憂鬱症，蕭條，沮喪",
-    "example_en": "Regular exercise can help reduce stress and depression.",
-    "example_zh": "規律運動有助於減輕壓力和憂鬱症。"
-  },
-  {
-    "id": "s3_33",
-    "word": "desperate",
-    "phonetic": "/ˈdes.pɚ.ət/",
-    "translation": "adj. 絕望的，極度渴望的",
-    "example_en": "The dry fields are in desperate need of rain.",
-    "example_zh": "乾旱的農田極度渴望下雨。"
-  },
-  {
-    "id": "s3_34",
-    "word": "dignity",
-    "phonetic": "/ˈdɪɡ.nə.t̬i/",
-    "translation": "n. 尊嚴，高貴",
-    "example_en": "Everyone has the right to live with dignity.",
-    "example_zh": "每個人都有尊嚴生活的權利。"
-  },
-  {
-    "id": "s3_35",
-    "word": "dimension",
-    "phonetic": "/ˌdaɪˈmen.ʃən/",
-    "translation": "n. 尺寸，維度，空間",
-    "example_en": "We need to measure the dimensions of the room.",
-    "example_zh": "我們需要測量這個房間的尺寸。"
-  },
-  {
-    "id": "s3_36",
-    "word": "disaster",
-    "phonetic": "/dɪˈzæs.tɚ/",
-    "translation": "n. 災難，大禍",
-    "example_en": "The earthquake was a major natural disaster.",
-    "example_zh": "那場地震是一次重大的自然災難。"
-  },
-  {
-    "id": "s3_37",
-    "word": "discipline",
-    "phonetic": "/ˈdɪs.ə.plɪn/",
-    "translation": "n. 紀律，懲罰，學科",
-    "example_en": "Strict discipline is required in military training.",
-    "example_zh": "軍事訓練中需要嚴格的紀律。"
-  },
-  {
-    "id": "s3_38",
-    "word": "dominant",
-    "phonetic": "/ˈdɑː.mə.nənt/",
-    "translation": "adj. 佔優勢的，支配的，主流的",
-    "example_en": "English is the dominant language of international business.",
-    "example_zh": "英語是國際商務的主流語言。"
-  },
-  {
-    "id": "s3_39",
-    "word": "drastic",
-    "phonetic": "/ˈdræs.tɪk/",
-    "translation": "adj. 劇烈的，猛烈的",
-    "example_en": "The company had to make drastic budget cuts.",
-    "example_zh": "公司不得不進行劇烈的預算削減。"
-  },
-  {
-    "id": "s3_40",
-    "word": "duration",
-    "phonetic": "/dʊˈreɪ.ʃən/",
-    "translation": "n. 持續時間，期間",
-    "example_en": "The patient must rest for the duration of the treatment.",
-    "example_zh": "病人在治療期間必須休息。"
-  },
-  {
-    "id": "s3_41",
-    "word": "eccentric",
-    "phonetic": "/ɪkˈsen.trɪk/",
-    "translation": "adj. 古怪的，特立獨行的",
-    "example_en": "My art teacher has some eccentric habits.",
-    "example_zh": "我的美術老師有一些古怪的習慣。"
-  },
-  {
-    "id": "s3_42",
-    "word": "eliminate",
-    "phonetic": "/iˈlɪm.ə.neɪt/",
-    "translation": "v. 消除，淘汰，排除",
-    "example_en": "Eating healthy food helps eliminate toxins from your body.",
-    "example_zh": "食用健康的食物有助於消除體內的毒素。"
-  },
-  {
-    "id": "s3_43",
-    "word": "embarrass",
-    "phonetic": "/ɪmˈbær.əs/",
-    "translation": "v. 使尷尬，使難堪",
-    "example_en": "I did not mean to embarrass you in public.",
-    "example_zh": "我並不是故意要讓你在公開場合難堪。"
-  },
-  {
-    "id": "s3_44",
-    "word": "emphasis",
-    "phonetic": "/ˈem.fə.sɪs/",
-    "translation": "n. 強調，重點",
-    "example_en": "The school puts great emphasis on practical skills.",
-    "example_zh": "這間學校非常強調實作技能。"
-  },
-  {
-    "id": "s3_45",
-    "word": "encounter",
-    "phonetic": "/ɪnˈkaʊn.t̬ɚ/",
-    "translation": "v./n. 遭遇，遇到",
-    "example_en": "We encountered some unexpected difficulties during the trip.",
-    "example_zh": "我們在旅途中遭遇了一些意想不到的困難。"
-  },
-  {
-    "id": "s3_46",
-    "word": "essential",
-    "phonetic": "/ɪˈsen.ʃəl/",
-    "translation": "adj. 必要的，不可或缺的",
-    "example_en": "Water is essential for the survival of all living things.",
-    "example_zh": "水對於所有生物的生存都是不可或缺的。"
-  },
-  {
-    "id": "s3_47",
-    "word": "estimate",
-    "phonetic": "/ˈes.tə.meɪt/",
-    "translation": "v./n. 估計，估算",
-    "example_en": "Experts estimate that the project will take three years.",
-    "example_zh": "專家估計該專案將耗時三年。"
-  },
-  {
-    "id": "s3_48",
-    "word": "evaluate",
-    "phonetic": "/ɪˈvæl.ju.eɪt/",
-    "translation": "v. 評估，評價",
-    "example_en": "The teacher needs to evaluate the students' performance.",
-    "example_zh": "老師需要評估學生的表現。"
-  },
-  {
-    "id": "s3_49",
-    "word": "evolution",
-    "phonetic": "/ˌev.əˈluː.ʃən/",
-    "translation": "n. 演化，進化，發展",
-    "example_en": "Darwin's theory explains the evolution of species.",
-    "example_zh": "達爾文的理論解釋了物種的演化。"
-  },
-  {
-    "id": "s3_50",
-    "word": "exaggerate",
-    "phonetic": "/ɪɡˈzædʒ.ə.reɪt/",
-    "translation": "v. 誇張，誇大",
-    "example_en": "Don't exaggerate the danger; we are quite safe here.",
-    "example_zh": "不要誇大危險；我們在這裡相當安全。"
-  },
-  {
-    "id": "s3_51",
-    "word": "exceed",
-    "phonetic": "/ɪkˈsiːd/",
-    "translation": "v. 超過，超出",
-    "example_en": "The driver was fined for exceeding the speed limit.",
-    "example_zh": "司機因超出速限而被罰款。"
-  },
-  {
-    "id": "s3_52",
-    "word": "exception",
-    "phonetic": "/ɪkˈsep.ʃən/",
-    "translation": "n. 例外",
-    "example_en": "Most students passed the test, with only one exception.",
-    "example_zh": "大多數學生都通過了測試，只有一個例外。"
-  },
-  {
-    "id": "s3_53",
-    "word": "exclusive",
-    "phonetic": "/ɪkˈskluː.sɪv/",
-    "translation": "adj. 獨家的，專有的，排他的",
-    "example_en": "This hotel has an exclusive beach for its guests.",
-    "example_zh": "這家酒店為其住客提供專屬的私人沙灘。"
-  },
-  {
-    "id": "s3_54",
-    "word": "exhausted",
-    "phonetic": "/ɪɡˈzɑː.stɪd/",
-    "translation": "adj. 筋疲力盡的，耗盡的",
-    "example_en": "I was exhausted after running the marathon.",
-    "example_zh": "跑完馬拉松後我筋疲力盡。"
-  },
-  {
-    "id": "s3_55",
-    "word": "expansion",
-    "phonetic": "/ɪkˈspæn.ʃən/",
-    "translation": "n. 擴張，膨脹",
-    "example_en": "The rapid expansion of the company created new jobs.",
-    "example_zh": "該公司的快速擴張創造了新的工作機會。"
-  },
-  {
-    "id": "s3_56",
-    "word": "exploit",
-    "phonetic": "/ɪkˈsplɔɪt/",
-    "translation": "v. 剝削，開發，利用",
-    "example_en": "We should exploit renewable energy sources like wind.",
-    "example_zh": "我們應該開發風力等可再生能源。"
-  },
-  {
-    "id": "s3_57",
-    "word": "extinguish",
-    "phonetic": "/ɪkˈstɪŋ.ɡwɪʃ/",
-    "translation": "v. 撲滅，熄滅",
-    "example_en": "It took firefighters hours to extinguish the forest fire.",
-    "example_zh": "消防員花了數小時才撲滅這場森林大火。"
-  },
-  {
-    "id": "s3_58",
-    "word": "favorable",
-    "phonetic": "/ˈfeɪ.vər.ə.bəl/",
-    "translation": "adj. 有利的，贊同的",
-    "example_en": "The weather conditions are favorable for our outdoor picnic.",
-    "example_zh": "天氣條件非常有利於我們的戶外野餐。"
-  },
-  {
-    "id": "s3_59",
-    "word": "flexible",
-    "phonetic": "/ˈflek.sə.bəl/",
-    "translation": "adj. 有彈性的，靈活的",
-    "example_en": "We need to have flexible working hours to balance life.",
-    "example_zh": "我們需要有彈性的工作時間來平衡生活。"
-  },
-  {
-    "id": "s3_60",
-    "word": "fluctuate",
-    "phonetic": "/ˈflʌk.tʃu.eɪt/",
-    "translation": "v. 波動，起伏",
-    "example_en": "Vegetable prices fluctuate depending on the season.",
-    "example_zh": "蔬菜價格會隨著季節而波動。"
-  },
-  {
-    "id": "s3_61",
-    "word": "frustrate",
-    "phonetic": "/ˈfrʌs.treɪt/",
-    "translation": "v. 使挫敗，使沮喪",
-    "example_en": "The lack of progress frustrated the scientists.",
-    "example_zh": "進度停滯讓科學家們感到很沮喪。"
-  },
-  {
-    "id": "s3_62",
-    "word": "fundamental",
-    "phonetic": "/ˌfʌn.dəˈmen.t̬əl/",
-    "translation": "adj. 基本的，根本的",
-    "example_en": "Education is a fundamental human right.",
-    "example_zh": "教育是一項基本人權。"
-  },
-  {
-    "id": "s3_63",
-    "word": "generous",
-    "phonetic": "/ˈdʒen.ər.əs/",
-    "translation": "adj. 慷慨的，大方的",
-    "example_en": "The rich businessman made a generous donation.",
-    "example_zh": "那位富商做了一筆慷慨的捐贈。"
-  },
-  {
-    "id": "s3_64",
-    "word": "genuine",
-    "phonetic": "/ˈdʒen.ju.ɪn/",
-    "translation": "adj. 真正的，真誠的",
-    "example_en": "I could tell that her smile was genuine.",
-    "example_zh": "我看得出來她的笑容是真誠的。"
-  },
-  {
-    "id": "s3_65",
-    "word": "glamour",
-    "phonetic": "/ˈɡlæm.ɚ/",
-    "translation": "n. 魅力，誘惑力",
-    "example_en": "She was attracted by the glamour of Hollywood.",
-    "example_zh": "她被好萊塢的魅力所吸引。"
-  },
-  {
-    "id": "s3_66",
-    "word": "grim",
-    "phonetic": "/ɡrɪm/",
-    "translation": "adj. 嚴肅的，令人擔憂的，冷酷的",
-    "example_en": "The doctor gave a grim report about the patient.",
-    "example_zh": "醫生給出了一份關於病人的令人擔憂的病況報告。"
-  },
-  {
-    "id": "s3_67",
-    "word": "hostage",
-    "phonetic": "/ˈhɑː.stɪdʒ/",
-    "translation": "n. 人質",
-    "example_en": "The bank robbers took three customers as hostages.",
-    "example_zh": "銀行搶匪劫持了三名顧客作為人質。"
-  },
-  {
-    "id": "s3_68",
-    "word": "hostile",
-    "phonetic": "/ˈhɑː.stəl/",
-    "translation": "adj. 敵對的，懷有敵意的",
-    "example_en": "They became hostile toward the new rules.",
-    "example_zh": "他們對新規則產生了敵意。"
-  },
-  {
-    "id": "s3_69",
-    "word": "illusion",
-    "phonetic": "/ɪˈluː.ʒən/",
-    "translation": "n. 幻覺，假象",
-    "example_en": "The desert heat can create the illusion of water.",
-    "example_zh": "沙漠的酷熱會產生有水的假象。"
-  },
-  {
-    "id": "s3_70",
-    "word": "imitate",
-    "phonetic": "/ˈɪm.ə.teɪt/",
-    "translation": "v. 模仿，仿效",
-    "example_en": "Parrots can easily imitate human speech.",
-    "example_zh": "鸚鵡能輕鬆模仿人類說話。"
-  },
-  {
-    "id": "s3_71",
-    "word": "immense",
-    "phonetic": "/ɪˈmens/",
-    "translation": "adj. 巨大的，極大的",
-    "example_en": "The project required an immense amount of money.",
-    "example_zh": "該專案需要極大數額的資金。"
-  },
-  {
-    "id": "s3_72",
-    "word": "inevitable",
-    "phonetic": "/ˌɪnˈev.ə.t̬ə.bəl/",
-    "translation": "adj. 不可避免的，必然發生的",
-    "example_en": "Death and aging are inevitable parts of life.",
-    "example_zh": "死亡與衰老是生命中不可避免的一部分。"
-  },
-  {
-    "id": "s3_73",
-    "word": "ingredient",
-    "phonetic": "/ɪnˈɡriː.di.ənt/",
-    "translation": "n. 食材，原料，要素",
-    "example_en": "Trust is a key ingredient in a successful friendship.",
-    "example_zh": "信任是成功友誼的關鍵要素。"
-  },
-  {
-    "id": "s3_74",
-    "word": "initiative",
-    "phonetic": "/ɪˈnɪʃ.ə.t̬ɪv/",
-    "translation": "n. 主動性，倡議，主導權",
-    "example_en": "He took the initiative to ask her out.",
-    "example_zh": "他採取主動約她出去。"
-  },
-  {
-    "id": "s3_75",
-    "word": "insight",
-    "phonetic": "/ˈɪn.saɪt/",
-    "translation": "n. 洞察力，深刻見解",
-    "example_en": "The lecture gave us a great insight into history.",
-    "example_zh": "這場演講讓我們對歷史有了深刻的見解。"
-  },
-  {
-    "id": "s3_76",
-    "word": "inspire",
-    "phonetic": "/ɪnˈspaɪr/",
-    "translation": "v. 鼓舞，激發，啟發",
-    "example_en": "The teacher inspired her students to read more.",
-    "example_zh": "老師激發了學生多讀書的興趣。"
-  },
-  {
-    "id": "s3_77",
-    "word": "install",
-    "phonetic": "/ɪnˈstɑːl/",
-    "translation": "v. 安裝，設置",
-    "example_en": "We hired a technician to install the air conditioner.",
-    "example_zh": "我們僱用了一位技術人員來安裝冷氣。"
-  },
-  {
-    "id": "s3_78",
-    "word": "integrate",
-    "phonetic": "/ˈɪn.t̬ə.ɡreɪt/",
-    "translation": "v. 整合，融入",
-    "example_en": "It takes time for immigrants to integrate into a new society.",
-    "example_zh": "移民需要時間才能融入新的社會。"
-  },
-  {
-    "id": "s3_79",
-    "word": "jealous",
-    "phonetic": "/ˈdʒel.əs/",
-    "translation": "adj. 嫉妒的，羨慕的",
-    "example_en": "She was jealous of her sister's success.",
-    "example_zh": "她嫉妒她姐姐的成功。"
-  },
-  {
-    "id": "s3_80",
-    "word": "landscape",
-    "phonetic": "/ˈlænd.skeɪp/",
-    "translation": "n. 風景，景色",
-    "example_en": "The mountains formed a beautiful natural landscape.",
-    "example_zh": "群山形成了美麗的自然風景。"
-  },
-  {
-    "id": "s3_81",
-    "word": "leisure",
-    "phonetic": "/ˈleɪ.ʒɚ/",
-    "translation": "n. 閒暇，空閒時間",
-    "example_en": "Reading is my favorite leisure activity.",
-    "example_zh": "閱讀是我最喜歡的閒暇活動。"
-  },
-  {
-    "id": "s3_82",
-    "word": "liberal",
-    "phonetic": "/ˈlɪb.ər.əl/",
-    "translation": "adj. 自由的，開明的，慷慨的",
-    "example_en": "The university is known for its liberal education.",
-    "example_zh": "這所大學以其自由開放的教育而聞名。"
-  },
-  {
-    "id": "s3_83",
-    "word": "manipulate",
-    "phonetic": "/məˈnɪp.jə.leɪt/",
-    "translation": "v. 操縱，控制，應對",
-    "example_en": "The politician tried to manipulate the public opinion.",
-    "example_zh": "該政治人物試圖操縱公眾輿論。"
-  },
-  {
-    "id": "s3_84",
-    "word": "margin",
-    "phonetic": "/ˈmɑːr.dʒɪn/",
-    "translation": "n. 頁邊空白，邊緣，差額",
-    "example_en": "Please write your notes in the margin of the page.",
-    "example_zh": "請將你的筆記寫在頁面的空白處。"
-  },
-  {
-    "id": "s3_85",
-    "word": "mature",
-    "phonetic": "/məˈtʃʊr/",
-    "translation": "adj. 成熟的 v. 成熟",
-    "example_en": "She is very mature for her age.",
-    "example_zh": "以她的年齡來說，她非常成熟。"
-  },
-  {
-    "id": "s3_86",
-    "word": "negotiate",
-    "phonetic": "/nɪˈɡoʊ.ʃi.eɪt/",
-    "translation": "v. 談判，協商",
-    "example_en": "We managed to negotiate a lower price for the house.",
-    "example_zh": "我們成功協商到了更低的房價。"
-  },
-  {
-    "id": "s3_87",
-    "word": "obstacle",
-    "phonetic": "/ˈɑːb.stə.kəl/",
-    "translation": "n. 障礙，妨礙",
-    "example_en": "Lack of funding is the main obstacle to the project.",
-    "example_zh": "資金缺乏是該專案的主要障礙。"
-  },
-  {
-    "id": "s3_88",
-    "word": "optimistic",
-    "phonetic": "/ˌɑːp.təˈmɪs.tɪk/",
-    "translation": "adj. 樂觀的",
-    "example_en": "She remains optimistic about her future career.",
-    "example_zh": "她對自己未來的職涯依然保持樂觀。"
-  },
-  {
-    "id": "s3_89",
-    "word": "passive",
-    "phonetic": "/ˈpæs.ɪv/",
-    "translation": "adj. 被動的，消極的",
-    "example_en": "A passive learner only listens and doesn't ask questions.",
-    "example_zh": "被動的學習者只聽而不問問題。"
-  },
-  {
-    "id": "s3_90",
-    "word": "permanent",
-    "phonetic": "/ˈpɝː.mə.nənt/",
-    "translation": "adj. 永久的，永恆的",
-    "example_en": "The damage to the building was permanent.",
-    "example_zh": "這棟建築所受到的損害是永久性的。"
-  },
-  {
-    "id": "s3_91",
-    "word": "potential",
-    "phonetic": "/poʊˈten.ʃəl/",
-    "translation": "adj. 潛在的，可能的 n. 潛力",
-    "example_en": "Every child has the potential to succeed.",
-    "example_zh": "每個孩子都有成功的潛力。"
-  },
-  {
-    "id": "s3_92",
-    "word": "precise",
-    "phonetic": "/prəˈsaɪs/",
-    "translation": "adj. 精確的，準確的",
-    "example_en": "Can you give me the precise location on the map?",
-    "example_zh": "你能給我地圖上的精確位置嗎？"
-  },
-  {
-    "id": "s3_93",
-    "word": "reluctance",
-    "phonetic": "/rɪˈlʌk.təns/",
-    "translation": "n. 勉強，不情願",
-    "example_en": "Her reluctance to help was obvious to everyone.",
-    "example_zh": "大家都能看出她很不情願幫忙。"
-  },
-  {
-    "id": "s3_94",
-    "word": "significant",
-    "phonetic": "/sɪɡˈnɪf.ə.kənt/",
-    "translation": "adj. 顯著的，重要的",
-    "example_en": "There is a significant difference in price between the two.",
-    "example_zh": "這兩者之間有顯著的價格差異。"
-  },
-  {
-    "id": "s3_95",
-    "word": "temporary",
-    "phonetic": "/ˈtem.pə.rer.i/",
-    "translation": "adj. 暫時的，臨時的",
-    "example_en": "This is only a temporary solution to the problem.",
-    "example_zh": "這只是解決該問題的暫時方案。"
-  },
-  {
-    "id": "s3_96",
-    "word": "tolerance",
-    "phonetic": "/ˈtɑː.lɚ.əns/",
-    "translation": "n. 寬容，忍耐力",
-    "example_en": "We must learn to show tolerance toward other cultures.",
-    "example_zh": "我們必須學會對其他文化表現出寬容。"
-  },
-  {
-    "id": "s3_97",
-    "word": "transform",
-    "phonetic": "/trænsˈfɔːrm/",
-    "translation": "v. 改變，轉化",
-    "example_en": "The internet has transformed the way we communicate.",
-    "example_zh": "網際網路改變了我們的溝通方式。"
-  },
-  {
-    "id": "s3_98",
-    "word": "unanimous",
-    "phonetic": "/juːˈnæn.ə.məs/",
-    "translation": "adj. 一致同意的，全體一致的",
-    "example_en": "The committee reached a unanimous decision.",
-    "example_zh": "委員會達成了一致的決定。"
-  },
-  {
-    "id": "s3_99",
-    "word": "vague",
-    "phonetic": "/veɪɡ/",
-    "translation": "adj. 模糊的，含糊不清的",
-    "example_en": "His instructions were so vague that we got lost.",
-    "example_zh": "他的指令太含糊了，以致於我們迷路了。"
-  },
-  {
-    "id": "s3_100",
-    "word": "vulnerable",
-    "phonetic": "/ˈvʌl.nɚ.ə.bəl/",
-    "translation": "adj. 易受傷的，脆弱的",
-    "example_en": "Young children are vulnerable to bad influences.",
-    "example_zh": "幼兒容易受到不良影響。"
-  }
-]
-                }
-            },
-            "college": {
-                name: "🎓 大學核心單字",
-                stages: {
-                    //1: [
-                        //{ id: "c1_1", word: "hypothesis", phonetic: "/haɪˈpɑː.θə.sɪs/", translation: "n. 假設，假說", example_en: "The experiment confirmed our hypothesis.", example_zh: "實驗證實了我們的假設。" },
-                        //{ id: "c1_2", word: "cognitive", phonetic: "/ˈkɑːɡ.nə.t̬ɪv/", translation: "adj. 認知的", example_en: "Sleep deprivation affects cognitive function.", example_zh: "睡眠不足會影響認知功能。" }
-                    //],
-                    //2: [
-                      //  { id: "c2_1", word: "pragmatic", phonetic: "/præɡˈmæt̬.ɪk/", translation: "adj. 務實的，實事求是的", example_en: "We need to take a pragmatic approach.", example_zh: "我們需要採取務實的方法。" },
-                        //{ id: "c2_2", word: "ambiguous", phonetic: "/æmˈbɪɡ.ju.əs/", translation: "adj. 模稜兩可的，含糊的", example_en: "Her reply was somewhat ambiguous.", example_zh: "她的回答有些模稜兩可。" }
-                    //],
-                    1:[
-  {
-    "id": "c3_1",
-    "word": "academic",
-    "phonetic": "/ˌæk.əˈdem.ɪk/",
-    "translation": "adj. 學術的，學院的 n. 學者",
-    "example_en": "She decided to pursue an academic career in biochemistry.",
-    "example_zh": "她決定在生物化學領域追求學術生涯。"
-  },
-  {
-    "id": "c3_2",
-    "word": "acquisition",
-    "phonetic": "/ˌæk.wəˈzɪʃ.ən/",
-    "translation": "n. 獲得，習得，收購",
-    "example_en": "The study focuses on first language acquisition in children.",
-    "example_zh": "這項研究專注於兒童的母語習得。"
-  },
-  {
-    "id": "c3_3",
-    "word": "aesthetic",
-    "phonetic": "/esˈθet̬.ɪk/",
-    "translation": "adj. 美學的，審美的 n. 美感",
-    "example_en": "The building's design has both functional and aesthetic value.",
-    "example_zh": "這棟建築的設計同時具有實用與美學價值。"
-  },
-  {
-    "id": "c3_4",
-    "word": "allocation",
-    "phonetic": "/ˌæl.əˈkeɪ.ʃən/",
-    "translation": "n. 分配，撥給",
-    "example_en": "The government announced a new allocation of funds for research.",
-    "example_zh": "政府宣布了一項新的研究資金分配方案。"
-  },
-  {
-    "id": "c3_5",
-    "word": "alternative",
-    "phonetic": "/ɑːlˈtɝː.nə.t̬ɪv/",
-    "translation": "adj. 替代的，非主流的 n. 選擇",
-    "example_en": "Scientists are developing alternative energy sources to replace oil.",
-    "example_zh": "科學家正在開發替代能源以取代石油。"
-  },
-  {
-    "id": "c3_6",
-    "word": "ambiguous",
-    "phonetic": "/æmˈbɪɡ.ju.əs/",
-    "translation": "adj. 模稜兩可的，含糊不清的",
-    "example_en": "The results of the preliminary study were somewhat ambiguous.",
-    "example_zh": "初步研究的結果有些模稜兩可。"
-  },
-  {
-    "id": "c3_7",
-    "word": "analytical",
-    "phonetic": "/ˌæn.əˈlɪt̬.ɪ.kəl/",
-    "translation": "adj. 分析的，善於分析的",
-    "example_en": "Graduate school requires strong analytical and critical thinking skills.",
-    "example_zh": "研究所需要強大的分析與批判性思考能力。"
-  },
-  {
-    "id": "c3_8",
-    "word": "anomaly",
-    "phonetic": "/əˈnɑː.məl.i/",
-    "translation": "n. 異常事物，反常現象",
-    "example_en": "The researchers identified a genetic anomaly in the control group.",
-    "example_zh": "研究人員在對照組中發現了基因異常現象。"
-  },
-  {
-    "id": "c3_9",
-    "word": "anticipate",
-    "phonetic": "/ænˈtɪs.ə.peɪt/",
-    "translation": "v. 預期，預料",
-    "example_en": "The university anticipates a significant increase in enrollment.",
-    "example_zh": "這所大學預期入學人數將會大幅增加。"
-  },
-  {
-    "id": "c3_10",
-    "word": "arbitrary",
-    "phonetic": "/ˈɑːr.bə.trer.i/",
-    "translation": "adj. 任意的，武斷的，隨心所欲的",
-    "example_en": "The classification of these samples seems completely arbitrary.",
-    "example_zh": "這些樣本的分類看起來完全是武斷的。"
-  },
-  {
-    "id": "c3_11",
-    "word": "articulate",
-    "phonetic": "/ɑːrˈtɪk.jə.lət/",
-    "translation": "v. 清楚地表達 adj. 口齒伶俐的",
-    "example_en": "The professor was able to articulate the complex theory clearly.",
-    "example_zh": "教授能夠清晰地闡述這個複雜的理論。"
-  },
-  {
-    "id": "c3_12",
-    "word": "assertion",
-    "phonetic": "/əˈsɝː.ʃən/",
-    "translation": "n. 斷言，聲明，主張",
-    "example_en": "She presented no evidence to support her bold assertion.",
-    "example_zh": "她沒有提出任何證據來支持她大膽的主張。"
-  },
-  {
-    "id": "c3_13",
-    "word": "attribute",
-    "phonetic": "/əˈtrɪb.juːt/",
-    "translation": "v. 歸因於 n. 特徵，屬性",
-    "example_en": "Most experts attribute the climate shift to human activity.",
-    "example_zh": "大多數專家將氣候轉變歸因於人類活動。"
-  },
-  {
-    "id": "c3_14",
-    "word": "bias",
-    "phonetic": "/ˈbaɪ.əs/",
-    "translation": "n. 偏見，偏袒 v. 使有偏見",
-    "example_en": "The researchers took precautions to avoid subjective bias in the survey.",
-    "example_zh": "研究人員採取了預防措施，以避免調查中出現主觀偏見。"
-  },
-  {
-    "id": "c3_15",
-    "word": "capacity",
-    "phonetic": "/kəˈpæs.ə.t̬i/",
-    "translation": "n. 能力，容量，生產力",
-    "example_en": "This student has a remarkable capacity for learning languages.",
-    "example_zh": "這位學生在語言學習方面擁有非凡的能力。"
-  },
-  {
-    "id": "c3_16",
-    "word": "chronological",
-    "phonetic": "/ˌkrɑː.nəˈlɑː.dʒɪ.kəl/",
-    "translation": "adj. 按時間順序的",
-    "example_en": "Please arrange these historical events in chronological order.",
-    "example_zh": "請將這些歷史事件按時間順序排列。"
-  },
-  {
-    "id": "c3_17",
-    "word": "citation",
-    "phonetic": "/saɪˈteɪ.ʃən/",
-    "translation": "n. 引文，引證，表揚",
-    "example_en": "Your academic essay must include proper citations for all sources.",
-    "example_zh": "你的學術論文必須為所有來源加上正確的引用。"
-  },
-  {
-    "id": "c3_18",
-    "word": "cohesive",
-    "phonetic": "/koʊˈhiː.sɪv/",
-    "translation": "adj. 有凝聚力的，團結的，相契合的",
-    "example_en": "The team worked hard to present a cohesive research proposal.",
-    "example_zh": "該團隊努力提出一份具有連貫性與整體感的研討企劃書。"
-  },
-  {
-    "id": "c3_19",
-    "word": "collaborate",
-    "phonetic": "/kəˈlæb.ə.reɪt/",
-    "translation": "v. 合作，協作",
-    "example_en": "Researchers from both universities decided to collaborate on the study.",
-    "example_zh": "兩所大學的研究人員決定就這項研究展開合作。"
-  },
-  {
-    "id": "c3_20",
-    "word": "comprise",
-    "phonetic": "/kəmˈpraɪz/",
-    "translation": "v. 包含，由...組成",
-    "example_en": "The final exam will comprise both multiple-choice and essay questions.",
-    "example_zh": "期末考將包含選擇題和申論題。"
-  },
-  {
-    "id": "c3_21",
-    "word": "conceptual",
-    "phonetic": "/kənˈsep.tʃu.əl/",
-    "translation": "adj. 概念的，觀念的",
-    "example_en": "The study offers a new conceptual framework for analyzing economic growth.",
-    "example_zh": "這項研究為分析經濟成長提供了一個新的概念框架。"
-  },
-  {
-    "id": "c3_22",
-    "word": "conduct",
-    "phonetic": "/kənˈdʌkt/",
-    "translation": "v. 進行，實施，指揮 n. 行為，品行",
-    "example_en": "They plan to conduct a series of experiments next month.",
-    "example_zh": "他們計劃下個月進行一系列實驗。"
-  },
-  {
-    "id": "c3_23",
-    "word": "consequent",
-    "phonetic": "/ˈkɑːn.sə.kwənt/",
-    "translation": "adj. 隨之發生的，由此引起的",
-    "example_en": "The heavy rain and consequent flooding caused severe damage.",
-    "example_zh": "豪雨以及隨之而來的洪水造成了嚴重的破壞。"
-  },
-  {
-    "id": "c3_24",
-    "word": "constitute",
-    "phonetic": "/ˈkɑːn.stə.tuːt/",
-    "translation": "v. 構成，組成，被視為",
-    "example_en": "These data alone do not constitute sufficient proof of the theory.",
-    "example_zh": "光是這些數據並不構成該理論的充分證據。"
-  },
-  {
-    "id": "c3_25",
-    "word": "constraint",
-    "phonetic": "/kənˈstreɪnt/",
-    "translation": "n. 限制，約束",
-    "example_en": "Financial constraints forced the laboratory to delay the project.",
-    "example_zh": "資金限制迫使實驗室延後了該項目。"
-  },
-  {
-    "id": "c3_26",
-    "word": "contradiction",
-    "phonetic": "/ˌkɑːn.trəˈdɪk.ʃən/",
-    "translation": "n. 矛盾，抵觸",
-    "example_en": "There is a direct contradiction between his two statements.",
-    "example_zh": "他的兩次聲明之間存在直接的矛盾。"
-  },
-  {
-    "id": "c3_27",
-    "word": "correlation",
-    "phonetic": "/ˌkɔːr.əˈleɪ.ʃən/",
-    "translation": "n. 相關性，相互關係",
-    "example_en": "Statistical analysis showed a strong correlation between the two variables.",
-    "example_zh": "統計分析顯示這兩個變數之間有很強的相關性。"
-  },
-  {
-    "id": "c3_28",
-    "word": "credible",
-    "phonetic": "/ˈkred.ə.bəl/",
-    "translation": "adj. 可信的，可靠的",
-    "example_en": "You need to find credible sources to support your academic thesis.",
-    "example_zh": "你需要尋找可靠的來源來支持你的學術論文。"
-  },
-  {
-    "id": "c3_29",
-    "word": "criterion",
-    "phonetic": "/kraɪˈtɪr.i.ən/",
-    "translation": "n. 標準，準則 (複數為 criteria)",
-    "example_en": "What criteria did you use to select these participants?",
-    "example_zh": "你使用什麼標準來篩選這些參與者？"
-  },
-  {
-    "id": "c3_30",
-    "word": "cumulative",
-    "phonetic": "/ˈkjuː.mjə.lə.t̬ɪv/",
-    "translation": "adj. 累積的，漸增的",
-    "example_en": "The cumulative effect of years of smoking began to show in his health.",
-    "example_zh": "多年吸菸的累積效應開始在他的健康狀況中顯現出來。"
-  },
-  {
-    "id": "c3_31",
-    "word": "deduction",
-    "phonetic": "/dɪˈdʌk.ʃən/",
-    "translation": "n. 推論，推導，扣除額",
-    "example_en": "Through logical deduction, she arrived at the correct conclusion.",
-    "example_zh": "通過邏輯推論，她得出了正確的結論。"
-  },
-  {
-    "id": "c3_32",
-    "word": "depict",
-    "phonetic": "/dɪˈpɪkt/",
-    "translation": "v. 描繪，描述",
-    "example_en": "The novel depicts life in rural England in the nineteenth century.",
-    "example_zh": "這部小說描繪了十九世紀英格蘭農村的生活。"
-  },
-  {
-    "id": "c3_33",
-    "word": "derive",
-    "phonetic": "/dɪˈraɪv/",
-    "translation": "v. 源於，得出，衍生出",
-    "example_en": "Many English words are derived from Latin and Greek.",
-    "example_zh": "許多英文單字源自於拉丁文和希臘文。"
-  },
-  {
-    "id": "c3_34",
-    "word": "deviation",
-    "phonetic": "/ˌdiː.viˈeɪ.ʃən/",
-    "translation": "n. 偏差，背離，偏離",
-    "example_en": "Any major deviation from the original plan must be approved.",
-    "example_zh": "任何對原始計劃的重大偏離都必須獲得批准。"
-  },
-  {
-    "id": "c3_35",
-    "word": "discourse",
-    "phonetic": "/ˈdɪs.kɔːrs/",
-    "translation": "n. 論述，對話，演講",
-    "example_en": "The professor is an expert on political discourse in the Middle Ages.",
-    "example_zh": "這位教授是中世紀政治論述方面的專家。"
-  },
-  {
-    "id": "c3_36",
-    "word": "discrete",
-    "phonetic": "/dɪˈskriːt/",
-    "translation": "adj. 獨立的，個別的，不連續的",
-    "example_en": "The data can be divided into a series of discrete categories.",
-    "example_zh": "這些數據可以分為一系列獨立的類別。"
-  },
-  {
-    "id": "c3_37",
-    "word": "distinguish",
-    "phonetic": "/dɪˈstɪŋ.ɡwɪʃ/",
-    "translation": "v. 區分，辨別，使傑出",
-    "example_en": "It is important to distinguish between myth and reality.",
-    "example_zh": "區分神話與現實是非常重要的。"
-  },
-  {
-    "id": "c3_38",
-    "word": "diverse",
-    "phonetic": "/daɪˈvɝːs/",
-    "translation": "adj. 多樣的，多元的",
-    "example_en": "The university campus has a highly diverse student population.",
-    "example_zh": "這所大學校園擁有非常多元的學生群體。"
-  },
-  {
-    "id": "c3_39",
-    "word": "domain",
-    "phonetic": "/doʊˈmeɪn/",
-    "translation": "n. 領域，領土，網域",
-    "example_en": "This research topic belongs to the domain of developmental psychology.",
-    "example_zh": "這個研究課題屬於發展心理學的領域。"
-  },
-  {
-    "id": "c3_40",
-    "word": "empirical",
-    "phonetic": "/ɪmˈpɪr.ɪ.kəl/",
-    "translation": "adj. 實證的，以經驗（實驗）為依據的",
-    "example_en": "The researchers provided strong empirical evidence to support their claim.",
-    "example_zh": "研究人員提供了強力的實證證據來支持他們的主張。"
-  },
-  {
-    "id": "c3_41",
-    "word": "equivalent",
-    "phonetic": "/ɪˈkwɪv.əl.ənt/",
-    "translation": "adj. 等值的，相等的 n. 等同物",
-    "example_en": "The cost of the damage is equivalent to half a year's budget.",
-    "example_zh": "損失的成本相當於半年的預算。"
-  },
-  {
-    "id": "c3_42",
-    "word": "ethical",
-    "phonetic": "/ˈeθ.ɪ.kəl/",
-    "translation": "adj. 倫理的，道德的",
-    "example_en": "The committee raised several ethical concerns about the experiment.",
-    "example_zh": "委員會對這項實驗提出了幾項倫理道德方面的擔憂。"
-  },
-  {
-    "id": "c3_43",
-    "word": "evaluate",
-    "phonetic": "/ɪˈvæl.ju.eɪt/",
-    "translation": "v. 評估，評價",
-    "example_en": "We need to evaluate the long-term effects of this policy.",
-    "example_zh": "我們需要評估這項政策的長期影響。"
-  },
-  {
-    "id": "c3_44",
-    "word": "exclude",
-    "phonetic": "/ɪkˈskluːd/",
-    "translation": "v. 排除，不包括",
-    "example_en": "Certain data points were excluded from the final analysis.",
-    "example_zh": "某些數據點被排除在最終分析之外。"
-  },
-  {
-    "id": "c3_45",
-    "word": "explicit",
-    "phonetic": "/ɪkˈsplɪs.ɪt/",
-    "translation": "adj. 明確的，清晰露骨的",
-    "example_en": "The teacher gave explicit instructions on how to submit the essay.",
-    "example_zh": "老師對於如何繳交論文給予了明確的指示。"
-  },
-  {
-    "id": "c3_46",
-    "word": "facilitate",
-    "phonetic": "/fəˈsɪl.ə.teɪt/",
-    "translation": "v. 促進，使便利",
-    "example_en": "The new online system will facilitate communication between departments.",
-    "example_zh": "新的線上系統將促進部門之間的溝通。"
-  },
-  {
-    "id": "c3_47",
-    "word": "feasible",
-    "phonetic": "/ˈfiː.zə.bəl/",
-    "translation": "adj. 可行的，行得通的",
-    "example_en": "Is it technologically feasible to build a colony on Mars?",
-    "example_zh": "在火星上建立殖民地在技術上是可行的嗎？"
-  },
-  {
-    "id": "c3_48",
-    "word": "fluctuate",
-    "phonetic": "/ˈflʌk.tʃu.eɪt/",
-    "translation": "v. 波動，起伏",
-    "example_en": "The price of gold continues to fluctuate because of market uncertainty.",
-    "example_zh": "由於市場的不確定性，黃金價格持續波動。"
-  },
-  {
-    "id": "c3_49",
-    "word": "framework",
-    "phonetic": "/ˈfreɪm.wɝːk/",
-    "translation": "n. 框架，架構，體制",
-    "example_en": "The book provides a theoretical framework for social research.",
-    "example_zh": "這本書為社會研究提供了一個理論框架。"
-  },
-  {
-    "id": "c3_50",
-    "word": "hierarchy",
-    "phonetic": "/ˈhaɪ.rɑːr.ki/",
-    "translation": "n. 等級制度，階層",
-    "example_en": "The corporate hierarchy makes it difficult for lower employees to speak out.",
-    "example_zh": "公司的等級制度使得底層員工很難發聲。"
-  },
-  {
-    "id": "c3_51",
-    "word": "hypothesis",
-    "phonetic": "/haɪˈpɑː.θə.sɪs/",
-    "translation": "n. 假設，假說 (複數為 hypotheses)",
-    "example_en": "Our latest experiment confirmed the original hypothesis.",
-    "example_zh": "我們最新的實驗證實了最初的假設。"
-  },
-  {
-    "id": "c3_52",
-    "word": "implement",
-    "phonetic": "/ˈɪm.plə.ment/",
-    "translation": "v. 實施，執行 n. 工具，器具",
-    "example_en": "The university plans to implement a new grading system next semester.",
-    "example_zh": "大學計劃下學期實施新的評分制度。"
-  },
-  {
-    "id": "c3_53",
-    "word": "implication",
-    "phonetic": "/ˌɪm.pləˈkeɪ.ʃən/",
-    "translation": "n. 暗示，潛在影響，含意",
-    "example_en": "The results of this study have broad implications for public health.",
-    "example_zh": "這項研究的結果對公共衛生具有廣泛的影響。"
-  },
-  {
-    "id": "c3_54",
-    "word": "implicit",
-    "phonetic": "/ɪmˈplɪs.ɪt/",
-    "translation": "adj. 暗含的，不言明而含蓄的",
-    "example_en": "There was an implicit agreement between the two research groups.",
-    "example_zh": "這兩個研究小組之間存在著默契（不言明的協定）。"
-  },
-  {
-    "id": "c3_55",
-    "word": "incentive",
-    "phonetic": "/ɪnˈsen.t̬ɪv/",
-    "translation": "n. 誘因，動機，刺激",
-    "example_en": "The government offers tax incentives to encourage renewable energy use.",
-    "example_zh": "政府提供稅收優惠以鼓勵使用再生能源。"
-  },
-  {
-    "id": "c3_56",
-    "word": "incorporate",
-    "phonetic": "/ɪnˈkɔːr.pɚ.eɪt/",
-    "translation": "v. 納入，併入，合併",
-    "example_en": "You should try to incorporate feedback from your advisor into your essay.",
-    "example_zh": "你應該試著將指導老師的意見納入你的論文中。"
-  },
-  {
-    "id": "c3_57",
-    "word": "indicator",
-    "phonetic": "/ˈɪn.də.keɪ.t̬ɚ/",
-    "translation": "n. 指標，指示物",
-    "example_en": "The unemployment rate is an important economic indicator.",
-    "example_zh": "失業率是一項重要的經濟指標。"
-  },
-  {
-    "id": "c3_58",
-    "word": "inherent",
-    "phonetic": "/ɪnˈhɪr.ənt/",
-    "translation": "adj. 固有的，內在的，天生的",
-    "example_en": "There are inherent risks in any scientific exploration.",
-    "example_zh": "任何科學探索都存在著內在的風險。"
-  },
-  {
-    "id": "c3_59",
-    "word": "innovation",
-    "phonetic": "/ˌɪn.əˈveɪ.ʃən/",
-    "translation": "n. 創新，革新",
-    "example_en": "Technological innovation plays a key role in modern industry.",
-    "example_zh": "技術創新在現代工業中扮演著關鍵角色。"
-  },
-  {
-    "id": "c3_60",
-    "word": "integrate",
-    "phonetic": "/ˈɪn.t̬ə.ɡreɪt/",
-    "translation": "v. 整合，融入，使結合",
-    "example_en": "The software is designed to integrate seamlessly with existing systems.",
-    "example_zh": "該軟體旨在與現有系統進行無縫整合。"
-  },
-  {
-    "id": "c3_61",
-    "word": "interpretation",
-    "phonetic": "/ɪnˌtɝː.prəˈteɪ.ʃən/",
-    "translation": "n. 解釋，詮釋，口譯",
-    "example_en": "Different critics have different interpretations of the poem.",
-    "example_zh": "不同的評論家對這首詩有不同的詮釋。"
-  },
-  {
-    "id": "c3_62",
-    "word": "interval",
-    "phonetic": "/ˈɪn.t̬ɚ.vəl/",
-    "translation": "n. 間隔，距離",
-    "example_en": "The measurements were taken at regular intervals of ten minutes.",
-    "example_zh": "測量是每隔十分鐘的固定時間間隔進行一次。"
-  },
-  {
-    "id": "c3_63",
-    "word": "intrinsic",
-    "phonetic": "/ɪnˈtrɪn.zɪk/",
-    "translation": "adj. 本質的，內在的，固有的",
-    "example_en": "A child's intrinsic curiosity is the best motivation for learning.",
-    "example_zh": "孩子內在的好奇心是最好的學習動力。"
-  },
-  {
-    "id": "c3_64",
-    "word": "justify",
-    "phonetic": "/ˈdʒʌs.tə.faɪ/",
-    "translation": "v. 證明...正當（合理）",
-    "example_en": "He tried to justify his absence with a doctor's note.",
-    "example_zh": "他試圖用醫生的診斷書來證明他缺席的合理性。"
-  },
-  {
-    "id": "c3_65",
-    "word": "liberal",
-    "phonetic": "/ˈlɪb.ər.əl/",
-    "translation": "adj. 自由的，開明的，寬大的 n. 自由主義者",
-    "example_en": "The university provides a broad liberal arts education.",
-    "example_zh": "這所大學提供廣泛的通識教育。"
-  },
-  {
-    "id": "c3_66",
-    "word": "manipulate",
-    "phonetic": "/məˈnɪp.jə.leɪt/",
-    "translation": "v. 操縱，控制，熟練操作",
-    "example_en": "He was accused of trying to manipulate the financial market.",
-    "example_zh": "他被指控企圖操縱金融市場。"
-  },
-  {
-    "id": "c3_67",
-    "word": "marginal",
-    "phonetic": "/ˈmɑːr.dʒɪ.nəl/",
-    "translation": "adj. 邊緣的，微小的，不重要的",
-    "example_en": "The new method resulted in only a marginal improvement in efficiency.",
-    "example_zh": "新方法僅對效率帶來了微小的提升。"
-  },
-  {
-    "id": "c3_68",
-    "word": "methodology",
-    "phonetic": "/ˌmeθ.əˈdɑː.lə.dʒi/",
-    "translation": "n. 方法論，研究方法",
-    "example_en": "The methodology section of your paper must describe the research process.",
-    "example_zh": "你論文中的方法論部分必須描述研究過程。"
-  },
-  {
-    "id": "c3_69",
-    "word": "obvious",
-    "phonetic": "/ˈɑːb.vi.əs/",
-    "translation": "adj. 明顯的，顯而易見的",
-    "example_en": "It was obvious that the experiment had failed.",
-    "example_zh": "實驗顯然已經失敗了。"
-  },
-  {
-    "id": "c3_70",
-    "word": "paradigm",
-    "phonetic": "/ˈpær.ə.daɪm/",
-    "translation": "n. 範式，典範，樣例",
-    "example_en": "The discovery of DNA created a new paradigm in biological research.",
-    "example_zh": "DNA的發現開創了生物學研究的新範式。"
-  },
-  {
-    "id": "c3_71",
-    "word": "parameter",
-    "phonetic": "/pəˈræm.ə.t̬ɚ/",
-    "translation": "n. 參數，界限，限制因素",
-    "example_en": "We must set the parameters of the study before gathering data.",
-    "example_zh": "在收集數據之前，我們必須設定這項研究的限制界限。"
-  },
-  {
-    "id": "c3_72",
-    "word": "perspective",
-    "phonetic": "/pɚˈspek.tɪv/",
-    "translation": "n. 視角，觀點，透視法",
-    "example_en": "Try to view the issue from an international perspective.",
-    "example_zh": "試著從國際視角來審視這個議題。"
-  },
-  {
-    "id": "c3_73",
-    "word": "phenomenon",
-    "phonetic": "/fəˈnɑː.mə.nɑːn/",
-    "translation": "n. 現象 (複數為 phenomena)",
-    "example_en": "Glaciers melting is a natural phenomenon caused by global warming.",
-    "example_zh": "冰河融化是全球暖化引起的一種自然現象。"
-  },
-  {
-    "id": "c3_74",
-    "word": "plausible",
-    "phonetic": "/ˈplɑː.zə.bəl/",
-    "translation": "adj. 似乎合理的，可信的",
-    "example_en": "She offered a highly plausible explanation for her delay.",
-    "example_zh": "她對自己的延誤提出了一個非常合理的解釋。"
-  },
-  {
-    "id": "c3_75",
-    "word": "pragmatic",
-    "phonetic": "/præɡˈmæt̬.ɪk/",
-    "translation": "adj. 務實的，重實效的",
-    "example_en": "We need to take a pragmatic approach to solving this crisis.",
-    "example_zh": "我們需要採取務實的方法來解決這場危機。"
-  },
-  {
-    "id": "c3_76",
-    "word": "preclude",
-    "phonetic": "/prəˈkluːd/",
-    "translation": "v. 排除，妨礙，阻止",
-    "example_en": "The heavy rain precluded any possibility of outdoor research.",
-    "example_zh": "暴雨排除了進行任何戶外研究的可能性。"
-  },
-  {
-    "id": "c3_77",
-    "word": "qualitative",
-    "phonetic": "/ˈkwɑː.lə.teɪ.t̬ɪv/",
-    "translation": "adj. 質性的，定性的",
-    "example_en": "This project combines both quantitative and qualitative methods.",
-    "example_zh": "該專案結合了定量（量化）與定性（質性）的方法。"
-  },
-  {
-    "id": "c3_78",
-    "word": "quantitative",
-    "phonetic": "/ˈkwɑːn.t̬ə.teɪ.t̬ɪv/",
-    "translation": "adj. 量化的，定量的",
-    "example_en": "The study relies heavily on quantitative data gathered from surveys.",
-    "example_zh": "這項研究很大程度上依賴從調查中收集的量化數據。"
-  },
-  {
-    "id": "c3_79",
-    "word": "random",
-    "phonetic": "/ˈræn.dəm/",
-    "translation": "adj. 隨機的，任意的",
-    "example_en": "The samples were selected at random from the population.",
-    "example_zh": "樣本是從母體中隨機挑選出來的。"
-  },
-  {
-    "id": "c3_80",
-    "word": "refine",
-    "phonetic": "/rɪˈfaɪn/",
-    "translation": "v. 改善，精煉，使完美",
-    "example_en": "The scientists spent months trying to refine the manufacturing process.",
-    "example_zh": "科學家們花了數月時間試圖改進製造流程。"
-  },
-  {
-    "id": "c3_81",
-    "word": "relevant",
-    "phonetic": "/ˈrel.ə.vənt/",
-    "translation": "adj. 相關的，有切身關係的",
-    "example_en": "Please include only information that is relevant to the topic.",
-    "example_zh": "請僅包含與主題相關的資訊。"
-  },
-  {
-    "id": "c3_82",
-    "word": "reliable",
-    "phonetic": "/rɪˈlaɪ.ə.bəl/",
-    "translation": "adj. 可靠的，可信賴的",
-    "example_en": "The laboratory needs to ensure that the equipment is reliable.",
-    "example_zh": "實驗室需要確保設備是可靠的。"
-  },
-  {
-    "id": "c3_83",
-    "word": "replicate",
-    "phonetic": "/ˈrep.lɪ.keɪt/",
-    "translation": "v. 複製，重複（實驗等）",
-    "example_en": "Other researchers have been unable to replicate the original results.",
-    "example_zh": "其他研究人員一直無法複製最初的結果。"
-  },
-  {
-    "id": "c3_84",
-    "word": "rigorous",
-    "phonetic": "/ˈrɪɡ.ɚ.əs/",
-    "translation": "adj. 嚴格的，嚴謹的，嚴厲的",
-    "example_en": "All academic essays undergo a rigorous review process before publication.",
-    "example_zh": "所有學術論文在發表前都必須經過嚴格的審查程序。"
-  },
-  {
-    "id": "c3_85",
-    "word": "scrutiny",
-    "phonetic": "/ˈskruː.t̬ən.i/",
-    "translation": "n. 仔細檢查，審查",
-    "example_en": "The government's economic policy has come under close scrutiny.",
-    "example_zh": "政府的經濟政策受到了嚴密的審查。"
-  },
-  {
-    "id": "c3_86",
-    "word": "sector",
-    "phonetic": "/ˈsek.tɚ/",
-    "translation": "n. 部門，領域，扇形",
-    "example_en": "The private sector plays a vital role in national development.",
-    "example_zh": "私營部門在國家發展中扮演著至關重要的角色。"
-  },
-  {
-    "id": "c3_87",
-    "word": "significant",
-    "phonetic": "/sɪɡˈnɪf.ə.kənt/",
-    "translation": "adj. 顯著的，重要的，有意義的",
-    "example_en": "There has been a significant reduction in pollution levels.",
-    "example_zh": "污染程度已經有了顯著降低。"
-  },
-  {
-    "id": "c3_88",
-    "word": "simultaneous",
-    "phonetic": "/ˌsaɪ.məlˈteɪ.ni.əs/",
-    "translation": "adj. 同時的，同步的",
-    "example_en": "The event was broadcast to a simultaneous global audience.",
-    "example_zh": "該活動向全球觀眾進行了同步轉播。"
-  },
-  {
-    "id": "c3_89",
-    "word": "speculate",
-    "phonetic": "/ˈspek.jə.leɪt/",
-    "translation": "v. 推測，推斷，投機",
-    "example_en": "Scientists can only speculate about the origin of the universe.",
-    "example_zh": "科學家們只能推測宇宙的起源。"
-  },
-  {
-    "id": "c3_90",
-    "word": "subsequent",
-    "phonetic": "/ˈsʌb.sɪ.kwənt/",
-    "translation": "adj. 隨後的，後來的",
-    "example_en": "The initial study and subsequent experiments confirmed the theory.",
-    "example_zh": "最初的研究和隨後的實驗都證實了該理論。"
-  },
-  {
-    "id": "c3_91",
-    "word": "substantial",
-    "phonetic": "/səbˈstæn.ʃəl/",
-    "translation": "adj. 大量的，實質的，實力雄厚的",
-    "example_en": "They made substantial progress in reducing energy waste.",
-    "example_zh": "他們在減少能源浪費方面取得了實質性進展。"
-  },
-  {
-    "id": "c3_92",
-    "word": "subtle",
-    "phonetic": "/ˈsʌt̬.əl/",
-    "translation": "adj. 微妙的，細微的，敏銳的",
-    "example_en": "There are subtle differences between the two chemical compounds.",
-    "example_zh": "這兩種化合物之間存在著細微的差異。"
-  },
-  {
-    "id": "c3_93",
-    "word": "synthesis",
-    "phonetic": "/ˈsɪn.θə.sɪs/",
-    "translation": "n. 合成，綜合 (複數為 syntheses)",
-    "example_en": "His book is a brilliant synthesis of history and literature.",
-    "example_zh": "他的著作是歷史與文學的精彩結合。"
-  },
-  {
-    "id": "c3_94",
-    "word": "systematic",
-    "phonetic": "/ˌsɪs.təˈmæt̬.ɪk/",
-    "translation": "adj. 有系統的，有條理的",
-    "example_en": "We need to conduct a systematic review of the entire process.",
-    "example_zh": "我們需要對整個流程進行系統性的審查。"
-  },
-  {
-    "id": "c3_95",
-    "word": "theoretical",
-    "phonetic": "/ˌθiː.əˈret̬.ɪ.kəl/",
-    "translation": "adj. 理論的，理論上的",
-    "example_en": "The course provides students with a solid theoretical foundation.",
-    "example_zh": "這門課程為學生提供了堅實的理論基礎。"
-  },
-  {
-    "id": "c3_96",
-    "word": "thesis",
-    "phonetic": "/ˈθiː.sɪs/",
-    "translation": "n. 論文，論點 (複數為 theses)",
-    "example_en": "She is writing her doctoral thesis on renewable energy policy.",
-    "example_zh": "她正在撰寫關於再生能源政策的博士論文。"
-  },
-  {
-    "id": "c3_97",
-    "word": "transform",
-    "phonetic": "/trænsˈfɔːrm/",
-    "translation": "v. 改變，轉化",
-    "example_en": "The internet has transformed the way research is conducted.",
-    "example_zh": "網際網路改變了進行研究的方式。"
-  },
-  {
-    "id": "c3_98",
-    "word": "valid",
-    "phonetic": "/ˈvæl.ɪd/",
-    "translation": "adj. 有效的，有根據的，合理的",
-    "example_en": "The arguments she presented in her essay are completely valid.",
-    "example_zh": "她在論文中提出的論點完全是合理的。"
-  },
-  {
-    "id": "c3_99",
-    "word": "variables",
-    "phonetic": "/ˈver.i.ə.bəls/",
-    "translation": "n. 變數，可變因素",
-    "example_en": "We must control all external variables during the scientific test.",
-    "example_zh": "我們必須在科學測試期間控制所有的外部變數。"
-  },
-  {
-    "id": "c3_100",
-    "word": "verify",
-    "phonetic": "/ˈver.ə.faɪ/",
-    "translation": "v. 證實，核對，證明",
-    "example_en": "We need to perform further tests to verify the experimental results.",
-    "example_zh": "我們需要進行進一步的測試以證實實驗結果。"
-  }
-]
-                }
-            }
-        };
+const vocabDatabase = {
+  primary: {
+    name: "🌱 小學必備單字",
+    stages: {
+      //1: [
+      //  { id: "p1_1", word: "apple", phonetic: "/ˈæp.əl/", translation: "n. 蘋果", example_en: "I eat an apple every morning.", example_zh: "我每天早上吃一個蘋果。" },
+      //{ id: "p1_2", word: "banana", phonetic: "/bəˈnæn.ə/", translation: "n. 香蕉", example_en: "Monkeys like to eat bananas.", example_zh: "猴子喜歡吃香蕉。" },
+      //{ id: "p1_3", word: "orange", phonetic: "/ˈɔːr.ɪndʒ/", translation: "n. 柳橙，橘子", example_en: "Orange juice is sweet and sour.", example_zh: "柳橙汁酸酸甜甜的。" }
+      //],
+      //2: [
+      //  { id: "p2_1", word: "rabbit", phonetic: "/ˈræb.ɪt/", translation: "n. 兔子", example_en: "The white rabbit is very cute.", example_zh: "這隻白兔非常可愛。" },
+      //{ id: "p2_2", word: "yellow", phonetic: "/ˈjel.oʊ/", translation: "adj. 黃色的", example_en: "The sunflower is bright yellow.", example_zh: "向日葵是明亮的黃色。" }
+      //],
+      1: [
+        {
+          id: "p3_1",
+          word: "family",
+          phonetic: "/ˈfæm.əl.i/",
+          translation: "n. 家族，家人",
+          example_en: "I love my family very much.",
+          example_zh: "我很愛我的家人。",
+        },
+        {
+          id: "p3_2",
+          word: "school",
+          phonetic: "/skuːl/",
+          translation: "n. 學校",
+          example_en: "We go to school by bus.",
+          example_zh: "我們搭公車去上學。",
+        },
+        {
+          id: "p3_3",
+          word: "friend",
+          phonetic: "/frend/",
+          translation: "n. 朋友",
+          example_en: "He is my best friend at school.",
+          example_zh: "他是我在學校最好的朋友。",
+        },
+        {
+          id: "p3_4",
+          word: "teacher",
+          phonetic: "/ˈtiː.tʃɚ/",
+          translation: "n. 老師，教師",
+          example_en: "Our English teacher is very kind.",
+          example_zh: "我們的英文老師非常親切。",
+        },
+        {
+          id: "p3_5",
+          word: "morning",
+          phonetic: "/ˈmɔːr.nɪŋ/",
+          translation: "n. 早上，上午",
+          example_en: "Good morning! How are you?",
+          example_zh: "早安！你好嗎？",
+        },
+        {
+          id: "p3_6",
+          word: "doctor",
+          phonetic: "/ˈdɑːk.tɚ/",
+          translation: "n. 醫生",
+          example_en: "The doctor helped the sick boy.",
+          example_zh: "醫生幫助了那個生病的小男孩。",
+        },
+        {
+          id: "p3_7",
+          word: "water",
+          phonetic: "/ˈwɑː.t̬ɚ/",
+          translation: "n. 水",
+          example_en: "Please drink some warm water.",
+          example_zh: "請喝一些溫水。",
+        },
+        {
+          id: "p3_8",
+          word: "pencil",
+          phonetic: "/ˈpen.səl/",
+          translation: "n. 鉛筆",
+          example_en: "Can I borrow your pencil?",
+          example_zh: "我可以借你的鉛筆嗎？",
+        },
+        {
+          id: "p3_9",
+          word: "elephant",
+          phonetic: "/ˈel.ə.fənt/",
+          translation: "n. 大象",
+          example_en: "The elephant has a long nose.",
+          example_zh: "大象有一隻長鼻子。",
+        },
+        {
+          id: "p3_10",
+          word: "computer",
+          phonetic: "/kəmˈpjuː.t̬ɚ/",
+          translation: "n. 電腦",
+          example_en: "I use the computer to draw pictures.",
+          example_zh: "我用電腦來畫畫。",
+        },
+        {
+          id: "p3_11",
+          word: "flower",
+          phonetic: "/ˈflaʊ.ɚ/",
+          translation: "n. 花，花朵",
+          example_en: "This red flower smells so sweet.",
+          example_zh: "這朵紅花聞起來好香。",
+        },
+        {
+          id: "p3_12",
+          word: "window",
+          phonetic: "/ˈwɪn.doʊ/",
+          translation: "n. 窗戶",
+          example_en: "Please close the window, it is cold.",
+          example_zh: "請關上窗戶，好冷。",
+        },
+        {
+          id: "p3_13",
+          word: "hungry",
+          phonetic: "/ˈhʌŋ.ɡri/",
+          translation: "adj. 飢餓的",
+          example_en: "I am hungry, is dinner ready?",
+          example_zh: "我餓了，晚餐準備好了嗎？",
+        },
+        {
+          id: "p3_14",
+          word: "happy",
+          phonetic: "/ˈhæp.i/",
+          translation: "adj. 快樂的，開心的",
+          example_en: "They are happy to play games.",
+          example_zh: "他們玩遊戲玩得很開心。",
+        },
+        {
+          id: "p3_15",
+          word: "beautiful",
+          phonetic: "/ˈbjuː.t̬ə.fəl/",
+          translation: "adj. 美麗的，漂亮的",
+          example_en: "She wore a beautiful blue dress.",
+          example_zh: "她穿了一件漂亮的藍色洋裝。",
+        },
+        {
+          id: "p3_16",
+          word: "listen",
+          phonetic: "/ˈlɪs.ən/",
+          translation: "v. 聽，傾聽",
+          example_en: "Listen to the music and relax.",
+          example_zh: "聽聽音樂放鬆一下吧。",
+        },
+        {
+          id: "p3_17",
+          word: "sleep",
+          phonetic: "/sliːp/",
+          translation: "v. 睡覺",
+          example_en: "Cats like to sleep on the sofa.",
+          example_zh: "貓咪喜歡在沙發上睡覺。",
+        },
+        {
+          id: "p3_18",
+          word: "clean",
+          phonetic: "/kliːn/",
+          translation: "v. 打掃 adj. 乾淨的",
+          example_en: "We should keep our classroom clean.",
+          example_zh: "我們應該保持教室乾淨。",
+        },
+        {
+          id: "p3_19",
+          word: "tomorrow",
+          phonetic: "/təˈmɔːr.oʊ/",
+          translation: "n./adv. 明天",
+          example_en: "We will have a picnic tomorrow.",
+          example_zh: "我們明天要去野餐。",
+        },
+        {
+          id: "p3_20",
+          word: "together",
+          phonetic: "/təˈɡeð.ɚ/",
+          translation: "adv. 一起，共同",
+          example_en: "Let's sing this song together.",
+          example_zh: "讓我們一起唱這首歌吧。",
+        },
+        {
+          id: "p3_21",
+          word: "animal",
+          phonetic: "/ˈæn.ɪ.məl/",
+          translation: "n. 動物",
+          example_en: "The lion is the king of animals.",
+          example_zh: "獅子是動物之王。",
+        },
+        {
+          id: "p3_22",
+          word: "brother",
+          phonetic: "/ˈbrʌð.ɚ/",
+          translation: "n. 兄弟，哥哥，弟弟",
+          example_en: "My brother is playing basketball.",
+          example_zh: "我的哥哥正在打籃球。",
+        },
+        {
+          id: "p3_23",
+          word: "sister",
+          phonetic: "/ˈsɪs.tɚ/",
+          translation: "n. 姐妹，姐姐，妹妹",
+          example_en: "My little sister loves dolls.",
+          example_zh: "我的小妹妹很喜歡洋娃娃。",
+        },
+        {
+          id: "p3_24",
+          word: "father",
+          phonetic: "/ˈfɑː.ðɚ/",
+          translation: "n. 父親，爸爸",
+          example_en: "My father washes his car on Sundays.",
+          example_zh: "我爸爸每逢星期日洗車。",
+        },
+        {
+          id: "p3_25",
+          word: "mother",
+          phonetic: "/ˈmʌð.ɚ/",
+          translation: "n. 母親，媽媽",
+          example_en: "My mother makes delicious cookies.",
+          example_zh: "我媽媽會做美味的餅乾。",
+        },
+        {
+          id: "p3_26",
+          word: "garden",
+          phonetic: "/ˈɡɑːr.dən/",
+          translation: "n. 花園，菜園",
+          example_en: "There are many red roses in the garden.",
+          example_zh: "花園裡有許多紅玫瑰。",
+        },
+        {
+          id: "p3_27",
+          word: "kitchen",
+          phonetic: "/ˈkɪtʃ.ən/",
+          translation: "n. 廚房",
+          example_en: "Mom is cooking dinner in the kitchen.",
+          example_zh: "媽媽正在廚房煮晚餐。",
+        },
+        {
+          id: "p3_28",
+          word: "bedroom",
+          phonetic: "/ˈbed.ruːm/",
+          translation: "n. 臥室，睡房",
+          example_en: "My bedroom is small but warm.",
+          example_zh: "我的臥室雖小但很溫馨。",
+        },
+        {
+          id: "p3_29",
+          word: "picture",
+          phonetic: "/ˈpɪk.tʃɚ/",
+          translation: "n. 照片，圖片，畫畫",
+          example_en: "Please look at this picture on the wall.",
+          example_zh: "請看牆上的這幅畫。",
+        },
+        {
+          id: "p3_30",
+          word: "crayon",
+          phonetic: "/ˈkreɪ.ɑːn/",
+          translation: "n. 蠟筆",
+          example_en: "Can you pass me the blue crayon?",
+          example_zh: "你可以把藍色蠟筆拿給我嗎？",
+        },
+        {
+          id: "p3_31",
+          word: "rubber",
+          phonetic: "/ˈrʌb.ɚ/",
+          translation: "n. 橡皮擦，橡膠",
+          example_en: "I need a rubber to erase this word.",
+          example_zh: "我需要一塊橡皮擦來擦掉這個字。",
+        },
+        {
+          id: "p3_32",
+          word: "ruler",
+          phonetic: "/ˈruː.lɚ/",
+          translation: "n. 尺，尺子",
+          example_en: "Use a ruler to draw a straight line.",
+          example_zh: "用尺來畫一條直線。",
+        },
+        {
+          id: "p3_33",
+          word: "bottle",
+          phonetic: "/ˈbɑː.t̬əl/",
+          translation: "n. 瓶子",
+          example_en: "The milk bottle is on the table.",
+          example_zh: "牛奶瓶在桌子上。",
+        },
+        {
+          id: "p3_34",
+          word: "pocket",
+          phonetic: "/ˈpɑː.kɪt/",
+          translation: "n. 口袋",
+          example_en: "He put the key in his pocket.",
+          example_zh: "他把鑰匙放進口袋裡。",
+        },
+        {
+          id: "p3_35",
+          word: "jacket",
+          phonetic: "/ˈdʒæk.ɪt/",
+          translation: "n. 夾克，短上衣",
+          example_en: "Put on your jacket before you go out.",
+          example_zh: "出門前穿上你的夾克。",
+        },
+        {
+          id: "p3_36",
+          word: "sweater",
+          phonetic: "/ˈswet̬.ɚ/",
+          translation: "n. 毛衣",
+          example_en: "This yellow sweater is very warm.",
+          example_zh: "這件黃色毛衣非常溫暖。",
+        },
+        {
+          id: "p3_37",
+          word: "shorts",
+          phonetic: "/ʃɔːrts/",
+          translation: "n. 短褲",
+          example_en: "He likes to wear shorts in summer.",
+          example_zh: "他夏天喜歡穿短褲。",
+        },
+        {
+          id: "p3_38",
+          word: "umbrella",
+          phonetic: "/ʌmˈbrel.ə/",
+          translation: "n. 雨傘",
+          example_en: "Take an umbrella because it is raining.",
+          example_zh: "帶把傘吧，因為正在下雨。",
+        },
+        {
+          id: "p3_39",
+          word: "weather",
+          phonetic: "/ˈweð.ɚ/",
+          translation: "n. 天氣",
+          example_en: "What is the weather like today?",
+          example_zh: "今天的天氣怎麼樣？",
+        },
+        {
+          id: "p3_40",
+          word: "season",
+          phonetic: "/ˈsiː.zən/",
+          translation: "n. 季節",
+          example_en: "My favorite season is spring.",
+          example_zh: "我最喜歡的季節是春天。",
+        },
+        {
+          id: "p3_41",
+          word: "spring",
+          phonetic: "/sprɪŋ/",
+          translation: "n. 春天，春季",
+          example_en: "Flowers bloom in the spring.",
+          example_zh: "花朵在春天盛開。",
+        },
+        {
+          id: "p3_42",
+          word: "summer",
+          phonetic: "/ˈsʌm.ɚ/",
+          translation: "n. 夏天，夏季",
+          example_en: "We often go swimming in summer.",
+          example_zh: "我們夏天常常去游泳。",
+        },
+        {
+          id: "p3_43",
+          word: "autumn",
+          phonetic: "/ˈɑː.t̬əm/",
+          translation: "n. 秋天，秋季",
+          example_en: "The leaves turn yellow in autumn.",
+          example_zh: "秋天時葉子會變黃。",
+        },
+        {
+          id: "p3_44",
+          word: "winter",
+          phonetic: "/ˈwɪn.tɚ/",
+          translation: "n. 冬天，冬季",
+          example_en: "It sometimes snows here in winter.",
+          example_zh: "這裡冬天有時會下雪。",
+        },
+        {
+          id: "p3_45",
+          word: "holiday",
+          phonetic: "/ˈhɑː.lə.deɪ/",
+          translation: "n. 假日，節日",
+          example_en: "Where are you going for your holiday?",
+          example_zh: "你假期要去哪裡玩？",
+        },
+        {
+          id: "p3_46",
+          word: "subject",
+          phonetic: "/ˈsʌb.dʒekt/",
+          translation: "n. 科目，主題",
+          example_en: "My favorite subject is English.",
+          example_zh: "我最喜歡的科目是英文。",
+        },
+        {
+          id: "p3_47",
+          word: "science",
+          phonetic: "/ˈsaɪ.əns/",
+          translation: "n. 科學，自然科學",
+          example_en: "We do experiments in the science class.",
+          example_zh: "我們在自然科學課上做實驗。",
+        },
+        {
+          id: "p3_48",
+          word: "history",
+          phonetic: "/ˈhɪs.t̬ɚ.i/",
+          translation: "n. 歷史",
+          example_en: "We learn about ancient China in history class.",
+          example_zh: "我們在歷史課上學習古代中國。",
+        },
+        {
+          id: "p3_49",
+          word: "lesson",
+          phonetic: "/ˈles.ən/",
+          translation: "n. 課，課程，教訓",
+          example_en: "We have an English lesson this afternoon.",
+          example_zh: "我們今天下午有一堂英文課。",
+        },
+        {
+          id: "p3_50",
+          word: "homework",
+          phonetic: "/ˈhoʊm.wɝːk/",
+          translation: "n. 家庭作業，功課",
+          example_en: "I must finish my homework before dinner.",
+          example_zh: "我必須在晚餐前寫完功課。",
+        },
+        {
+          id: "p3_51",
+          word: "question",
+          phonetic: "/ˈkwes.tʃən/",
+          translation: "n. 問題 v. 詢問",
+          example_en: "May I ask a question, please?",
+          example_zh: "請問我可以問一個問題嗎？",
+        },
+        {
+          id: "p3_52",
+          word: "answer",
+          phonetic: "/ˈæn.sɚ/",
+          translation: "n. 答案 v. 回答",
+          example_en: "Write down your answer on the paper.",
+          example_zh: "把你的答案寫在紙上。",
+        },
+        {
+          id: "p3_53",
+          word: "language",
+          phonetic: "/ˈlæŋ.ɡwɪdʒ/",
+          translation: "n. 語言",
+          example_en: "English is a very popular language.",
+          example_zh: "英文是一門非常受歡迎的語言。",
+        },
+        {
+          id: "p3_54",
+          word: "library",
+          phonetic: "/ˈlaɪ.brer.i/",
+          translation: "n. 圖書館",
+          example_en: "I borrow three books from the library.",
+          example_zh: "我從圖書館借了三本書。",
+        },
+        {
+          id: "p3_55",
+          word: "market",
+          phonetic: "/ˈmɑːr.kɪt/",
+          translation: "n. 市場，集市",
+          example_en: "We buy fresh vegetables at the market.",
+          example_zh: "我們在市場買新鮮蔬菜。",
+        },
+        {
+          id: "p3_56",
+          word: "supermarket",
+          phonetic: "/ˈsuː.pɚˌmɑːr.kɪt/",
+          translation: "n. 超級市場",
+          example_en: "Let's buy some fruit at the supermarket.",
+          example_zh: "我們去超市買些水果吧。",
+        },
+        {
+          id: "p3_57",
+          word: "station",
+          phonetic: "/ˈsteɪ.ʃən/",
+          translation: "n. 車站，局，電台",
+          example_en: "The train will arrive at the station soon.",
+          example_zh: "火車很快就要到站了。",
+        },
+        {
+          id: "p3_58",
+          word: "hospital",
+          phonetic: "/ˈhɑːs.pɪ.t̬əl/",
+          translation: "n. 醫院",
+          example_en: "My uncle works as a doctor in that hospital.",
+          example_zh: "我叔叔在那家醫院當醫生。",
+        },
+        {
+          id: "p3_59",
+          word: "restaurant",
+          phonetic: "/ˈres.tə.rɑːnt/",
+          translation: "n. 餐廳，飯館",
+          example_en: "We had dinner in a Chinese restaurant.",
+          example_zh: "我們在一家中餐廳吃晚餐。",
+        },
+        {
+          id: "p3_60",
+          word: "cinema",
+          phonetic: "/ˈsɪn.ə.mə/",
+          translation: "n. 電影院",
+          example_en: "Let's go to the cinema to watch a movie.",
+          example_zh: "我們去電影院看部電影吧。",
+        },
+        {
+          id: "p3_61",
+          word: "country",
+          phonetic: "/ˈkʌn.tri/",
+          translation: "n. 國家，鄉下",
+          example_en: "There are many countries in Asia.",
+          example_zh: "亞洲有許多國家。",
+        },
+        {
+          id: "p3_62",
+          word: "street",
+          phonetic: "/striːt/",
+          translation: "n. 街道",
+          example_en: "Don't play football on the busy street.",
+          example_zh: "不要在繁忙的街道上踢足球。",
+        },
+        {
+          id: "p3_63",
+          word: "bridge",
+          phonetic: "/brɪdʒ/",
+          translation: "n. 橋，橋樑",
+          example_en: "There is a long bridge over the river.",
+          example_zh: "河上有一座長橋。",
+        },
+        {
+          id: "p3_64",
+          word: "river",
+          phonetic: "/ˈrɪv.ɚ/",
+          translation: "n. 河流",
+          example_en: "They are rowing a boat on the river.",
+          example_zh: "他們正在河上划船。",
+        },
+        {
+          id: "p3_65",
+          word: "mountain",
+          phonetic: "/ˈmaʊn.tən/",
+          translation: "n. 山，山脈",
+          example_en: "We climbed a high mountain last weekend.",
+          example_zh: "我們上週末爬了一座高山。",
+        },
+        {
+          id: "p3_66",
+          word: "forest",
+          phonetic: "/ˈfɔːr.ɪst/",
+          translation: "n. 森林",
+          example_en: "Many wild animals live in the deep forest.",
+          example_zh: "許多野生動物住在深林裡。",
+        },
+        {
+          id: "p3_67",
+          word: "island",
+          phonetic: "/ˈaɪ.lənd/",
+          translation: "n. 島嶼",
+          example_en: "Taiwan is a beautiful island.",
+          example_zh: "台灣是一座美麗的島嶼。",
+        },
+        {
+          id: "p3_68",
+          word: "beach",
+          phonetic: "/biːtʃ/",
+          translation: "n. 沙灘，海灘",
+          example_en: "Children love to build sandcastles on the beach.",
+          example_zh: "孩子們喜歡在沙灘上建造沙堡。",
+        },
+        {
+          id: "p3_69",
+          word: "nature",
+          phonetic: "/ˈneɪ.tʃɚ/",
+          translation: "n. 自然，大自然",
+          example_en: "We should protect nature and animals.",
+          example_zh: "我們應該保護大自然和動物。",
+        },
+        {
+          id: "p3_70",
+          word: "world",
+          phonetic: "/wɝːld/",
+          translation: "n. 世界",
+          example_en: "There are many wonderful places in the world.",
+          example_zh: "世界上有許多奇妙的地方。",
+        },
+        {
+          id: "p3_71",
+          word: "people",
+          phonetic: "/ˈpiː.pəl/",
+          translation: "n. 人，人們",
+          example_en: "The park was full of people yesterday.",
+          example_zh: "公園昨天擠滿了人。",
+        },
+        {
+          id: "p3_72",
+          word: "children",
+          phonetic: "/ˈtʃɪl.drən/",
+          translation: "n. 孩子們（child 的複數）",
+          example_en: "The children are playing tag in the park.",
+          example_zh: "孩子們正在公園裡玩捉迷藏。",
+        },
+        {
+          id: "p3_73",
+          word: "cousin",
+          phonetic: "/ˈkʌz.ən/",
+          translation: "n. 堂（表）兄弟姐妹",
+          example_en: "My cousin lives in New York.",
+          example_zh: "我的表哥住在紐約。",
+        },
+        {
+          id: "p3_74",
+          word: "uncle",
+          phonetic: "/ˈʌŋ.kəl/",
+          translation: "n. 叔叔，伯伯，舅舅，姑丈",
+          example_en: "My uncle bought me a new bicycle.",
+          example_zh: "我叔叔送了我一台新自行車。",
+        },
+        {
+          id: "p3_75",
+          word: "aunt",
+          phonetic: "/ænt/",
+          translation: "n. 阿姨，姑姑，嬸嬸，伯母",
+          example_en: "My aunt is a very good cook.",
+          example_zh: "我的阿姨是個很厲害的廚師。",
+        },
+        {
+          id: "p3_76",
+          word: "breakfast",
+          phonetic: "/ˈbrek.fəst/",
+          translation: "n. 早餐",
+          example_en: "I usually have milk and bread for breakfast.",
+          example_zh: "我早餐通常吃麵包配牛奶。",
+        },
+        {
+          id: "p3_77",
+          word: "lunch",
+          phonetic: "/lʌntʃ/",
+          translation: "n. 午餐",
+          example_en: "What did you have for lunch today?",
+          example_zh: "你今天中午吃了什麼？",
+        },
+        {
+          id: "p3_78",
+          word: "dinner",
+          phonetic: "/ˈdɪn.ɚ/",
+          translation: "n. 晚餐，晚飯",
+          example_en: "The whole family has dinner together.",
+          example_zh: "全家人一起吃晚餐。",
+        },
+        {
+          id: "p3_79",
+          word: "vegetable",
+          phonetic: "/ˈvedʒ.tə.bəl/",
+          translation: "n. 蔬菜",
+          example_en: "Eating vegetables is good for your health.",
+          example_zh: "吃蔬菜對你的健康有好處。",
+        },
+        {
+          id: "p3_80",
+          word: "fruit",
+          phonetic: "/fruːt/",
+          translation: "n. 水果",
+          example_en: "Apples and grapes are my favorite fruits.",
+          example_zh: "蘋果和葡萄是我最愛的水果。",
+        },
+        {
+          id: "p3_81",
+          word: "sandwich",
+          phonetic: "/ˈsæn.wɪdʒ/",
+          translation: "n. 三明治",
+          example_en: "I made a ham and cheese sandwich.",
+          example_zh: "我做了一個火腿起司三明治。",
+        },
+        {
+          id: "p3_82",
+          word: "biscuit",
+          phonetic: "/ˈbɪs.kɪt/",
+          translation: "n. 餅乾",
+          example_en: "Would you like a biscuit with your tea?",
+          example_zh: "你想配茶吃塊餅乾嗎？",
+        },
+        {
+          id: "p3_83",
+          word: "butter",
+          phonetic: "/ˈbʌt̬.ɚ/",
+          translation: "n. 奶油",
+          example_en: "Please spread some butter on the bread.",
+          example_zh: "請在麵包上抹點奶油。",
+        },
+        {
+          id: "p3_84",
+          word: "cheese",
+          phonetic: "/tʃiːz/",
+          translation: "n. 起司，乳酪",
+          example_en: "I like to put cheese on my pizza.",
+          example_zh: "我喜歡在披薩上加起司。",
+        },
+        {
+          id: "p3_85",
+          word: "sugar",
+          phonetic: "/ˈʃʊɡ.ɚ/",
+          translation: "n. 糖",
+          example_en: "Don't put too much sugar in your coffee.",
+          example_zh: "咖啡裡不要加太多糖。",
+        },
+        {
+          id: "p3_86",
+          word: "salt",
+          phonetic: "/sɑːlt/",
+          translation: "n. 鹽",
+          example_en: "Could you pass me the salt, please?",
+          example_zh: "請問可以把鹽拿給我嗎？",
+        },
+        {
+          id: "p3_87",
+          word: "soup",
+          phonetic: "/suːp/",
+          translation: "n. 湯",
+          example_en: "The chicken soup smells so good.",
+          example_zh: "這碗雞湯聞起來好香。",
+        },
+        {
+          id: "p3_88",
+          word: "spoon",
+          phonetic: "/spuːn/",
+          translation: "n. 湯匙",
+          example_en: "I eat my soup with a spoon.",
+          example_zh: "我用湯匙喝湯。",
+        },
+        {
+          id: "p3_89",
+          word: "plate",
+          phonetic: "/pleɪt/",
+          translation: "n. 盤子，碟子",
+          example_en: "Put the cake on a clean plate.",
+          example_zh: "把蛋糕放在乾淨的盤子裡。",
+        },
+        {
+          id: "p3_90",
+          word: "glass",
+          phonetic: "/ɡlæs/",
+          translation: "n. 玻璃杯，玻璃",
+          example_en: "He drank a glass of water.",
+          example_zh: "他喝了一杯水。",
+        },
+        {
+          id: "p3_91",
+          word: "animal",
+          phonetic: "/ˈæn.ɪ.məl/",
+          translation: "n. 動物",
+          example_en: "Monkeys are very clever animals.",
+          example_zh: "猴子是非常聰明的動物。",
+        },
+        {
+          id: "p3_92",
+          word: "monkey",
+          phonetic: "/ˈmʌŋ.ki/",
+          translation: "n. 猴子",
+          example_en: "A monkey is climbing the tall tree.",
+          example_zh: "一隻猴子正在爬那棵高樹。",
+        },
+        {
+          id: "p3_93",
+          word: "giraffe",
+          phonetic: "/dʒɪˈræf/",
+          translation: "n. 長頸鹿",
+          example_en: "The giraffe has a very long neck.",
+          example_zh: "長頸鹿有著很長脖子。",
+        },
+        {
+          id: "p3_94",
+          word: "panda",
+          phonetic: "/ˈpæn.də/",
+          translation: "n. 熊貓，大熊貓",
+          example_en: "Pandas love to eat bamboo leaves.",
+          example_zh: "熊貓熱愛吃竹葉。",
+        },
+        {
+          id: "p3_95",
+          word: "dolphin",
+          phonetic: "/ˈdɑːl.fɪn/",
+          translation: "n. 海豚",
+          example_en: "We saw a clever dolphin jumping out of the sea.",
+          example_zh: "我們看到一隻聰明的海豚跳出海面。",
+        },
+        {
+          id: "p3_96",
+          word: "penguin",
+          phonetic: "/ˈpeŋ.ɡwɪn/",
+          translation: "n. 企鵝",
+          example_en: "Penguins cannot fly but they swim well.",
+          example_zh: "企鵝不會飛，但牠們很會游泳。",
+        },
+        {
+          id: "p3_97",
+          word: "squirrel",
+          phonetic: "/ˈskwɝː.əl/",
+          translation: "n. 松鼠",
+          example_en: "The squirrel is gathering nuts for winter.",
+          example_zh: "松鼠正在收集冬天要吃的堅果。",
+        },
+        {
+          id: "p3_98",
+          word: "countryside",
+          phonetic: "/ˈkʌn.tri.saɪd/",
+          translation: "n. 鄉下，農村",
+          example_en: "We love the fresh air of the countryside.",
+          example_zh: "我們喜愛鄉下新鮮的空氣。",
+        },
+        {
+          id: "p3_99",
+          word: "journey",
+          phonetic: "/ˈdʒɝː.ni/",
+          translation: "n. 旅程，旅行",
+          example_en: "Have a safe and pleasant journey!",
+          example_zh: "祝你旅途安全且愉快！",
+        },
+        {
+          id: "p3_100",
+          word: "computer",
+          phonetic: "/kəmˈpjuː.t̬ɚ/",
+          translation: "n. 電腦",
+          example_en: "I use the computer to study English online.",
+          example_zh: "我用電腦在線上學習英文。",
+        },
+      ],
+    },
+  },
+  junior: {
+    name: "🍀 初中必備單字",
+    stages: {
+      //1: [
+      //    { id: "j1_1", word: "beautiful", phonetic: "/ˈbjuː.t̬ə.fəl/", translation: "adj. 美麗的，漂亮的", example_en: "What a beautiful sunset!", example_zh: "多麼美麗的日落啊！" },
+      //   { id: "j1_2", word: "different", phonetic: "/ˈdɪf.ɚ.ənt/", translation: "adj. 不同的", example_en: "They have different opinions.", example_zh: "他們有不同的意見。" }
+      //],
+      //2: [
+      //     { id: "j2_1", word: "exercise", phonetic: "/ˈek.sɚ.saɪz/", translation: "n./v. 運動，鍛鍊", example_en: "We should exercise every day.", example_zh: "我們應該每天運動。" },
+      //     { id: "j2_2", word: "neighbor", phonetic: "/ˈneɪ.bɚ/", translation: "n. 鄰居", example_en: "Our neighbor is very friendly.", example_zh: "我們的鄰居非常友善。" }
+      // ],
+      1: [
+        {
+          id: "j3_1",
+          word: "active",
+          phonetic: "/ˈæk.tɪv/",
+          translation: "adj. 活躍的，積極的",
+          example_en: "He is an active member of the school sports club.",
+          example_zh: "他是學校運動社團的活躍成員。",
+        },
+        {
+          id: "j3_2",
+          word: "admire",
+          phonetic: "/ədˈmaɪr/",
+          translation: "v. 欽佩，欣賞",
+          example_en: "I really admire my teacher's patience.",
+          example_zh: "我非常欽佩我老師的耐心。",
+        },
+        {
+          id: "j3_3",
+          word: "afford",
+          phonetic: "/əˈfɔːrd/",
+          translation: "v. 買得起，負擔得起",
+          example_en: "We can't afford to buy a new car right now.",
+          example_zh: "我們現在買不起新車。",
+        },
+        {
+          id: "j3_4",
+          word: "against",
+          phonetic: "/əˈɡenst/",
+          translation: "prep. 反對，對抗，緊靠",
+          example_en: "Our school team played against theirs yesterday.",
+          example_zh: "我們校隊昨天和他們隊進行了比賽。",
+        },
+        {
+          id: "j3_5",
+          word: "agreement",
+          phonetic: "/əˈɡriː.mənt/",
+          translation: "n. 協定，協議，同意",
+          example_en: "They finally reached an agreement on the project.",
+          example_zh: "他們最終就這個專案達成了解協定。",
+        },
+        {
+          id: "j3_6",
+          word: "alive",
+          phonetic: "/əˈlaɪv/",
+          translation: "adj. 活著的，有生氣的",
+          example_en: "The flowers are still alive after a week.",
+          example_zh: "一週後這些花依然活著。",
+        },
+        {
+          id: "j3_7",
+          word: "allow",
+          phonetic: "/əˈlaʊ/",
+          translation: "v. 允許，准許",
+          example_en: "My parents allow me to watch TV on weekends.",
+          example_zh: "我父母允許我週末看電視。",
+        },
+        {
+          id: "j3_8",
+          word: "almost",
+          phonetic: "/ˈɑːl.moʊst/",
+          translation: "adv. 幾乎，差不多",
+          example_en: "I have almost finished my English homework.",
+          example_zh: "我幾乎寫完我的英文功課了。",
+        },
+        {
+          id: "j3_9",
+          word: "although",
+          phonetic: "/ɑːlˈðoʊ/",
+          translation: "conj. 雖然，儘管",
+          example_en: "Although it was raining, we still went hiking.",
+          example_zh: "雖然下著雨，我們依然去健行了。",
+        },
+        {
+          id: "j3_10",
+          word: "amazing",
+          phonetic: "/əˈmeɪ.zɪŋ/",
+          translation: "adj. 令人驚奇的，超棒的",
+          example_en: "We had an amazing time at the amusement park.",
+          example_zh: "我們在遊樂園度過了一段超棒的時光。",
+        },
+        {
+          id: "j3_11",
+          word: "anger",
+          phonetic: "/ˈæŋ.ɡɚ/",
+          translation: "n. 生氣，憤怒",
+          example_en: "He shook his head in anger when he heard the news.",
+          example_zh: "聽到這個消息時，他憤怒地搖了搖頭。",
+        },
+        {
+          id: "j3_12",
+          word: "another",
+          phonetic: "/əˈnʌð.ɚ/",
+          translation: "adj./pron. 另一個，再一個",
+          example_en: "Could I please have another glass of water?",
+          example_zh: "我可以再要一杯水嗎？",
+        },
+        {
+          id: "j3_13",
+          word: "anyway",
+          phonetic: "/ˈen.i.weɪ/",
+          translation: "adv. 無論如何，總之",
+          example_en: "It was raining, but we went out anyway.",
+          example_zh: "當時在下雨，但我們無論如何還是出門了。",
+        },
+        {
+          id: "j3_14",
+          word: "area",
+          phonetic: "/ˈer.i.ə/",
+          translation: "n. 區域，地區，面積",
+          example_en: "There is a beautiful park in this area.",
+          example_zh: "這個地區有一個漂亮的花園。",
+        },
+        {
+          id: "j3_15",
+          word: "argument",
+          phonetic: "/ˈɑːr.ɡjə.mənt/",
+          translation: "n. 爭論，論點",
+          example_en: "They had a big argument about money.",
+          example_zh: "他們因為錢的事大吵了一架。",
+        },
+        {
+          id: "j3_16",
+          word: "arrive",
+          phonetic: "/əˈraɪv/",
+          translation: "v. 到達，抵達",
+          example_en: "We will arrive at the train station soon.",
+          example_zh: "我們很快就會抵達火車站了。",
+        },
+        {
+          id: "j3_17",
+          word: "attention",
+          phonetic: "/əˈten.ʃən/",
+          translation: "n. 注意，注意力",
+          example_en: "Please pay attention to the teacher's instructions.",
+          example_zh: "請注意聽老師的指示。",
+        },
+        {
+          id: "j3_18",
+          word: "attract",
+          phonetic: "/əˈtrækt/",
+          translation: "v. 吸引",
+          example_en: "The bright flowers attract many bees.",
+          example_zh: "鮮豔的花朵吸引了許多蜜蜂。",
+        },
+        {
+          id: "j3_19",
+          word: "average",
+          phonetic: "/ˈæv.ɚ.ɪdʒ/",
+          translation: "adj. 平均的，平常的 n. 平均數",
+          example_en: "The average student studies two hours a day.",
+          example_zh: "一般的學生每天讀書兩小時。",
+        },
+        {
+          id: "j3_20",
+          word: "awake",
+          phonetic: "/əˈweɪk/",
+          translation: "adj. 醒著的 v. 喚醒",
+          example_en: "The noise kept me awake all night.",
+          example_zh: "噪音讓我整晚都睡不著。",
+        },
+        {
+          id: "j3_21",
+          word: "background",
+          phonetic: "/ˈbæk.ɡraʊnd/",
+          translation: "n. 背景，學經歷",
+          example_en: "They come from different cultural backgrounds.",
+          example_zh: "他們來自不同的文化背景。",
+        },
+        {
+          id: "j3_22",
+          word: "banner",
+          phonetic: "/ˈbæn.ɚ/",
+          translation: "n. 橫幅，旗幟",
+          example_en: "They hung a welcome banner at the school gate.",
+          example_zh: "他們在校門口掛了一條歡迎橫幅。",
+        },
+        {
+          id: "j3_23",
+          word: "beat",
+          phonetic: "/biːt/",
+          translation: "v. 打敗，跳動，擊打",
+          example_en: "Our school basketball team beat theirs easily.",
+          example_zh: "我們學校籃球隊輕鬆打敗了他們隊。",
+        },
+        {
+          id: "j3_24",
+          word: "believe",
+          phonetic: "/bɪˈliːv/",
+          translation: "v. 相信，信任",
+          example_en: "I believe that honesty is the best policy.",
+          example_zh: "我相信誠實為上策。",
+        },
+        {
+          id: "j3_25",
+          word: "besides",
+          phonetic: "/bɪˈsaɪdz/",
+          translation: "prep. 除...之外 adv. 此外",
+          example_en: "Besides English, she can speak Spanish.",
+          example_zh: "除了英文，她還會說西班牙文。",
+        },
+        {
+          id: "j3_26",
+          word: "blanket",
+          phonetic: "/ˈblæŋ.kɪt/",
+          translation: "n. 毛毯，毯子",
+          example_en: "It is cold tonight, so I need another blanket.",
+          example_zh: "今晚很冷，所以我需要再多一條毛毯。",
+        },
+        {
+          id: "j3_27",
+          word: "blind",
+          phonetic: "/blaɪnd/",
+          translation: "adj. 盲的，看不見的",
+          example_en: "The blind man used a white cane to walk.",
+          example_zh: "那名盲人使用白手杖走路。",
+        },
+        {
+          id: "j3_28",
+          word: "boring",
+          phonetic: "/ˈbɔːr.ɪŋ/",
+          translation: "adj. 無聊的，乏味的",
+          example_en: "The movie was so boring that I fell asleep.",
+          example_zh: "這部電影太無聊了，我都睡著了。",
+        },
+        {
+          id: "j3_29",
+          word: "borrow",
+          phonetic: "/ˈbɑːr.oʊ/",
+          translation: "v. 借入，借來",
+          example_en: "May I borrow your ruler for a moment?",
+          example_zh: "我可以借用一下你的尺嗎？",
+        },
+        {
+          id: "j3_30",
+          word: "boss",
+          phonetic: "/bɑːs/",
+          translation: "n. 老闆，上司",
+          example_en: "The boss asked us to work overtime today.",
+          example_zh: "老闆要求我們今天加班。",
+        },
+        {
+          id: "j3_31",
+          word: "bother",
+          phonetic: "/ˈbɑː.ðɚ/",
+          translation: "v. 打擾，打擾，煩惱",
+          example_en: "Please don't bother me while I am studying.",
+          example_zh: "當我讀書時請不要打擾我。",
+        },
+        {
+          id: "j3_32",
+          word: "brain",
+          phonetic: "/breɪn/",
+          translation: "n. 大腦，智力",
+          example_en: "Scientists study how the human brain works.",
+          example_zh: "科學家們研究人類大腦如何運作。",
+        },
+        {
+          id: "j3_33",
+          word: "brave",
+          phonetic: "/breɪv/",
+          translation: "adj. 勇敢的",
+          example_en: "The brave firefighter saved the little girl.",
+          example_zh: "勇敢的消防員救了那個小女孩。",
+        },
+        {
+          id: "j3_34",
+          word: "breathe",
+          phonetic: "/briːð/",
+          translation: "v. 呼吸",
+          example_en: "It is hard to breathe at high altitudes.",
+          example_zh: "在海拔高的地方呼吸很困難。",
+        },
+        {
+          id: "j3_35",
+          word: "bright",
+          phonetic: "/braɪt/",
+          translation: "adj. 明亮的，聰明的",
+          example_en: "The sun is very bright today.",
+          example_zh: "今天的陽光非常明亮。",
+        },
+        {
+          id: "j3_36",
+          word: "bucket",
+          phonetic: "/ˈbʌk.ɪt/",
+          translation: "n. 水桶",
+          example_en: "We filled the bucket with warm water.",
+          example_zh: "我們用水桶裝滿了溫水。",
+        },
+        {
+          id: "j3_37",
+          word: "business",
+          phonetic: "/ˈbɪz.nɪs/",
+          translation: "n. 生意，商業，公事",
+          example_en: "My uncle is traveling in New York on business.",
+          example_zh: "我叔叔因為公事正在紐約出差。",
+        },
+        {
+          id: "j3_38",
+          word: "camera",
+          phonetic: "/ˈkæm.rə/",
+          translation: "n. 相機，照相機",
+          example_en: "She took a picture with her new camera.",
+          example_zh: "她用她的新相機拍了張照片。",
+        },
+        {
+          id: "j3_39",
+          word: "candle",
+          phonetic: "/ˈkæn.dəl/",
+          translation: "n. 蠟燭",
+          example_en: "We lit a candle when the power went out.",
+          example_zh: "停電時我們點燃了一根蠟燭。",
+        },
+        {
+          id: "j3_40",
+          word: "careful",
+          phonetic: "/ˈker.fəl/",
+          translation: "adj. 小心的，仔細的",
+          example_en: "Please be careful when you cross the street.",
+          example_zh: "當你過馬路時請小心。",
+        },
+        {
+          id: "j3_41",
+          word: "carrot",
+          phonetic: "/ˈkær.ət/",
+          translation: "n. 胡蘿蔔",
+          example_en: "Rabbits like to eat fresh carrots.",
+          example_zh: "兔子喜歡吃新鮮的胡蘿蔔。",
+        },
+        {
+          id: "j3_42",
+          word: "century",
+          phonetic: "/ˈsen.tʃər.i/",
+          translation: "n. 世紀，百年",
+          example_en: "The temple was built in the eighteenth century.",
+          example_zh: "這座寺廟建於十八世紀。",
+        },
+        {
+          id: "j3_43",
+          word: "certain",
+          phonetic: "/ˈsɝː.tən/",
+          translation: "adj. 確定的，某個",
+          example_en: "Are you certain that the store is open today?",
+          example_zh: "你確定這家店今天有開嗎？",
+        },
+        {
+          id: "j3_44",
+          word: "challenge",
+          phonetic: "/ˈtʃæl.ɪndʒ/",
+          translation: "n./v. 挑戰",
+          example_en: "Learning a new language is a big challenge for me.",
+          example_zh: "學習一門新語言對我來說是一個巨大的挑戰。",
+        },
+        {
+          id: "j3_45",
+          word: "cheap",
+          phonetic: "/tʃiːp/",
+          translation: "adj. 便宜的",
+          example_en: "This store sells cheap and good clothes.",
+          example_zh: "這家商店賣便宜又好看的衣服。",
+        },
+        {
+          id: "j3_46",
+          word: "cheat",
+          phonetic: "/tʃiːt/",
+          translation: "v. 欺騙，作弊",
+          example_en: "He promised never to cheat in exams again.",
+          example_zh: "他答應再也不在考試中作弊了。",
+        },
+        {
+          id: "j3_47",
+          word: "choice",
+          phonetic: "/tʃɔɪs/",
+          translation: "n. 選擇",
+          example_en: "We have no choice but to wait here.",
+          example_zh: "除了在這裡等，我們沒有別的選擇。",
+        },
+        {
+          id: "j3_48",
+          word: "choose",
+          phonetic: "/tʃuːz/",
+          translation: "v. 選擇，挑選",
+          example_en: "It is hard to choose between these two books.",
+          example_zh: "要在這兩本書之間做選擇很難。",
+        },
+        {
+          id: "j3_49",
+          word: "church",
+          phonetic: "/tʃɝːtʃ/",
+          translation: "n. 教堂",
+          example_en: "They go to church every Sunday morning.",
+          example_zh: "他們每個星期日早上都去教堂。",
+        },
+        {
+          id: "j3_50",
+          word: "citizen",
+          phonetic: "/ˈsɪt̬.ə.zən/",
+          translation: "n. 公民，市民",
+          example_en: "Every citizen should keep the city clean.",
+          example_zh: "每個市民都應該保持城市乾淨。",
+        },
+        {
+          id: "j3_51",
+          word: "coach",
+          phonetic: "/koʊtʃ/",
+          translation: "n. 教練，大客車",
+          example_en: "The basketball coach is very strict with us.",
+          example_zh: "籃球教練對我們非常嚴格。",
+        },
+        {
+          id: "j3_52",
+          word: "collect",
+          phonetic: "/kəˈlekt/",
+          translation: "v. 收集，收集",
+          example_en: "My brother loves to collect old coins.",
+          example_zh: "我弟弟很喜歡收集舊硬幣。",
+        },
+        {
+          id: "j3_53",
+          word: "common",
+          phonetic: "/ˈkɑː.mən/",
+          translation: "adj. 常見的，共同的",
+          example_en: "Sore throats are common in winter.",
+          example_zh: "喉嚨痛在冬天很常見。",
+        },
+        {
+          id: "j3_54",
+          word: "company",
+          phonetic: "/ˈkʌm.pə.ni/",
+          translation: "n. 公司，陪伴",
+          example_en: "My father works for a software company.",
+          example_zh: "我爸爸在一家軟體公司工作。",
+        },
+        {
+          id: "j3_55",
+          word: "control",
+          phonetic: "/kənˈtroʊl/",
+          translation: "v./n. 控制，管理",
+          example_en: "It is difficult to control this remote car.",
+          example_zh: "這輛遙控車很難控制。",
+        },
+        {
+          id: "j3_56",
+          word: "courage",
+          phonetic: "/ˈkɝː.ɪdʒ/",
+          translation: "n. 勇氣，膽量",
+          example_en: "It takes courage to speak in front of many people.",
+          example_zh: "在很多人面前說話需要勇氣。",
+        },
+        {
+          id: "j3_57",
+          word: "cruel",
+          phonetic: "/ˈkruː.əl/",
+          translation: "adj. 殘忍的，殘酷的",
+          example_en: "It is cruel to hurt innocent animals.",
+          example_zh: "傷害無辜的動物是很殘忍的。",
+        },
+        {
+          id: "j3_58",
+          word: "culture",
+          phonetic: "/ˈkʌl.tʃɚ/",
+          translation: "n. 文化",
+          example_en: "Learning a language helps us understand its culture.",
+          example_zh: "學習一門語言有助於我們理解其文化。",
+        },
+        {
+          id: "j3_59",
+          word: "curious",
+          phonetic: "/ˈkjʊr.i.əs/",
+          translation: "adj. 好奇的",
+          example_en: "Children are always curious about the world.",
+          example_zh: "孩子們總是對世界感到好奇。",
+        },
+        {
+          id: "j3_60",
+          word: "custom",
+          phonetic: "/ˈkʌs.təm/",
+          translation: "n. 習俗，海關",
+          example_en: "Giving red envelopes is a traditional custom in Taiwan.",
+          example_zh: "給紅包是台灣的一個傳統習俗。",
+        },
+        {
+          id: "j3_61",
+          word: "danger",
+          phonetic: "/ˈdeɪn.dʒɚ/",
+          translation: "n. 危險",
+          example_en: "The sign warned people of the danger ahead.",
+          example_zh: "那個告示牌警告人們前方有危險。",
+        },
+        {
+          id: "j3_62",
+          word: "decision",
+          phonetic: "/dɪˈsɪʒ.ən/",
+          translation: "n. 決定，抉擇",
+          example_en: "Have you made a decision about your major yet?",
+          example_zh: "你決定好要讀什麼科系了嗎？",
+        },
+        {
+          id: "j3_63",
+          word: "decorate",
+          phonetic: "/ˈdek.ə.reɪt/",
+          translation: "v. 裝飾，佈置",
+          example_en: "We decorated the Christmas tree with colorful lights.",
+          example_zh: "我們用五彩斑斕的燈裝飾了聖誕樹。",
+        },
+        {
+          id: "j3_64",
+          word: "deep",
+          phonetic: "/diːp/",
+          translation: "adj. 深的",
+          example_en: "The lake is very deep, so don't swim here.",
+          example_zh: "這座湖非常深，所以不要在這裡游泳。",
+        },
+        {
+          id: "j3_65",
+          word: "defeat",
+          phonetic: "/dɪˈfiːt/",
+          translation: "v./n. 擊敗，戰勝，失敗",
+          example_en: "They managed to defeat the champion in the match.",
+          example_zh: "他們在比賽中成功擊敗了冠軍。",
+        },
+        {
+          id: "j3_66",
+          word: "degree",
+          phonetic: "/dɪˈɡriː/",
+          translation: "n. 度數，學位，程度",
+          example_en: "The temperature dropped below zero degrees.",
+          example_zh: "溫度降到了零度以下。",
+        },
+        {
+          id: "j3_67",
+          word: "delicious",
+          phonetic: "/dɪˈlɪʃ.əs/",
+          translation: "adj. 美味的，好吃的",
+          example_en: "My grandmother made a delicious chocolate cake.",
+          example_zh: "我奶奶做了一個美味的巧克力蛋糕。",
+        },
+        {
+          id: "j3_68",
+          word: "deliver",
+          phonetic: "/dɪˈlɪv.ɚ/",
+          translation: "v. 傳遞，投遞",
+          example_en: "They promise to deliver the package tomorrow.",
+          example_zh: "他們承諾明天送達包裹。",
+        },
+        {
+          id: "j3_69",
+          word: "dentist",
+          phonetic: "/ˈden.t̬ɪst/",
+          translation: "n. 牙醫",
+          example_en: "I go to the dentist twice a year to check my teeth.",
+          example_zh: "我一年看兩次牙醫來檢查我的牙齒。",
+        },
+        {
+          id: "j3_70",
+          word: "depend",
+          phonetic: "/dɪˈpend/",
+          translation: "v. 依靠，依賴，取決於",
+          example_en: "Whether we go or not depends on the weather.",
+          example_zh: "我們去不去取決於天氣。",
+        },
+        {
+          id: "j3_71",
+          word: "describe",
+          phonetic: "/dɪˈskraɪb/",
+          translation: "v. 描述，描寫",
+          example_en: "Can you describe the missing bag?",
+          example_zh: "你能描述一下那個遺失的袋子嗎？",
+        },
+        {
+          id: "j3_72",
+          word: "design",
+          phonetic: "/dɪˈzaɪn/",
+          translation: "v./n. 設計",
+          example_en: "This famous architect designed the library.",
+          example_zh: "這位著名的建築師設計了這座圖書館。",
+        },
+        {
+          id: "j3_73",
+          word: "destroy",
+          phonetic: "/dɪˈstrɔɪ/",
+          translation: "v. 破壞，摧毀",
+          example_en: "The fire destroyed several houses.",
+          example_zh: "大火摧毀了幾棟房子。",
+        },
+        {
+          id: "j3_74",
+          word: "detail",
+          phonetic: "/ˈdiː.teɪl/",
+          translation: "n. 細節",
+          example_en: "Please tell me all the details about the event.",
+          example_zh: "請告訴我關於這個活動的所有細節。",
+        },
+        {
+          id: "j3_75",
+          word: "develop",
+          phonetic: "/dɪˈvel.əp/",
+          translation: "v. 發展，開發，培養",
+          example_en: "The small town has developed into a big city.",
+          example_zh: "這個小鎮已經發展成了一座大城市。",
+        },
+        {
+          id: "j3_76",
+          word: "different",
+          phonetic: "/ˈdɪf.ɚ.ənt/",
+          translation: "adj. 不同的",
+          example_en: "They are identical twins but have different hobbies.",
+          example_zh: "他們是一模一樣的雙胞胎，但有不同的興趣。",
+        },
+        {
+          id: "j3_77",
+          word: "difficult",
+          phonetic: "/ˈdɪf.ə.kəlt/",
+          translation: "adj. 困難的，難的",
+          example_en: "This math question is too difficult for me to solve.",
+          example_zh: "這道數學題對我來說太難解了。",
+        },
+        {
+          id: "j3_78",
+          word: "direct",
+          phonetic: "/daɪˈrekt/",
+          translation: "adj. 直接的 v. 指引，導演",
+          example_en: "He gave me direct answers without hesitating.",
+          example_zh: "他毫不猶豫地給了我直接的回答。",
+        },
+        {
+          id: "j3_79",
+          word: "dirty",
+          phonetic: "/ˈdɝː.t̬i/",
+          translation: "adj. 骯髒的",
+          example_en: "Please wash your dirty hands before dinner.",
+          example_zh: "晚餐前請清洗你骯髒的手。",
+        },
+        {
+          id: "j3_80",
+          word: "discover",
+          phonetic: "/dɪˈskʌv.ɚ/",
+          translation: "v. 發現",
+          example_en: "Columbus discovered America in 1492.",
+          example_zh: "哥倫布在1492年發現了美洲。",
+        },
+        {
+          id: "j3_81",
+          word: "discuss",
+          phonetic: "/dɪˈskʌs/",
+          translation: "v. 討論",
+          example_en: "We will discuss the plan in the next meeting.",
+          example_zh: "我們將在下次會議中討論這項計劃。",
+        },
+        {
+          id: "j3_82",
+          word: "disease",
+          phonetic: "/dɪˈziːz/",
+          translation: "n. 疾病",
+          example_en: "Dirty water can spread dangerous diseases.",
+          example_zh: "不乾淨的水會傳播危險的疾病。",
+        },
+        {
+          id: "j3_83",
+          word: "distance",
+          phonetic: "/ˈdɪs.təns/",
+          translation: "n. 距離",
+          example_en: "The school is a short distance from my home.",
+          example_zh: "學校離我家距離很短。",
+        },
+        {
+          id: "j3_84",
+          word: "divide",
+          phonetic: "/dɪˈvaɪd/",
+          translation: "v. 分開，劃分",
+          example_en: "The teacher divided the class into small groups.",
+          example_zh: "老師把全班分成了幾個小組。",
+        },
+        {
+          id: "j3_85",
+          word: "double",
+          phonetic: "/ˈdʌb.əl/",
+          translation: "adj. 雙倍的 v. 翻倍",
+          example_en: "The price of vegetables doubled during the typhoon.",
+          example_zh: "颱風期間蔬菜價格翻了一倍。",
+        },
+        {
+          id: "j3_86",
+          word: "doubt",
+          phonetic: "/daʊt/",
+          translation: "v./n. 懷疑，疑惑",
+          example_en: "There is no doubt that she will win the competition.",
+          example_zh: "毫無疑問，她將贏得這次比賽。",
+        },
+        {
+          id: "j3_87",
+          word: "dream",
+          phonetic: "/driːm/",
+          translation: "n./v. 夢，夢想",
+          example_en: "My dream is to travel around the world.",
+          example_zh: "我的夢想是環遊世界。",
+        },
+        {
+          id: "j3_88",
+          word: "dress",
+          phonetic: "/dres/",
+          translation: "n. 洋裝 v. 穿衣",
+          example_en: "She wore a beautiful pink dress to the wedding.",
+          example_zh: "她穿了一件漂亮的粉紅色洋裝去參加婚禮。",
+        },
+        {
+          id: "j3_89",
+          word: "driver",
+          phonetic: "/ˈdraɪ.vɚ/",
+          translation: "n. 司機，駕駛員",
+          example_en: "The bus driver was very helpful and polite.",
+          example_zh: "公車司機非常熱心且有禮貌。",
+        },
+        {
+          id: "j3_90",
+          word: "during",
+          phonetic: "/ˈdʊr.ɪŋ/",
+          translation: "prep. 在...期間",
+          example_en: "It snowed heavily during the winter vacation.",
+          example_zh: "寒假期間下了大雪。",
+        },
+        {
+          id: "j3_91",
+          word: "duty",
+          phonetic: "/ˈduː.t̬i/",
+          translation: "n. 職責，義務，關稅",
+          example_en: "It is our duty to keep our neighborhood safe.",
+          example_zh: "保持我們社區安全是我們的職責。",
+        },
+        {
+          id: "j3_92",
+          word: "earn",
+          phonetic: "/ɝːn/",
+          translation: "v. 賺取，贏得",
+          example_en: "He worked part-time to earn money for college.",
+          example_zh: "他做兼職工作來賺取大學學費。",
+        },
+        {
+          id: "j3_93",
+          word: "earth",
+          phonetic: "/ɝːθ/",
+          translation: "n. 地球，泥土",
+          example_en: "The Earth moves around the Sun.",
+          example_zh: "地球繞著太陽運轉。",
+        },
+        {
+          id: "j3_94",
+          word: "easily",
+          phonetic: "/ˈiː.zəl.i/",
+          translation: "adv. 輕易地，容易地",
+          example_en: "She solved the difficult puzzle easily.",
+          example_zh: "她輕易地解開了那個難題。",
+        },
+        {
+          id: "j3_95",
+          word: "education",
+          phonetic: "/ˌedʒ.əˈkeɪ.ʃən/",
+          translation: "n. 教育",
+          example_en: "We must realize the importance of basic education.",
+          example_zh: "我們必須意識到基礎教育的重要性。",
+        },
+        {
+          id: "j3_96",
+          word: "effect",
+          phonetic: "/əˈfekt/",
+          translation: "n. 影響，效果",
+          example_en: "The new law had a positive effect on the economy.",
+          example_zh: "新法律對經濟產生了積極的影響。",
+        },
+        {
+          id: "j3_97",
+          word: "effort",
+          phonetic: "/ˈef.ɚt/",
+          translation: "n. 努力，嘗試",
+          example_en: "The teacher praised her for making a great effort.",
+          example_zh: "老師稱讚她做出了巨大的努力。",
+        },
+        {
+          id: "j3_98",
+          word: "either",
+          phonetic: "/ˈiː.ðɚ/",
+          translation: "adj./pron. 兩者之一 adv. 也（不）",
+          example_en: "You can have either coffee or tea.",
+          example_zh: "你可以喝咖啡或茶（兩者擇一）。",
+        },
+        {
+          id: "j3_99",
+          word: "elderly",
+          phonetic: "/ˈel.dɚ.li/",
+          translation: "adj. 年長的，老年的",
+          example_en: "We volunteered to help the elderly people.",
+          example_zh: "我們自願去幫助那些年長的人。",
+        },
+        {
+          id: "j3_100",
+          word: "electric",
+          phonetic: "/iˈlek.trɪk/",
+          translation: "adj. 電的，電動的",
+          example_en: "Electric cars are becoming more popular in Taiwan.",
+          example_zh: "電動車在台灣正變得越來越流行。",
+        },
+      ],
+    },
+  },
+  senior: {
+    name: "🌿 高中必備單字",
+    stages: {
+      //1: [
+      //  { id: "s1_1", word: "consequence", phonetic: "/ˈkɑːn.sə.kwəns/", translation: "n. 後果，結果", example_en: "You must accept the consequences.", example_zh: "你必須承擔後果。" },
+      //{ id: "s1_2", word: "distinguish", phonetic: "/dɪˈstɪŋ.ɡwɪʃ/", translation: "v. 區分，辨別", example_en: "It's hard to distinguish the twins.", example_zh: "很難分辨這對雙胞胎。" }
+      //],
+      //2: [
+      //  { id: "s2_1", word: "temporary", phonetic: "/ˈtem.pə.rer.i/", translation: "adj. 暫時的，臨時的", example_en: "This is just a temporary solution.", example_zh: "這只是一個暫時的解決方案。" },
+      //{ id: "s2_2", word: "guarantee", phonetic: "/ˌɡær.ənˈtiː/", translation: "v./n. 保證，擔保", example_en: "We guarantee the quality of our service.", example_zh: "我們保證我們的服務品質。" }
+      //],
+      1: [
+        {
+          id: "s3_1",
+          word: "abandon",
+          phonetic: "/əˈbæn.dən/",
+          translation: "v. 拋棄，放棄",
+          example_en: "The sailors had to abandon the sinking ship.",
+          example_zh: "船員們不得不放棄那艘即將下沉的船。",
+        },
+        {
+          id: "s3_2",
+          word: "accumulate",
+          phonetic: "/əˈkjuː.mjə.leɪt/",
+          translation: "v. 累積，積聚",
+          example_en: "Dust began to accumulate on the unused books.",
+          example_zh: "灰塵開始累積在沒被使用的書本上。",
+        },
+        {
+          id: "s3_3",
+          word: "accustomed",
+          phonetic: "/əˈkʌs.təmd/",
+          translation: "adj. 習慣於...的",
+          example_en: "She quickly became accustomed to her new environment.",
+          example_zh: "她很快就習慣了她的新環境。",
+        },
+        {
+          id: "s3_4",
+          word: "adolescent",
+          phonetic: "/ˌæd.əˈles.ənt/",
+          translation: "n. 青少年 adj. 青春期的",
+          example_en: "Adolescents often experience rapid changes in emotion.",
+          example_zh: "青少年經常經歷劇烈的情緒變化。",
+        },
+        {
+          id: "s3_5",
+          word: "advocate",
+          phonetic: "/ˈæd.və.keɪt/",
+          translation: "v. 提倡，主張 n. 擁護者",
+          example_en:
+            "The organization advocates for environmental protection.",
+          example_zh: "該組織提倡環境保護。",
+        },
+        {
+          id: "s3_6",
+          word: "alternative",
+          phonetic: "/ɑːlˈtɝː.nə.t̬ɪv/",
+          translation: "n. 選擇，替代方案 adj. 替代的",
+          example_en: "Solar power is a clean alternative to coal.",
+          example_zh: "太陽能是替代煤炭的乾淨能源選擇。",
+        },
+        {
+          id: "s3_7",
+          word: "anticipate",
+          phonetic: "/ænˈtɪs.ə.peɪt/",
+          translation: "v. 預期，期待",
+          example_en: "We anticipate that prices will rise next year.",
+          example_zh: "我們預期明年物價會上漲。",
+        },
+        {
+          id: "s3_8",
+          word: "artificial",
+          phonetic: "/ˌɑːr.t̬əˈfɪʃ.əl/",
+          translation: "adj. 人工的，人造的",
+          example_en: "The flowers are artificial, but they look very real.",
+          example_zh: "這些花是人造的，但看起來非常逼真。",
+        },
+        {
+          id: "s3_9",
+          word: "aspect",
+          phonetic: "/ˈæs.pekt/",
+          translation: "n. 方面，層面",
+          example_en: "We must consider every aspect of the problem.",
+          example_zh: "我們必須考慮這個問題的每個層面。",
+        },
+        {
+          id: "s3_10",
+          word: "bachelor",
+          phonetic: "/ˈbætʃ.əl.ɚ/",
+          translation: "n. 單身漢，學士學位",
+          example_en: "He obtained a bachelor's degree in computer science.",
+          example_zh: "他獲得了資訊科學的學士學位。",
+        },
+        {
+          id: "s3_11",
+          word: "barrier",
+          phonetic: "/ˈbær.i.ɚ/",
+          translation: "n. 障礙，阻礙",
+          example_en:
+            "Language barriers can sometimes cause misunderstandings.",
+          example_zh: "語言障礙有時會導致誤解。",
+        },
+        {
+          id: "s3_12",
+          word: "broadcast",
+          phonetic: "/ˈbrɑːd.kæst/",
+          translation: "v./n. 廣播，播放",
+          example_en: "The news is broadcast live around the world.",
+          example_zh: "這則新聞向全世界進行現場直播。",
+        },
+        {
+          id: "s3_13",
+          word: "calculation",
+          phonetic: "/ˌkæl.kjəˈleɪ.ʃən/",
+          translation: "n. 計算，估算",
+          example_en: "The complex calculation was done by a supercomputer.",
+          example_zh: "這個複雜的計算是由超級電腦完成的。",
+        },
+        {
+          id: "s3_14",
+          word: "campaign",
+          phonetic: "/kæmˈpeɪn/",
+          translation: "n. （政治或商業）活動 v. 發起運動",
+          example_en: "The group launched a campaign against smoking.",
+          example_zh: "該小組發起了一項反對吸菸的活動。",
+        },
+        {
+          id: "s3_15",
+          word: "candidate",
+          phonetic: "/ˈkæn.dɪ.deɪt/",
+          translation: "n. 候選人，申請人",
+          example_en: "She is the best candidate for the job.",
+          example_zh: "她是這份工作最合適的候選人。",
+        },
+        {
+          id: "s3_16",
+          word: "capacity",
+          phonetic: "/kəˈpæs.ə.t̬i/",
+          translation: "n. 容量，能力",
+          example_en: "The theater has a seating capacity of 500 people.",
+          example_zh: "這家劇院的座位容量為 500 人。",
+        },
+        {
+          id: "s3_17",
+          word: "casual",
+          phonetic: "/ˈkæʒ.u.əl/",
+          translation: "adj. 非正式的，隨便的",
+          example_en: "You can wear casual clothes to the party.",
+          example_zh: "你可以穿非正式的休閒服去參加派對。",
+        },
+        {
+          id: "s3_18",
+          word: "circulate",
+          phonetic: "/ˈsɝː.kjə.leɪt/",
+          translation: "v. 循環，流通，流傳",
+          example_en: "Fresh air needs to circulate through the room.",
+          example_zh: "房間裡需要有新鮮空氣循環。",
+        },
+        {
+          id: "s3_19",
+          word: "circumstance",
+          phonetic: "/ˈsɝː.kəm.stæns/",
+          translation: "n. 情況，處境",
+          example_en: "Under no circumstances should you open this door.",
+          example_zh: "在任何情況下你都不應該打開這扇門。",
+        },
+        {
+          id: "s3_20",
+          word: "collapse",
+          phonetic: "/kəˈlæps/",
+          translation: "v./n. 倒塌，崩潰",
+          example_en: "The old wooden bridge collapsed during the storm.",
+          example_zh: "那座老舊的木橋在暴風雨中倒塌了。",
+        },
+        {
+          id: "s3_21",
+          word: "compensation",
+          phonetic: "/ˌkɑːm.penˈseɪ.ʃən/",
+          translation: "n. 補償，賠償金",
+          example_en:
+            "The company offered compensation to the injured workers.",
+          example_zh: "公司向受傷的工人提供了賠償金。",
+        },
+        {
+          id: "s3_22",
+          word: "complex",
+          phonetic: "/kɑːmˈpleks/",
+          translation: "adj. 複雜的 n. 綜合大樓",
+          example_en: "The human brain is an extremely complex organ.",
+          example_zh: "人類的大腦是一個極其複雜的器官。",
+        },
+        {
+          id: "s3_23",
+          word: "comprise",
+          phonetic: "/kəmˈpraɪz/",
+          translation: "v. 由...組成，包含",
+          example_en: "The committee comprises ten highly skilled members.",
+          example_zh: "該委員會由十位高技術的成員組成。",
+        },
+        {
+          id: "s3_24",
+          word: "concentration",
+          phonetic: "/ˌkɑːn.sənˈtreɪ.ʃən/",
+          translation: "n. 專注，集中，濃度",
+          example_en: "Noise in the classroom disturbed my concentration.",
+          example_zh: "教室裡的噪音干擾了我的專注力。",
+        },
+        {
+          id: "s3_25",
+          word: "conservative",
+          phonetic: "/kənˈsɝː.və.t̬ɪv/",
+          translation: "adj. 保守的，傳統的",
+          example_en:
+            "His grandfather has very conservative ideas about dating.",
+          example_zh: "他的祖父對於約會抱持著非常保守的觀念。",
+        },
+        {
+          id: "s3_26",
+          word: "constantly",
+          phonetic: "/ˈkɑːn.stənt.li/",
+          translation: "adv. 不斷地，時常地",
+          example_en: "The world is constantly changing around us.",
+          example_zh: "我們周圍的世界正在不斷地改變。",
+        },
+        {
+          id: "s3_27",
+          word: "contribute",
+          phonetic: "/kənˈtrɪb.juːt/",
+          translation: "v. 貢獻，捐助，促成",
+          example_en: "Many factors contribute to global warming.",
+          example_zh: "許多因素促成了全球暖化。",
+        },
+        {
+          id: "s3_28",
+          word: "controversial",
+          phonetic: "/ˌkɑːn.trəˈvɝː.ʃəl/",
+          translation: "adj. 有爭議的",
+          example_en: "The death penalty remains a controversial issue.",
+          example_zh: "死刑依然是一個有爭議的議題。",
+        },
+        {
+          id: "s3_29",
+          word: "convince",
+          phonetic: "/kənˈvɪns/",
+          translation: "v. 說服，使相信",
+          example_en: "I tried to convince her that the plan would work.",
+          example_zh: "我試圖說服她這個計劃是行得通的。",
+        },
+        {
+          id: "s3_30",
+          word: "criticism",
+          phonetic: "/ˈkrɪt̬.ɪ.sɪz.əm/",
+          translation: "n. 批評，評論",
+          example_en: "The politician faced strong criticism from the public.",
+          example_zh: "這位政治人物面臨來自大眾的強烈批評。",
+        },
+        {
+          id: "s3_31",
+          word: "declare",
+          phonetic: "/dɪˈkler/",
+          translation: "v. 宣佈，聲明，申報",
+          example_en: "The country declared independence in 1960.",
+          example_zh: "該國於 1960 年宣佈獨立。",
+        },
+        {
+          id: "s3_32",
+          word: "depression",
+          phonetic: "/dɪˈpreʃ.ən/",
+          translation: "n. 憂鬱症，蕭條，沮喪",
+          example_en: "Regular exercise can help reduce stress and depression.",
+          example_zh: "規律運動有助於減輕壓力和憂鬱症。",
+        },
+        {
+          id: "s3_33",
+          word: "desperate",
+          phonetic: "/ˈdes.pɚ.ət/",
+          translation: "adj. 絕望的，極度渴望的",
+          example_en: "The dry fields are in desperate need of rain.",
+          example_zh: "乾旱的農田極度渴望下雨。",
+        },
+        {
+          id: "s3_34",
+          word: "dignity",
+          phonetic: "/ˈdɪɡ.nə.t̬i/",
+          translation: "n. 尊嚴，高貴",
+          example_en: "Everyone has the right to live with dignity.",
+          example_zh: "每個人都有尊嚴生活的權利。",
+        },
+        {
+          id: "s3_35",
+          word: "dimension",
+          phonetic: "/ˌdaɪˈmen.ʃən/",
+          translation: "n. 尺寸，維度，空間",
+          example_en: "We need to measure the dimensions of the room.",
+          example_zh: "我們需要測量這個房間的尺寸。",
+        },
+        {
+          id: "s3_36",
+          word: "disaster",
+          phonetic: "/dɪˈzæs.tɚ/",
+          translation: "n. 災難，大禍",
+          example_en: "The earthquake was a major natural disaster.",
+          example_zh: "那場地震是一次重大的自然災難。",
+        },
+        {
+          id: "s3_37",
+          word: "discipline",
+          phonetic: "/ˈdɪs.ə.plɪn/",
+          translation: "n. 紀律，懲罰，學科",
+          example_en: "Strict discipline is required in military training.",
+          example_zh: "軍事訓練中需要嚴格的紀律。",
+        },
+        {
+          id: "s3_38",
+          word: "dominant",
+          phonetic: "/ˈdɑː.mə.nənt/",
+          translation: "adj. 佔優勢的，支配的，主流的",
+          example_en:
+            "English is the dominant language of international business.",
+          example_zh: "英語是國際商務的主流語言。",
+        },
+        {
+          id: "s3_39",
+          word: "drastic",
+          phonetic: "/ˈdræs.tɪk/",
+          translation: "adj. 劇烈的，猛烈的",
+          example_en: "The company had to make drastic budget cuts.",
+          example_zh: "公司不得不進行劇烈的預算削減。",
+        },
+        {
+          id: "s3_40",
+          word: "duration",
+          phonetic: "/dʊˈreɪ.ʃən/",
+          translation: "n. 持續時間，期間",
+          example_en:
+            "The patient must rest for the duration of the treatment.",
+          example_zh: "病人在治療期間必須休息。",
+        },
+        {
+          id: "s3_41",
+          word: "eccentric",
+          phonetic: "/ɪkˈsen.trɪk/",
+          translation: "adj. 古怪的，特立獨行的",
+          example_en: "My art teacher has some eccentric habits.",
+          example_zh: "我的美術老師有一些古怪的習慣。",
+        },
+        {
+          id: "s3_42",
+          word: "eliminate",
+          phonetic: "/iˈlɪm.ə.neɪt/",
+          translation: "v. 消除，淘汰，排除",
+          example_en:
+            "Eating healthy food helps eliminate toxins from your body.",
+          example_zh: "食用健康的食物有助於消除體內的毒素。",
+        },
+        {
+          id: "s3_43",
+          word: "embarrass",
+          phonetic: "/ɪmˈbær.əs/",
+          translation: "v. 使尷尬，使難堪",
+          example_en: "I did not mean to embarrass you in public.",
+          example_zh: "我並不是故意要讓你在公開場合難堪。",
+        },
+        {
+          id: "s3_44",
+          word: "emphasis",
+          phonetic: "/ˈem.fə.sɪs/",
+          translation: "n. 強調，重點",
+          example_en: "The school puts great emphasis on practical skills.",
+          example_zh: "這間學校非常強調實作技能。",
+        },
+        {
+          id: "s3_45",
+          word: "encounter",
+          phonetic: "/ɪnˈkaʊn.t̬ɚ/",
+          translation: "v./n. 遭遇，遇到",
+          example_en:
+            "We encountered some unexpected difficulties during the trip.",
+          example_zh: "我們在旅途中遭遇了一些意想不到的困難。",
+        },
+        {
+          id: "s3_46",
+          word: "essential",
+          phonetic: "/ɪˈsen.ʃəl/",
+          translation: "adj. 必要的，不可或缺的",
+          example_en:
+            "Water is essential for the survival of all living things.",
+          example_zh: "水對於所有生物的生存都是不可或缺的。",
+        },
+        {
+          id: "s3_47",
+          word: "estimate",
+          phonetic: "/ˈes.tə.meɪt/",
+          translation: "v./n. 估計，估算",
+          example_en:
+            "Experts estimate that the project will take three years.",
+          example_zh: "專家估計該專案將耗時三年。",
+        },
+        {
+          id: "s3_48",
+          word: "evaluate",
+          phonetic: "/ɪˈvæl.ju.eɪt/",
+          translation: "v. 評估，評價",
+          example_en:
+            "The teacher needs to evaluate the students' performance.",
+          example_zh: "老師需要評估學生的表現。",
+        },
+        {
+          id: "s3_49",
+          word: "evolution",
+          phonetic: "/ˌev.əˈluː.ʃən/",
+          translation: "n. 演化，進化，發展",
+          example_en: "Darwin's theory explains the evolution of species.",
+          example_zh: "達爾文的理論解釋了物種的演化。",
+        },
+        {
+          id: "s3_50",
+          word: "exaggerate",
+          phonetic: "/ɪɡˈzædʒ.ə.reɪt/",
+          translation: "v. 誇張，誇大",
+          example_en: "Don't exaggerate the danger; we are quite safe here.",
+          example_zh: "不要誇大危險；我們在這裡相當安全。",
+        },
+        {
+          id: "s3_51",
+          word: "exceed",
+          phonetic: "/ɪkˈsiːd/",
+          translation: "v. 超過，超出",
+          example_en: "The driver was fined for exceeding the speed limit.",
+          example_zh: "司機因超出速限而被罰款。",
+        },
+        {
+          id: "s3_52",
+          word: "exception",
+          phonetic: "/ɪkˈsep.ʃən/",
+          translation: "n. 例外",
+          example_en: "Most students passed the test, with only one exception.",
+          example_zh: "大多數學生都通過了測試，只有一個例外。",
+        },
+        {
+          id: "s3_53",
+          word: "exclusive",
+          phonetic: "/ɪkˈskluː.sɪv/",
+          translation: "adj. 獨家的，專有的，排他的",
+          example_en: "This hotel has an exclusive beach for its guests.",
+          example_zh: "這家酒店為其住客提供專屬的私人沙灘。",
+        },
+        {
+          id: "s3_54",
+          word: "exhausted",
+          phonetic: "/ɪɡˈzɑː.stɪd/",
+          translation: "adj. 筋疲力盡的，耗盡的",
+          example_en: "I was exhausted after running the marathon.",
+          example_zh: "跑完馬拉松後我筋疲力盡。",
+        },
+        {
+          id: "s3_55",
+          word: "expansion",
+          phonetic: "/ɪkˈspæn.ʃən/",
+          translation: "n. 擴張，膨脹",
+          example_en: "The rapid expansion of the company created new jobs.",
+          example_zh: "該公司的快速擴張創造了新的工作機會。",
+        },
+        {
+          id: "s3_56",
+          word: "exploit",
+          phonetic: "/ɪkˈsplɔɪt/",
+          translation: "v. 剝削，開發，利用",
+          example_en: "We should exploit renewable energy sources like wind.",
+          example_zh: "我們應該開發風力等可再生能源。",
+        },
+        {
+          id: "s3_57",
+          word: "extinguish",
+          phonetic: "/ɪkˈstɪŋ.ɡwɪʃ/",
+          translation: "v. 撲滅，熄滅",
+          example_en:
+            "It took firefighters hours to extinguish the forest fire.",
+          example_zh: "消防員花了數小時才撲滅這場森林大火。",
+        },
+        {
+          id: "s3_58",
+          word: "favorable",
+          phonetic: "/ˈfeɪ.vər.ə.bəl/",
+          translation: "adj. 有利的，贊同的",
+          example_en:
+            "The weather conditions are favorable for our outdoor picnic.",
+          example_zh: "天氣條件非常有利於我們的戶外野餐。",
+        },
+        {
+          id: "s3_59",
+          word: "flexible",
+          phonetic: "/ˈflek.sə.bəl/",
+          translation: "adj. 有彈性的，靈活的",
+          example_en: "We need to have flexible working hours to balance life.",
+          example_zh: "我們需要有彈性的工作時間來平衡生活。",
+        },
+        {
+          id: "s3_60",
+          word: "fluctuate",
+          phonetic: "/ˈflʌk.tʃu.eɪt/",
+          translation: "v. 波動，起伏",
+          example_en: "Vegetable prices fluctuate depending on the season.",
+          example_zh: "蔬菜價格會隨著季節而波動。",
+        },
+        {
+          id: "s3_61",
+          word: "frustrate",
+          phonetic: "/ˈfrʌs.treɪt/",
+          translation: "v. 使挫敗，使沮喪",
+          example_en: "The lack of progress frustrated the scientists.",
+          example_zh: "進度停滯讓科學家們感到很沮喪。",
+        },
+        {
+          id: "s3_62",
+          word: "fundamental",
+          phonetic: "/ˌfʌn.dəˈmen.t̬əl/",
+          translation: "adj. 基本的，根本的",
+          example_en: "Education is a fundamental human right.",
+          example_zh: "教育是一項基本人權。",
+        },
+        {
+          id: "s3_63",
+          word: "generous",
+          phonetic: "/ˈdʒen.ər.əs/",
+          translation: "adj. 慷慨的，大方的",
+          example_en: "The rich businessman made a generous donation.",
+          example_zh: "那位富商做了一筆慷慨的捐贈。",
+        },
+        {
+          id: "s3_64",
+          word: "genuine",
+          phonetic: "/ˈdʒen.ju.ɪn/",
+          translation: "adj. 真正的，真誠的",
+          example_en: "I could tell that her smile was genuine.",
+          example_zh: "我看得出來她的笑容是真誠的。",
+        },
+        {
+          id: "s3_65",
+          word: "glamour",
+          phonetic: "/ˈɡlæm.ɚ/",
+          translation: "n. 魅力，誘惑力",
+          example_en: "She was attracted by the glamour of Hollywood.",
+          example_zh: "她被好萊塢的魅力所吸引。",
+        },
+        {
+          id: "s3_66",
+          word: "grim",
+          phonetic: "/ɡrɪm/",
+          translation: "adj. 嚴肅的，令人擔憂的，冷酷的",
+          example_en: "The doctor gave a grim report about the patient.",
+          example_zh: "醫生給出了一份關於病人的令人擔憂的病況報告。",
+        },
+        {
+          id: "s3_67",
+          word: "hostage",
+          phonetic: "/ˈhɑː.stɪdʒ/",
+          translation: "n. 人質",
+          example_en: "The bank robbers took three customers as hostages.",
+          example_zh: "銀行搶匪劫持了三名顧客作為人質。",
+        },
+        {
+          id: "s3_68",
+          word: "hostile",
+          phonetic: "/ˈhɑː.stəl/",
+          translation: "adj. 敵對的，懷有敵意的",
+          example_en: "They became hostile toward the new rules.",
+          example_zh: "他們對新規則產生了敵意。",
+        },
+        {
+          id: "s3_69",
+          word: "illusion",
+          phonetic: "/ɪˈluː.ʒən/",
+          translation: "n. 幻覺，假象",
+          example_en: "The desert heat can create the illusion of water.",
+          example_zh: "沙漠的酷熱會產生有水的假象。",
+        },
+        {
+          id: "s3_70",
+          word: "imitate",
+          phonetic: "/ˈɪm.ə.teɪt/",
+          translation: "v. 模仿，仿效",
+          example_en: "Parrots can easily imitate human speech.",
+          example_zh: "鸚鵡能輕鬆模仿人類說話。",
+        },
+        {
+          id: "s3_71",
+          word: "immense",
+          phonetic: "/ɪˈmens/",
+          translation: "adj. 巨大的，極大的",
+          example_en: "The project required an immense amount of money.",
+          example_zh: "該專案需要極大數額的資金。",
+        },
+        {
+          id: "s3_72",
+          word: "inevitable",
+          phonetic: "/ˌɪnˈev.ə.t̬ə.bəl/",
+          translation: "adj. 不可避免的，必然發生的",
+          example_en: "Death and aging are inevitable parts of life.",
+          example_zh: "死亡與衰老是生命中不可避免的一部分。",
+        },
+        {
+          id: "s3_73",
+          word: "ingredient",
+          phonetic: "/ɪnˈɡriː.di.ənt/",
+          translation: "n. 食材，原料，要素",
+          example_en: "Trust is a key ingredient in a successful friendship.",
+          example_zh: "信任是成功友誼的關鍵要素。",
+        },
+        {
+          id: "s3_74",
+          word: "initiative",
+          phonetic: "/ɪˈnɪʃ.ə.t̬ɪv/",
+          translation: "n. 主動性，倡議，主導權",
+          example_en: "He took the initiative to ask her out.",
+          example_zh: "他採取主動約她出去。",
+        },
+        {
+          id: "s3_75",
+          word: "insight",
+          phonetic: "/ˈɪn.saɪt/",
+          translation: "n. 洞察力，深刻見解",
+          example_en: "The lecture gave us a great insight into history.",
+          example_zh: "這場演講讓我們對歷史有了深刻的見解。",
+        },
+        {
+          id: "s3_76",
+          word: "inspire",
+          phonetic: "/ɪnˈspaɪr/",
+          translation: "v. 鼓舞，激發，啟發",
+          example_en: "The teacher inspired her students to read more.",
+          example_zh: "老師激發了學生多讀書的興趣。",
+        },
+        {
+          id: "s3_77",
+          word: "install",
+          phonetic: "/ɪnˈstɑːl/",
+          translation: "v. 安裝，設置",
+          example_en: "We hired a technician to install the air conditioner.",
+          example_zh: "我們僱用了一位技術人員來安裝冷氣。",
+        },
+        {
+          id: "s3_78",
+          word: "integrate",
+          phonetic: "/ˈɪn.t̬ə.ɡreɪt/",
+          translation: "v. 整合，融入",
+          example_en:
+            "It takes time for immigrants to integrate into a new society.",
+          example_zh: "移民需要時間才能融入新的社會。",
+        },
+        {
+          id: "s3_79",
+          word: "jealous",
+          phonetic: "/ˈdʒel.əs/",
+          translation: "adj. 嫉妒的，羨慕的",
+          example_en: "She was jealous of her sister's success.",
+          example_zh: "她嫉妒她姐姐的成功。",
+        },
+        {
+          id: "s3_80",
+          word: "landscape",
+          phonetic: "/ˈlænd.skeɪp/",
+          translation: "n. 風景，景色",
+          example_en: "The mountains formed a beautiful natural landscape.",
+          example_zh: "群山形成了美麗的自然風景。",
+        },
+        {
+          id: "s3_81",
+          word: "leisure",
+          phonetic: "/ˈleɪ.ʒɚ/",
+          translation: "n. 閒暇，空閒時間",
+          example_en: "Reading is my favorite leisure activity.",
+          example_zh: "閱讀是我最喜歡的閒暇活動。",
+        },
+        {
+          id: "s3_82",
+          word: "liberal",
+          phonetic: "/ˈlɪb.ər.əl/",
+          translation: "adj. 自由的，開明的，慷慨的",
+          example_en: "The university is known for its liberal education.",
+          example_zh: "這所大學以其自由開放的教育而聞名。",
+        },
+        {
+          id: "s3_83",
+          word: "manipulate",
+          phonetic: "/məˈnɪp.jə.leɪt/",
+          translation: "v. 操縱，控制，應對",
+          example_en: "The politician tried to manipulate the public opinion.",
+          example_zh: "該政治人物試圖操縱公眾輿論。",
+        },
+        {
+          id: "s3_84",
+          word: "margin",
+          phonetic: "/ˈmɑːr.dʒɪn/",
+          translation: "n. 頁邊空白，邊緣，差額",
+          example_en: "Please write your notes in the margin of the page.",
+          example_zh: "請將你的筆記寫在頁面的空白處。",
+        },
+        {
+          id: "s3_85",
+          word: "mature",
+          phonetic: "/məˈtʃʊr/",
+          translation: "adj. 成熟的 v. 成熟",
+          example_en: "She is very mature for her age.",
+          example_zh: "以她的年齡來說，她非常成熟。",
+        },
+        {
+          id: "s3_86",
+          word: "negotiate",
+          phonetic: "/nɪˈɡoʊ.ʃi.eɪt/",
+          translation: "v. 談判，協商",
+          example_en: "We managed to negotiate a lower price for the house.",
+          example_zh: "我們成功協商到了更低的房價。",
+        },
+        {
+          id: "s3_87",
+          word: "obstacle",
+          phonetic: "/ˈɑːb.stə.kəl/",
+          translation: "n. 障礙，妨礙",
+          example_en: "Lack of funding is the main obstacle to the project.",
+          example_zh: "資金缺乏是該專案的主要障礙。",
+        },
+        {
+          id: "s3_88",
+          word: "optimistic",
+          phonetic: "/ˌɑːp.təˈmɪs.tɪk/",
+          translation: "adj. 樂觀的",
+          example_en: "She remains optimistic about her future career.",
+          example_zh: "她對自己未來的職涯依然保持樂觀。",
+        },
+        {
+          id: "s3_89",
+          word: "passive",
+          phonetic: "/ˈpæs.ɪv/",
+          translation: "adj. 被動的，消極的",
+          example_en:
+            "A passive learner only listens and doesn't ask questions.",
+          example_zh: "被動的學習者只聽而不問問題。",
+        },
+        {
+          id: "s3_90",
+          word: "permanent",
+          phonetic: "/ˈpɝː.mə.nənt/",
+          translation: "adj. 永久的，永恆的",
+          example_en: "The damage to the building was permanent.",
+          example_zh: "這棟建築所受到的損害是永久性的。",
+        },
+        {
+          id: "s3_91",
+          word: "potential",
+          phonetic: "/poʊˈten.ʃəl/",
+          translation: "adj. 潛在的，可能的 n. 潛力",
+          example_en: "Every child has the potential to succeed.",
+          example_zh: "每個孩子都有成功的潛力。",
+        },
+        {
+          id: "s3_92",
+          word: "precise",
+          phonetic: "/prəˈsaɪs/",
+          translation: "adj. 精確的，準確的",
+          example_en: "Can you give me the precise location on the map?",
+          example_zh: "你能給我地圖上的精確位置嗎？",
+        },
+        {
+          id: "s3_93",
+          word: "reluctance",
+          phonetic: "/rɪˈlʌk.təns/",
+          translation: "n. 勉強，不情願",
+          example_en: "Her reluctance to help was obvious to everyone.",
+          example_zh: "大家都能看出她很不情願幫忙。",
+        },
+        {
+          id: "s3_94",
+          word: "significant",
+          phonetic: "/sɪɡˈnɪf.ə.kənt/",
+          translation: "adj. 顯著的，重要的",
+          example_en:
+            "There is a significant difference in price between the two.",
+          example_zh: "這兩者之間有顯著的價格差異。",
+        },
+        {
+          id: "s3_95",
+          word: "temporary",
+          phonetic: "/ˈtem.pə.rer.i/",
+          translation: "adj. 暫時的，臨時的",
+          example_en: "This is only a temporary solution to the problem.",
+          example_zh: "這只是解決該問題的暫時方案。",
+        },
+        {
+          id: "s3_96",
+          word: "tolerance",
+          phonetic: "/ˈtɑː.lɚ.əns/",
+          translation: "n. 寬容，忍耐力",
+          example_en: "We must learn to show tolerance toward other cultures.",
+          example_zh: "我們必須學會對其他文化表現出寬容。",
+        },
+        {
+          id: "s3_97",
+          word: "transform",
+          phonetic: "/trænsˈfɔːrm/",
+          translation: "v. 改變，轉化",
+          example_en: "The internet has transformed the way we communicate.",
+          example_zh: "網際網路改變了我們的溝通方式。",
+        },
+        {
+          id: "s3_98",
+          word: "unanimous",
+          phonetic: "/juːˈnæn.ə.məs/",
+          translation: "adj. 一致同意的，全體一致的",
+          example_en: "The committee reached a unanimous decision.",
+          example_zh: "委員會達成了一致的決定。",
+        },
+        {
+          id: "s3_99",
+          word: "vague",
+          phonetic: "/veɪɡ/",
+          translation: "adj. 模糊的，含糊不清的",
+          example_en: "His instructions were so vague that we got lost.",
+          example_zh: "他的指令太含糊了，以致於我們迷路了。",
+        },
+        {
+          id: "s3_100",
+          word: "vulnerable",
+          phonetic: "/ˈvʌl.nɚ.ə.bəl/",
+          translation: "adj. 易受傷的，脆弱的",
+          example_en: "Young children are vulnerable to bad influences.",
+          example_zh: "幼兒容易受到不良影響。",
+        },
+      ],
+    },
+  },
+  college: {
+    name: "🎓 大學核心單字",
+    stages: {
+      //1: [
+      //{ id: "c1_1", word: "hypothesis", phonetic: "/haɪˈpɑː.θə.sɪs/", translation: "n. 假設，假說", example_en: "The experiment confirmed our hypothesis.", example_zh: "實驗證實了我們的假設。" },
+      //{ id: "c1_2", word: "cognitive", phonetic: "/ˈkɑːɡ.nə.t̬ɪv/", translation: "adj. 認知的", example_en: "Sleep deprivation affects cognitive function.", example_zh: "睡眠不足會影響認知功能。" }
+      //],
+      //2: [
+      //  { id: "c2_1", word: "pragmatic", phonetic: "/præɡˈmæt̬.ɪk/", translation: "adj. 務實的，實事求是的", example_en: "We need to take a pragmatic approach.", example_zh: "我們需要採取務實的方法。" },
+      //{ id: "c2_2", word: "ambiguous", phonetic: "/æmˈbɪɡ.ju.əs/", translation: "adj. 模稜兩可的，含糊的", example_en: "Her reply was somewhat ambiguous.", example_zh: "她的回答有些模稜兩可。" }
+      //],
+      1: [
+        {
+          id: "c3_1",
+          word: "academic",
+          phonetic: "/ˌæk.əˈdem.ɪk/",
+          translation: "adj. 學術的，學院的 n. 學者",
+          example_en:
+            "She decided to pursue an academic career in biochemistry.",
+          example_zh: "她決定在生物化學領域追求學術生涯。",
+        },
+        {
+          id: "c3_2",
+          word: "acquisition",
+          phonetic: "/ˌæk.wəˈzɪʃ.ən/",
+          translation: "n. 獲得，習得，收購",
+          example_en:
+            "The study focuses on first language acquisition in children.",
+          example_zh: "這項研究專注於兒童的母語習得。",
+        },
+        {
+          id: "c3_3",
+          word: "aesthetic",
+          phonetic: "/esˈθet̬.ɪk/",
+          translation: "adj. 美學的，審美的 n. 美感",
+          example_en:
+            "The building's design has both functional and aesthetic value.",
+          example_zh: "這棟建築的設計同時具有實用與美學價值。",
+        },
+        {
+          id: "c3_4",
+          word: "allocation",
+          phonetic: "/ˌæl.əˈkeɪ.ʃən/",
+          translation: "n. 分配，撥給",
+          example_en:
+            "The government announced a new allocation of funds for research.",
+          example_zh: "政府宣布了一項新的研究資金分配方案。",
+        },
+        {
+          id: "c3_5",
+          word: "alternative",
+          phonetic: "/ɑːlˈtɝː.nə.t̬ɪv/",
+          translation: "adj. 替代的，非主流的 n. 選擇",
+          example_en:
+            "Scientists are developing alternative energy sources to replace oil.",
+          example_zh: "科學家正在開發替代能源以取代石油。",
+        },
+        {
+          id: "c3_6",
+          word: "ambiguous",
+          phonetic: "/æmˈbɪɡ.ju.əs/",
+          translation: "adj. 模稜兩可的，含糊不清的",
+          example_en:
+            "The results of the preliminary study were somewhat ambiguous.",
+          example_zh: "初步研究的結果有些模稜兩可。",
+        },
+        {
+          id: "c3_7",
+          word: "analytical",
+          phonetic: "/ˌæn.əˈlɪt̬.ɪ.kəl/",
+          translation: "adj. 分析的，善於分析的",
+          example_en:
+            "Graduate school requires strong analytical and critical thinking skills.",
+          example_zh: "研究所需要強大的分析與批判性思考能力。",
+        },
+        {
+          id: "c3_8",
+          word: "anomaly",
+          phonetic: "/əˈnɑː.məl.i/",
+          translation: "n. 異常事物，反常現象",
+          example_en:
+            "The researchers identified a genetic anomaly in the control group.",
+          example_zh: "研究人員在對照組中發現了基因異常現象。",
+        },
+        {
+          id: "c3_9",
+          word: "anticipate",
+          phonetic: "/ænˈtɪs.ə.peɪt/",
+          translation: "v. 預期，預料",
+          example_en:
+            "The university anticipates a significant increase in enrollment.",
+          example_zh: "這所大學預期入學人數將會大幅增加。",
+        },
+        {
+          id: "c3_10",
+          word: "arbitrary",
+          phonetic: "/ˈɑːr.bə.trer.i/",
+          translation: "adj. 任意的，武斷的，隨心所欲的",
+          example_en:
+            "The classification of these samples seems completely arbitrary.",
+          example_zh: "這些樣本的分類看起來完全是武斷的。",
+        },
+        {
+          id: "c3_11",
+          word: "articulate",
+          phonetic: "/ɑːrˈtɪk.jə.lət/",
+          translation: "v. 清楚地表達 adj. 口齒伶俐的",
+          example_en:
+            "The professor was able to articulate the complex theory clearly.",
+          example_zh: "教授能夠清晰地闡述這個複雜的理論。",
+        },
+        {
+          id: "c3_12",
+          word: "assertion",
+          phonetic: "/əˈsɝː.ʃən/",
+          translation: "n. 斷言，聲明，主張",
+          example_en:
+            "She presented no evidence to support her bold assertion.",
+          example_zh: "她沒有提出任何證據來支持她大膽的主張。",
+        },
+        {
+          id: "c3_13",
+          word: "attribute",
+          phonetic: "/əˈtrɪb.juːt/",
+          translation: "v. 歸因於 n. 特徵，屬性",
+          example_en:
+            "Most experts attribute the climate shift to human activity.",
+          example_zh: "大多數專家將氣候轉變歸因於人類活動。",
+        },
+        {
+          id: "c3_14",
+          word: "bias",
+          phonetic: "/ˈbaɪ.əs/",
+          translation: "n. 偏見，偏袒 v. 使有偏見",
+          example_en:
+            "The researchers took precautions to avoid subjective bias in the survey.",
+          example_zh: "研究人員採取了預防措施，以避免調查中出現主觀偏見。",
+        },
+        {
+          id: "c3_15",
+          word: "capacity",
+          phonetic: "/kəˈpæs.ə.t̬i/",
+          translation: "n. 能力，容量，生產力",
+          example_en:
+            "This student has a remarkable capacity for learning languages.",
+          example_zh: "這位學生在語言學習方面擁有非凡的能力。",
+        },
+        {
+          id: "c3_16",
+          word: "chronological",
+          phonetic: "/ˌkrɑː.nəˈlɑː.dʒɪ.kəl/",
+          translation: "adj. 按時間順序的",
+          example_en:
+            "Please arrange these historical events in chronological order.",
+          example_zh: "請將這些歷史事件按時間順序排列。",
+        },
+        {
+          id: "c3_17",
+          word: "citation",
+          phonetic: "/saɪˈteɪ.ʃən/",
+          translation: "n. 引文，引證，表揚",
+          example_en:
+            "Your academic essay must include proper citations for all sources.",
+          example_zh: "你的學術論文必須為所有來源加上正確的引用。",
+        },
+        {
+          id: "c3_18",
+          word: "cohesive",
+          phonetic: "/koʊˈhiː.sɪv/",
+          translation: "adj. 有凝聚力的，團結的，相契合的",
+          example_en:
+            "The team worked hard to present a cohesive research proposal.",
+          example_zh: "該團隊努力提出一份具有連貫性與整體感的研討企劃書。",
+        },
+        {
+          id: "c3_19",
+          word: "collaborate",
+          phonetic: "/kəˈlæb.ə.reɪt/",
+          translation: "v. 合作，協作",
+          example_en:
+            "Researchers from both universities decided to collaborate on the study.",
+          example_zh: "兩所大學的研究人員決定就這項研究展開合作。",
+        },
+        {
+          id: "c3_20",
+          word: "comprise",
+          phonetic: "/kəmˈpraɪz/",
+          translation: "v. 包含，由...組成",
+          example_en:
+            "The final exam will comprise both multiple-choice and essay questions.",
+          example_zh: "期末考將包含選擇題和申論題。",
+        },
+        {
+          id: "c3_21",
+          word: "conceptual",
+          phonetic: "/kənˈsep.tʃu.əl/",
+          translation: "adj. 概念的，觀念的",
+          example_en:
+            "The study offers a new conceptual framework for analyzing economic growth.",
+          example_zh: "這項研究為分析經濟成長提供了一個新的概念框架。",
+        },
+        {
+          id: "c3_22",
+          word: "conduct",
+          phonetic: "/kənˈdʌkt/",
+          translation: "v. 進行，實施，指揮 n. 行為，品行",
+          example_en:
+            "They plan to conduct a series of experiments next month.",
+          example_zh: "他們計劃下個月進行一系列實驗。",
+        },
+        {
+          id: "c3_23",
+          word: "consequent",
+          phonetic: "/ˈkɑːn.sə.kwənt/",
+          translation: "adj. 隨之發生的，由此引起的",
+          example_en:
+            "The heavy rain and consequent flooding caused severe damage.",
+          example_zh: "豪雨以及隨之而來的洪水造成了嚴重的破壞。",
+        },
+        {
+          id: "c3_24",
+          word: "constitute",
+          phonetic: "/ˈkɑːn.stə.tuːt/",
+          translation: "v. 構成，組成，被視為",
+          example_en:
+            "These data alone do not constitute sufficient proof of the theory.",
+          example_zh: "光是這些數據並不構成該理論的充分證據。",
+        },
+        {
+          id: "c3_25",
+          word: "constraint",
+          phonetic: "/kənˈstreɪnt/",
+          translation: "n. 限制，約束",
+          example_en:
+            "Financial constraints forced the laboratory to delay the project.",
+          example_zh: "資金限制迫使實驗室延後了該項目。",
+        },
+        {
+          id: "c3_26",
+          word: "contradiction",
+          phonetic: "/ˌkɑːn.trəˈdɪk.ʃən/",
+          translation: "n. 矛盾，抵觸",
+          example_en:
+            "There is a direct contradiction between his two statements.",
+          example_zh: "他的兩次聲明之間存在直接的矛盾。",
+        },
+        {
+          id: "c3_27",
+          word: "correlation",
+          phonetic: "/ˌkɔːr.əˈleɪ.ʃən/",
+          translation: "n. 相關性，相互關係",
+          example_en:
+            "Statistical analysis showed a strong correlation between the two variables.",
+          example_zh: "統計分析顯示這兩個變數之間有很強的相關性。",
+        },
+        {
+          id: "c3_28",
+          word: "credible",
+          phonetic: "/ˈkred.ə.bəl/",
+          translation: "adj. 可信的，可靠的",
+          example_en:
+            "You need to find credible sources to support your academic thesis.",
+          example_zh: "你需要尋找可靠的來源來支持你的學術論文。",
+        },
+        {
+          id: "c3_29",
+          word: "criterion",
+          phonetic: "/kraɪˈtɪr.i.ən/",
+          translation: "n. 標準，準則 (複數為 criteria)",
+          example_en: "What criteria did you use to select these participants?",
+          example_zh: "你使用什麼標準來篩選這些參與者？",
+        },
+        {
+          id: "c3_30",
+          word: "cumulative",
+          phonetic: "/ˈkjuː.mjə.lə.t̬ɪv/",
+          translation: "adj. 累積的，漸增的",
+          example_en:
+            "The cumulative effect of years of smoking began to show in his health.",
+          example_zh: "多年吸菸的累積效應開始在他的健康狀況中顯現出來。",
+        },
+        {
+          id: "c3_31",
+          word: "deduction",
+          phonetic: "/dɪˈdʌk.ʃən/",
+          translation: "n. 推論，推導，扣除額",
+          example_en:
+            "Through logical deduction, she arrived at the correct conclusion.",
+          example_zh: "通過邏輯推論，她得出了正確的結論。",
+        },
+        {
+          id: "c3_32",
+          word: "depict",
+          phonetic: "/dɪˈpɪkt/",
+          translation: "v. 描繪，描述",
+          example_en:
+            "The novel depicts life in rural England in the nineteenth century.",
+          example_zh: "這部小說描繪了十九世紀英格蘭農村的生活。",
+        },
+        {
+          id: "c3_33",
+          word: "derive",
+          phonetic: "/dɪˈraɪv/",
+          translation: "v. 源於，得出，衍生出",
+          example_en: "Many English words are derived from Latin and Greek.",
+          example_zh: "許多英文單字源自於拉丁文和希臘文。",
+        },
+        {
+          id: "c3_34",
+          word: "deviation",
+          phonetic: "/ˌdiː.viˈeɪ.ʃən/",
+          translation: "n. 偏差，背離，偏離",
+          example_en:
+            "Any major deviation from the original plan must be approved.",
+          example_zh: "任何對原始計劃的重大偏離都必須獲得批准。",
+        },
+        {
+          id: "c3_35",
+          word: "discourse",
+          phonetic: "/ˈdɪs.kɔːrs/",
+          translation: "n. 論述，對話，演講",
+          example_en:
+            "The professor is an expert on political discourse in the Middle Ages.",
+          example_zh: "這位教授是中世紀政治論述方面的專家。",
+        },
+        {
+          id: "c3_36",
+          word: "discrete",
+          phonetic: "/dɪˈskriːt/",
+          translation: "adj. 獨立的，個別的，不連續的",
+          example_en:
+            "The data can be divided into a series of discrete categories.",
+          example_zh: "這些數據可以分為一系列獨立的類別。",
+        },
+        {
+          id: "c3_37",
+          word: "distinguish",
+          phonetic: "/dɪˈstɪŋ.ɡwɪʃ/",
+          translation: "v. 區分，辨別，使傑出",
+          example_en:
+            "It is important to distinguish between myth and reality.",
+          example_zh: "區分神話與現實是非常重要的。",
+        },
+        {
+          id: "c3_38",
+          word: "diverse",
+          phonetic: "/daɪˈvɝːs/",
+          translation: "adj. 多樣的，多元的",
+          example_en:
+            "The university campus has a highly diverse student population.",
+          example_zh: "這所大學校園擁有非常多元的學生群體。",
+        },
+        {
+          id: "c3_39",
+          word: "domain",
+          phonetic: "/doʊˈmeɪn/",
+          translation: "n. 領域，領土，網域",
+          example_en:
+            "This research topic belongs to the domain of developmental psychology.",
+          example_zh: "這個研究課題屬於發展心理學的領域。",
+        },
+        {
+          id: "c3_40",
+          word: "empirical",
+          phonetic: "/ɪmˈpɪr.ɪ.kəl/",
+          translation: "adj. 實證的，以經驗（實驗）為依據的",
+          example_en:
+            "The researchers provided strong empirical evidence to support their claim.",
+          example_zh: "研究人員提供了強力的實證證據來支持他們的主張。",
+        },
+        {
+          id: "c3_41",
+          word: "equivalent",
+          phonetic: "/ɪˈkwɪv.əl.ənt/",
+          translation: "adj. 等值的，相等的 n. 等同物",
+          example_en:
+            "The cost of the damage is equivalent to half a year's budget.",
+          example_zh: "損失的成本相當於半年的預算。",
+        },
+        {
+          id: "c3_42",
+          word: "ethical",
+          phonetic: "/ˈeθ.ɪ.kəl/",
+          translation: "adj. 倫理的，道德的",
+          example_en:
+            "The committee raised several ethical concerns about the experiment.",
+          example_zh: "委員會對這項實驗提出了幾項倫理道德方面的擔憂。",
+        },
+        {
+          id: "c3_43",
+          word: "evaluate",
+          phonetic: "/ɪˈvæl.ju.eɪt/",
+          translation: "v. 評估，評價",
+          example_en:
+            "We need to evaluate the long-term effects of this policy.",
+          example_zh: "我們需要評估這項政策的長期影響。",
+        },
+        {
+          id: "c3_44",
+          word: "exclude",
+          phonetic: "/ɪkˈskluːd/",
+          translation: "v. 排除，不包括",
+          example_en:
+            "Certain data points were excluded from the final analysis.",
+          example_zh: "某些數據點被排除在最終分析之外。",
+        },
+        {
+          id: "c3_45",
+          word: "explicit",
+          phonetic: "/ɪkˈsplɪs.ɪt/",
+          translation: "adj. 明確的，清晰露骨的",
+          example_en:
+            "The teacher gave explicit instructions on how to submit the essay.",
+          example_zh: "老師對於如何繳交論文給予了明確的指示。",
+        },
+        {
+          id: "c3_46",
+          word: "facilitate",
+          phonetic: "/fəˈsɪl.ə.teɪt/",
+          translation: "v. 促進，使便利",
+          example_en:
+            "The new online system will facilitate communication between departments.",
+          example_zh: "新的線上系統將促進部門之間的溝通。",
+        },
+        {
+          id: "c3_47",
+          word: "feasible",
+          phonetic: "/ˈfiː.zə.bəl/",
+          translation: "adj. 可行的，行得通的",
+          example_en:
+            "Is it technologically feasible to build a colony on Mars?",
+          example_zh: "在火星上建立殖民地在技術上是可行的嗎？",
+        },
+        {
+          id: "c3_48",
+          word: "fluctuate",
+          phonetic: "/ˈflʌk.tʃu.eɪt/",
+          translation: "v. 波動，起伏",
+          example_en:
+            "The price of gold continues to fluctuate because of market uncertainty.",
+          example_zh: "由於市場的不確定性，黃金價格持續波動。",
+        },
+        {
+          id: "c3_49",
+          word: "framework",
+          phonetic: "/ˈfreɪm.wɝːk/",
+          translation: "n. 框架，架構，體制",
+          example_en:
+            "The book provides a theoretical framework for social research.",
+          example_zh: "這本書為社會研究提供了一個理論框架。",
+        },
+        {
+          id: "c3_50",
+          word: "hierarchy",
+          phonetic: "/ˈhaɪ.rɑːr.ki/",
+          translation: "n. 等級制度，階層",
+          example_en:
+            "The corporate hierarchy makes it difficult for lower employees to speak out.",
+          example_zh: "公司的等級制度使得底層員工很難發聲。",
+        },
+        {
+          id: "c3_51",
+          word: "hypothesis",
+          phonetic: "/haɪˈpɑː.θə.sɪs/",
+          translation: "n. 假設，假說 (複數為 hypotheses)",
+          example_en:
+            "Our latest experiment confirmed the original hypothesis.",
+          example_zh: "我們最新的實驗證實了最初的假設。",
+        },
+        {
+          id: "c3_52",
+          word: "implement",
+          phonetic: "/ˈɪm.plə.ment/",
+          translation: "v. 實施，執行 n. 工具，器具",
+          example_en:
+            "The university plans to implement a new grading system next semester.",
+          example_zh: "大學計劃下學期實施新的評分制度。",
+        },
+        {
+          id: "c3_53",
+          word: "implication",
+          phonetic: "/ˌɪm.pləˈkeɪ.ʃən/",
+          translation: "n. 暗示，潛在影響，含意",
+          example_en:
+            "The results of this study have broad implications for public health.",
+          example_zh: "這項研究的結果對公共衛生具有廣泛的影響。",
+        },
+        {
+          id: "c3_54",
+          word: "implicit",
+          phonetic: "/ɪmˈplɪs.ɪt/",
+          translation: "adj. 暗含的，不言明而含蓄的",
+          example_en:
+            "There was an implicit agreement between the two research groups.",
+          example_zh: "這兩個研究小組之間存在著默契（不言明的協定）。",
+        },
+        {
+          id: "c3_55",
+          word: "incentive",
+          phonetic: "/ɪnˈsen.t̬ɪv/",
+          translation: "n. 誘因，動機，刺激",
+          example_en:
+            "The government offers tax incentives to encourage renewable energy use.",
+          example_zh: "政府提供稅收優惠以鼓勵使用再生能源。",
+        },
+        {
+          id: "c3_56",
+          word: "incorporate",
+          phonetic: "/ɪnˈkɔːr.pɚ.eɪt/",
+          translation: "v. 納入，併入，合併",
+          example_en:
+            "You should try to incorporate feedback from your advisor into your essay.",
+          example_zh: "你應該試著將指導老師的意見納入你的論文中。",
+        },
+        {
+          id: "c3_57",
+          word: "indicator",
+          phonetic: "/ˈɪn.də.keɪ.t̬ɚ/",
+          translation: "n. 指標，指示物",
+          example_en:
+            "The unemployment rate is an important economic indicator.",
+          example_zh: "失業率是一項重要的經濟指標。",
+        },
+        {
+          id: "c3_58",
+          word: "inherent",
+          phonetic: "/ɪnˈhɪr.ənt/",
+          translation: "adj. 固有的，內在的，天生的",
+          example_en: "There are inherent risks in any scientific exploration.",
+          example_zh: "任何科學探索都存在著內在的風險。",
+        },
+        {
+          id: "c3_59",
+          word: "innovation",
+          phonetic: "/ˌɪn.əˈveɪ.ʃən/",
+          translation: "n. 創新，革新",
+          example_en:
+            "Technological innovation plays a key role in modern industry.",
+          example_zh: "技術創新在現代工業中扮演著關鍵角色。",
+        },
+        {
+          id: "c3_60",
+          word: "integrate",
+          phonetic: "/ˈɪn.t̬ə.ɡreɪt/",
+          translation: "v. 整合，融入，使結合",
+          example_en:
+            "The software is designed to integrate seamlessly with existing systems.",
+          example_zh: "該軟體旨在與現有系統進行無縫整合。",
+        },
+        {
+          id: "c3_61",
+          word: "interpretation",
+          phonetic: "/ɪnˌtɝː.prəˈteɪ.ʃən/",
+          translation: "n. 解釋，詮釋，口譯",
+          example_en:
+            "Different critics have different interpretations of the poem.",
+          example_zh: "不同的評論家對這首詩有不同的詮釋。",
+        },
+        {
+          id: "c3_62",
+          word: "interval",
+          phonetic: "/ˈɪn.t̬ɚ.vəl/",
+          translation: "n. 間隔，距離",
+          example_en:
+            "The measurements were taken at regular intervals of ten minutes.",
+          example_zh: "測量是每隔十分鐘的固定時間間隔進行一次。",
+        },
+        {
+          id: "c3_63",
+          word: "intrinsic",
+          phonetic: "/ɪnˈtrɪn.zɪk/",
+          translation: "adj. 本質的，內在的，固有的",
+          example_en:
+            "A child's intrinsic curiosity is the best motivation for learning.",
+          example_zh: "孩子內在的好奇心是最好的學習動力。",
+        },
+        {
+          id: "c3_64",
+          word: "justify",
+          phonetic: "/ˈdʒʌs.tə.faɪ/",
+          translation: "v. 證明...正當（合理）",
+          example_en: "He tried to justify his absence with a doctor's note.",
+          example_zh: "他試圖用醫生的診斷書來證明他缺席的合理性。",
+        },
+        {
+          id: "c3_65",
+          word: "liberal",
+          phonetic: "/ˈlɪb.ər.əl/",
+          translation: "adj. 自由的，開明的，寬大的 n. 自由主義者",
+          example_en: "The university provides a broad liberal arts education.",
+          example_zh: "這所大學提供廣泛的通識教育。",
+        },
+        {
+          id: "c3_66",
+          word: "manipulate",
+          phonetic: "/məˈnɪp.jə.leɪt/",
+          translation: "v. 操縱，控制，熟練操作",
+          example_en:
+            "He was accused of trying to manipulate the financial market.",
+          example_zh: "他被指控企圖操縱金融市場。",
+        },
+        {
+          id: "c3_67",
+          word: "marginal",
+          phonetic: "/ˈmɑːr.dʒɪ.nəl/",
+          translation: "adj. 邊緣的，微小的，不重要的",
+          example_en:
+            "The new method resulted in only a marginal improvement in efficiency.",
+          example_zh: "新方法僅對效率帶來了微小的提升。",
+        },
+        {
+          id: "c3_68",
+          word: "methodology",
+          phonetic: "/ˌmeθ.əˈdɑː.lə.dʒi/",
+          translation: "n. 方法論，研究方法",
+          example_en:
+            "The methodology section of your paper must describe the research process.",
+          example_zh: "你論文中的方法論部分必須描述研究過程。",
+        },
+        {
+          id: "c3_69",
+          word: "obvious",
+          phonetic: "/ˈɑːb.vi.əs/",
+          translation: "adj. 明顯的，顯而易見的",
+          example_en: "It was obvious that the experiment had failed.",
+          example_zh: "實驗顯然已經失敗了。",
+        },
+        {
+          id: "c3_70",
+          word: "paradigm",
+          phonetic: "/ˈpær.ə.daɪm/",
+          translation: "n. 範式，典範，樣例",
+          example_en:
+            "The discovery of DNA created a new paradigm in biological research.",
+          example_zh: "DNA的發現開創了生物學研究的新範式。",
+        },
+        {
+          id: "c3_71",
+          word: "parameter",
+          phonetic: "/pəˈræm.ə.t̬ɚ/",
+          translation: "n. 參數，界限，限制因素",
+          example_en:
+            "We must set the parameters of the study before gathering data.",
+          example_zh: "在收集數據之前，我們必須設定這項研究的限制界限。",
+        },
+        {
+          id: "c3_72",
+          word: "perspective",
+          phonetic: "/pɚˈspek.tɪv/",
+          translation: "n. 視角，觀點，透視法",
+          example_en:
+            "Try to view the issue from an international perspective.",
+          example_zh: "試著從國際視角來審視這個議題。",
+        },
+        {
+          id: "c3_73",
+          word: "phenomenon",
+          phonetic: "/fəˈnɑː.mə.nɑːn/",
+          translation: "n. 現象 (複數為 phenomena)",
+          example_en:
+            "Glaciers melting is a natural phenomenon caused by global warming.",
+          example_zh: "冰河融化是全球暖化引起的一種自然現象。",
+        },
+        {
+          id: "c3_74",
+          word: "plausible",
+          phonetic: "/ˈplɑː.zə.bəl/",
+          translation: "adj. 似乎合理的，可信的",
+          example_en:
+            "She offered a highly plausible explanation for her delay.",
+          example_zh: "她對自己的延誤提出了一個非常合理的解釋。",
+        },
+        {
+          id: "c3_75",
+          word: "pragmatic",
+          phonetic: "/præɡˈmæt̬.ɪk/",
+          translation: "adj. 務實的，重實效的",
+          example_en:
+            "We need to take a pragmatic approach to solving this crisis.",
+          example_zh: "我們需要採取務實的方法來解決這場危機。",
+        },
+        {
+          id: "c3_76",
+          word: "preclude",
+          phonetic: "/prəˈkluːd/",
+          translation: "v. 排除，妨礙，阻止",
+          example_en:
+            "The heavy rain precluded any possibility of outdoor research.",
+          example_zh: "暴雨排除了進行任何戶外研究的可能性。",
+        },
+        {
+          id: "c3_77",
+          word: "qualitative",
+          phonetic: "/ˈkwɑː.lə.teɪ.t̬ɪv/",
+          translation: "adj. 質性的，定性的",
+          example_en:
+            "This project combines both quantitative and qualitative methods.",
+          example_zh: "該專案結合了定量（量化）與定性（質性）的方法。",
+        },
+        {
+          id: "c3_78",
+          word: "quantitative",
+          phonetic: "/ˈkwɑːn.t̬ə.teɪ.t̬ɪv/",
+          translation: "adj. 量化的，定量的",
+          example_en:
+            "The study relies heavily on quantitative data gathered from surveys.",
+          example_zh: "這項研究很大程度上依賴從調查中收集的量化數據。",
+        },
+        {
+          id: "c3_79",
+          word: "random",
+          phonetic: "/ˈræn.dəm/",
+          translation: "adj. 隨機的，任意的",
+          example_en:
+            "The samples were selected at random from the population.",
+          example_zh: "樣本是從母體中隨機挑選出來的。",
+        },
+        {
+          id: "c3_80",
+          word: "refine",
+          phonetic: "/rɪˈfaɪn/",
+          translation: "v. 改善，精煉，使完美",
+          example_en:
+            "The scientists spent months trying to refine the manufacturing process.",
+          example_zh: "科學家們花了數月時間試圖改進製造流程。",
+        },
+        {
+          id: "c3_81",
+          word: "relevant",
+          phonetic: "/ˈrel.ə.vənt/",
+          translation: "adj. 相關的，有切身關係的",
+          example_en:
+            "Please include only information that is relevant to the topic.",
+          example_zh: "請僅包含與主題相關的資訊。",
+        },
+        {
+          id: "c3_82",
+          word: "reliable",
+          phonetic: "/rɪˈlaɪ.ə.bəl/",
+          translation: "adj. 可靠的，可信賴的",
+          example_en:
+            "The laboratory needs to ensure that the equipment is reliable.",
+          example_zh: "實驗室需要確保設備是可靠的。",
+        },
+        {
+          id: "c3_83",
+          word: "replicate",
+          phonetic: "/ˈrep.lɪ.keɪt/",
+          translation: "v. 複製，重複（實驗等）",
+          example_en:
+            "Other researchers have been unable to replicate the original results.",
+          example_zh: "其他研究人員一直無法複製最初的結果。",
+        },
+        {
+          id: "c3_84",
+          word: "rigorous",
+          phonetic: "/ˈrɪɡ.ɚ.əs/",
+          translation: "adj. 嚴格的，嚴謹的，嚴厲的",
+          example_en:
+            "All academic essays undergo a rigorous review process before publication.",
+          example_zh: "所有學術論文在發表前都必須經過嚴格的審查程序。",
+        },
+        {
+          id: "c3_85",
+          word: "scrutiny",
+          phonetic: "/ˈskruː.t̬ən.i/",
+          translation: "n. 仔細檢查，審查",
+          example_en:
+            "The government's economic policy has come under close scrutiny.",
+          example_zh: "政府的經濟政策受到了嚴密的審查。",
+        },
+        {
+          id: "c3_86",
+          word: "sector",
+          phonetic: "/ˈsek.tɚ/",
+          translation: "n. 部門，領域，扇形",
+          example_en:
+            "The private sector plays a vital role in national development.",
+          example_zh: "私營部門在國家發展中扮演著至關重要的角色。",
+        },
+        {
+          id: "c3_87",
+          word: "significant",
+          phonetic: "/sɪɡˈnɪf.ə.kənt/",
+          translation: "adj. 顯著的，重要的，有意義的",
+          example_en:
+            "There has been a significant reduction in pollution levels.",
+          example_zh: "污染程度已經有了顯著降低。",
+        },
+        {
+          id: "c3_88",
+          word: "simultaneous",
+          phonetic: "/ˌsaɪ.məlˈteɪ.ni.əs/",
+          translation: "adj. 同時的，同步的",
+          example_en:
+            "The event was broadcast to a simultaneous global audience.",
+          example_zh: "該活動向全球觀眾進行了同步轉播。",
+        },
+        {
+          id: "c3_89",
+          word: "speculate",
+          phonetic: "/ˈspek.jə.leɪt/",
+          translation: "v. 推測，推斷，投機",
+          example_en:
+            "Scientists can only speculate about the origin of the universe.",
+          example_zh: "科學家們只能推測宇宙的起源。",
+        },
+        {
+          id: "c3_90",
+          word: "subsequent",
+          phonetic: "/ˈsʌb.sɪ.kwənt/",
+          translation: "adj. 隨後的，後來的",
+          example_en:
+            "The initial study and subsequent experiments confirmed the theory.",
+          example_zh: "最初的研究和隨後的實驗都證實了該理論。",
+        },
+        {
+          id: "c3_91",
+          word: "substantial",
+          phonetic: "/səbˈstæn.ʃəl/",
+          translation: "adj. 大量的，實質的，實力雄厚的",
+          example_en:
+            "They made substantial progress in reducing energy waste.",
+          example_zh: "他們在減少能源浪費方面取得了實質性進展。",
+        },
+        {
+          id: "c3_92",
+          word: "subtle",
+          phonetic: "/ˈsʌt̬.əl/",
+          translation: "adj. 微妙的，細微的，敏銳的",
+          example_en:
+            "There are subtle differences between the two chemical compounds.",
+          example_zh: "這兩種化合物之間存在著細微的差異。",
+        },
+        {
+          id: "c3_93",
+          word: "synthesis",
+          phonetic: "/ˈsɪn.θə.sɪs/",
+          translation: "n. 合成，綜合 (複數為 syntheses)",
+          example_en:
+            "His book is a brilliant synthesis of history and literature.",
+          example_zh: "他的著作是歷史與文學的精彩結合。",
+        },
+        {
+          id: "c3_94",
+          word: "systematic",
+          phonetic: "/ˌsɪs.təˈmæt̬.ɪk/",
+          translation: "adj. 有系統的，有條理的",
+          example_en:
+            "We need to conduct a systematic review of the entire process.",
+          example_zh: "我們需要對整個流程進行系統性的審查。",
+        },
+        {
+          id: "c3_95",
+          word: "theoretical",
+          phonetic: "/ˌθiː.əˈret̬.ɪ.kəl/",
+          translation: "adj. 理論的，理論上的",
+          example_en:
+            "The course provides students with a solid theoretical foundation.",
+          example_zh: "這門課程為學生提供了堅實的理論基礎。",
+        },
+        {
+          id: "c3_96",
+          word: "thesis",
+          phonetic: "/ˈθiː.sɪs/",
+          translation: "n. 論文，論點 (複數為 theses)",
+          example_en:
+            "She is writing her doctoral thesis on renewable energy policy.",
+          example_zh: "她正在撰寫關於再生能源政策的博士論文。",
+        },
+        {
+          id: "c3_97",
+          word: "transform",
+          phonetic: "/trænsˈfɔːrm/",
+          translation: "v. 改變，轉化",
+          example_en:
+            "The internet has transformed the way research is conducted.",
+          example_zh: "網際網路改變了進行研究的方式。",
+        },
+        {
+          id: "c3_98",
+          word: "valid",
+          phonetic: "/ˈvæl.ɪd/",
+          translation: "adj. 有效的，有根據的，合理的",
+          example_en:
+            "The arguments she presented in her essay are completely valid.",
+          example_zh: "她在論文中提出的論點完全是合理的。",
+        },
+        {
+          id: "c3_99",
+          word: "variables",
+          phonetic: "/ˈver.i.ə.bəls/",
+          translation: "n. 變數，可變因素",
+          example_en:
+            "We must control all external variables during the scientific test.",
+          example_zh: "我們必須在科學測試期間控制所有的外部變數。",
+        },
+        {
+          id: "c3_100",
+          word: "verify",
+          phonetic: "/ˈver.ə.faɪ/",
+          translation: "v. 證實，核對，證明",
+          example_en:
+            "We need to perform further tests to verify the experimental results.",
+          example_zh: "我們需要進行進一步的測試以證實實驗結果。",
+        },
+      ],
+    },
+  },
+};
