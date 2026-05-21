@@ -274,6 +274,27 @@
             letter-spacing: 1px;
         }
 
+        /* --- 9. E-Ink 刷屏閃爍特效 --- */
+        .eink-refresh-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: var(--text-main);
+            z-index: 9999;
+            opacity: 0;
+            pointer-events: none;
+        }
+        .eink-refresh-overlay.flash {
+            animation: eink-flash-anim 0.15s ease-in-out;
+        }
+        @keyframes eink-flash-anim {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
         /* 底部反饋按鈕 */
         .btn-group {
             display: grid;
@@ -311,6 +332,9 @@
     </style>
 </head>
 <body>
+
+    <!-- 刷屏閃爍覆蓋層 -->
+    <div id="eink-flash-overlay" class="eink-refresh-overlay"></div>
 
     <!-- 全域工具列（主選單專用：重置與隨機配置） -->
     <div class="global-util-bar" id="global-util-bar">
@@ -507,42 +531,62 @@
             }
         }
 
+        // --- 刷屏特效控制 ---
+        function triggerEInkRefresh(callback) {
+            const overlay = document.getElementById('eink-flash-overlay');
+            overlay.classList.add('flash');
+            
+            // 螢幕全黑的瞬間 (大約 75ms) 執行畫面與資料替換
+            setTimeout(() => {
+                if (callback) callback();
+            }, 75);
+
+            // 動畫結束後移除動畫類別，方便下次重新觸發
+            setTimeout(() => {
+                overlay.classList.remove('flash');
+            }, 150);
+        }
+
         // --- 6. 視窗控制：進入學習狀態 ---
         function startLearning(bookKey, stageNum) {
-            currentBookKey = bookKey;
-            currentStageNum = stageNum;
-            
-            let originalWords = vocabDatabase[bookKey].stages[stageNum];
-            if (isShuffleEnabled) {
-                currentWords = shuffleArray(originalWords);
-            } else {
-                currentWords = originalWords;
-            }
-            currentIndex = 0;
+            triggerEInkRefresh(() => {
+                currentBookKey = bookKey;
+                currentStageNum = stageNum;
+                
+                let originalWords = vocabDatabase[bookKey].stages[stageNum];
+                if (isShuffleEnabled) {
+                    currentWords = shuffleArray(originalWords);
+                } else {
+                    currentWords = originalWords;
+                }
+                currentIndex = 0;
 
-            // 切換畫面時隱藏工具列，進入安靜背書模式
-            document.getElementById('global-util-bar').classList.add('hidden');
-            document.getElementById('view-menu').classList.add('hidden');
-            document.getElementById('view-learn').classList.remove('hidden');
+                // 切換畫面時隱藏工具列，進入安靜背書模式
+                document.getElementById('global-util-bar').classList.add('hidden');
+                document.getElementById('view-menu').classList.add('hidden');
+                document.getElementById('view-learn').classList.remove('hidden');
 
-            // 標示單字庫與關卡名稱
-            document.getElementById('current-book-tag').innerText = vocabDatabase[bookKey].name;
-            document.getElementById('stage-title').innerText = `STAGE ${stageNum}`;
+                // 標示單字庫與關卡名稱
+                document.getElementById('current-book-tag').innerText = vocabDatabase[bookKey].name;
+                document.getElementById('stage-title').innerText = `STAGE ${stageNum}`;
 
-            renderCard();
+                renderCard();
+            });
         }
 
         // 返回選單畫面
         function backToMenu() {
-            document.getElementById('global-util-bar').classList.remove('hidden');
-            document.getElementById('view-learn').classList.add('hidden');
-            document.getElementById('view-menu').classList.remove('hidden');
+            triggerEInkRefresh(() => {
+                document.getElementById('global-util-bar').classList.remove('hidden');
+                document.getElementById('view-learn').classList.add('hidden');
+                document.getElementById('view-menu').classList.remove('hidden');
 
-            if (window.currentAudio) {
-                window.currentAudio.pause();
-            }
+                if (window.currentAudio) {
+                    window.currentAudio.pause();
+                }
 
-            renderMenu();
+                renderMenu();
+            });
         }
 
         // --- 7. 卡片繪製與翻牌控制 ---
@@ -614,9 +658,12 @@
 
             localStorage.setItem('eink_vocab_progress', JSON.stringify(userProgress));
 
+            // 切換下一張卡片時觸發 E-ink 刷屏特效
             setTimeout(() => {
-                nextCard();
-            }, 200);
+                triggerEInkRefresh(() => {
+                    nextCard();
+                });
+            }, 50);
         }
 
         function nextCard() {
