@@ -101,6 +101,52 @@
             overflow: hidden;
         }
 
+        /* --- 儀表板與複習區塊 --- */
+        .dashboard {
+            background-color: var(--border-color);
+            color: var(--bg-color);
+            padding: 16px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+            box-shadow: 3px 3px 0px rgba(0,0,0,0.2);
+        }
+        .dashboard-stats {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 16px;
+            font-size: 14px;
+        }
+        .dashboard-stats div {
+            flex: 1;
+            padding: 0 4px;
+        }
+        .dashboard-stats strong {
+            font-size: 20px;
+            display: block;
+            margin-top: 4px;
+        }
+        .review-btn {
+            background: var(--bg-color);
+            color: var(--text-main);
+            border: 2px solid var(--bg-color);
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 2px 2px 0px rgba(0,0,0,0.5);
+            transition: transform 0.1s, box-shadow 0.1s;
+        }
+        .review-btn:active {
+            transform: translate(2px, 2px);
+            box-shadow: 0px 0px 0px rgba(0,0,0,0.5);
+        }
+        .review-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
         .book-header {
             background-color: var(--border-color);
             color: var(--bg-color);
@@ -347,6 +393,17 @@
         <!-- ================= 視窗 A：主選單 ================= -->
         <div id="view-menu">
             <h1 class="menu-title">🎒 智慧單字庫</h1>
+            
+            <!-- 學習儀表板 -->
+            <div class="dashboard" id="learning-dashboard">
+                <div class="dashboard-stats">
+                    <div>總學習<strong id="dash-total-learned">0</strong></div>
+                    <div>已掌握<strong id="dash-total-mastered">0</strong></div>
+                    <div>待加強<strong id="dash-total-learning">0</strong></div>
+                </div>
+                <button class="review-btn" id="start-review-btn" onclick="startReview()">🧠 開始隨機抽背</button>
+            </div>
+
             <div id="books-container">
                 <!-- 由 JavaScript 動態生成單字庫列表 -->
             </div>
@@ -487,6 +544,10 @@
             const container = document.getElementById('books-container');
             container.innerHTML = ""; // 清空
 
+            let totalLearned = 0;
+            let totalMastered = 0;
+            let totalLearning = 0;
+
             for (let bookKey in vocabDatabase) {
                 const book = vocabDatabase[bookKey];
                 
@@ -510,8 +571,14 @@
                     // 計算此關卡進度
                     let masteredCount = 0;
                     wordsInStage.forEach(word => {
-                        if (userProgress[word.id] && userProgress[word.id].status === 'mastered') {
-                            masteredCount++;
+                        if (userProgress[word.id]) {
+                            totalLearned++;
+                            if (userProgress[word.id].status === 'mastered') {
+                                masteredCount++;
+                                totalMastered++;
+                            } else if (userProgress[word.id].status === 'learning') {
+                                totalLearning++;
+                            }
                         }
                     });
                     const percent = Math.round((masteredCount / wordsInStage.length) * 100);
@@ -528,6 +595,20 @@
 
                 bookSection.appendChild(stageList);
                 container.appendChild(bookSection);
+            }
+
+            // 更新儀表板數據
+            document.getElementById('dash-total-learned').innerText = totalLearned;
+            document.getElementById('dash-total-mastered').innerText = totalMastered;
+            document.getElementById('dash-total-learning').innerText = totalLearning;
+            
+            const reviewBtn = document.getElementById('start-review-btn');
+            if (totalLearned === 0) {
+                reviewBtn.disabled = true;
+                reviewBtn.innerText = "🧠 尚未有學習紀錄";
+            } else {
+                reviewBtn.disabled = false;
+                reviewBtn.innerText = "🧠 開始隨機抽背";
             }
         }
 
@@ -547,7 +628,42 @@
             }, 150);
         }
 
-        // --- 6. 視窗控制：進入學習狀態 ---
+        // --- 6. 視窗控制：進入學習狀態 (含複習) ---
+        function startReview() {
+            // 收集所有學過的字
+            let reviewWords = [];
+            for (let bookKey in vocabDatabase) {
+                const book = vocabDatabase[bookKey];
+                for (let stageNum in book.stages) {
+                    book.stages[stageNum].forEach(word => {
+                        if (userProgress[word.id]) {
+                            reviewWords.push(word);
+                        }
+                    });
+                }
+            }
+
+            if (reviewWords.length === 0) return;
+
+            triggerEInkRefresh(() => {
+                currentBookKey = 'review';
+                currentStageNum = 'all';
+                
+                // 每次抽背都隨機排序
+                currentWords = shuffleArray(reviewWords);
+                currentIndex = 0;
+
+                document.getElementById('global-util-bar').classList.add('hidden');
+                document.getElementById('view-menu').classList.add('hidden');
+                document.getElementById('view-learn').classList.remove('hidden');
+
+                document.getElementById('current-book-tag').innerText = '總複習模式';
+                document.getElementById('stage-title').innerText = `隨機抽背`;
+
+                renderCard();
+            });
+        }
+
         function startLearning(bookKey, stageNum) {
             triggerEInkRefresh(() => {
                 currentBookKey = bookKey;
@@ -671,6 +787,12 @@
                 currentIndex++;
                 renderCard();
             } else {
+                if (currentBookKey === 'review') {
+                    alert(`🎉 恭喜！你已完成這次的隨機抽背！`);
+                    backToMenu();
+                    return;
+                }
+
                 alert(`🎉 恭喜！你已完成這個階段的背誦！`);
                 
                 const totalStages = Object.keys(vocabDatabase[currentBookKey].stages).length;
