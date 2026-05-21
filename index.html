@@ -54,6 +54,33 @@
             margin-top: 20px;
         }
 
+        /* 頂部全域工具列 */
+        .global-util-bar {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: -10px;
+        }
+
+        .util-btn {
+            background-color: var(--bg-color);
+            border: 2px solid var(--border-color);
+            border-radius: 6px;
+            padding: 6px 12px;
+            font-size: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 2px 2px 0px var(--border-color);
+            transition: transform 0.1s, box-shadow 0.1s;
+        }
+
+        .util-btn:active {
+            transform: translate(1px, 1px);
+            box-shadow: 1px 1px 0px var(--border-color);
+        }
+
         /* --- 2. 視窗 A：主選單（單字庫與關卡選擇） --- */
         .menu-title {
             font-size: 24px;
@@ -285,6 +312,12 @@
 </head>
 <body>
 
+    <!-- 全域工具列（主選單專用：重置與隨機配置） -->
+    <div class="global-util-bar" id="global-util-bar">
+        <button class="util-btn" onclick="toggleShuffle()" id="shuffle-toggle-btn">🔀 隨機排序：關</button>
+        <button class="util-btn" style="background-color: #fee; border-color: #822; color: #822;" onclick="resetAllProgress()">🗑️ 清除所有進度</button>
+    </div>
+
     <div class="container">
         
         <!-- ================= 視窗 A：主選單 ================= -->
@@ -355,6 +388,7 @@
         let currentWords = [];
         let currentIndex = 0;
         let userProgress = {}; // 格式為 { "word_id": { status: 'mastered' } }
+        let isShuffleEnabled = false; // 是否開啟隨機打亂單字
 
         // 註冊 Service Worker (PWA)
         if ('serviceWorker' in navigator) {
@@ -372,8 +406,57 @@
             if (savedProgress) {
                 userProgress = JSON.parse(savedProgress);
             }
+
+            // 載入隨機排序偏好
+            const savedShuffle = localStorage.getItem('eink_vocab_shuffle');
+            if (savedShuffle) {
+                isShuffleEnabled = savedShuffle === 'true';
+                updateShuffleButtonUI();
+            }
+
             renderMenu();
         };
+
+        // 切換隨機排序
+        function toggleShuffle() {
+            isShuffleEnabled = !isShuffleEnabled;
+            localStorage.setItem('eink_vocab_shuffle', isShuffleEnabled);
+            updateShuffleButtonUI();
+        }
+
+        function updateShuffleButtonUI() {
+            const btn = document.getElementById('shuffle-toggle-btn');
+            if (isShuffleEnabled) {
+                btn.innerText = '🔀 隨機排序：開';
+                btn.style.backgroundColor = '#e8f0fe';
+                btn.style.borderColor = '#3b82f6';
+            } else {
+                btn.innerText = '🔀 隨機排序：關';
+                btn.style.backgroundColor = 'var(--bg-color)';
+                btn.style.borderColor = 'var(--border-color)';
+            }
+        }
+
+        // 清除所有學習進度
+        function resetAllProgress() {
+            const confirmReset = confirm('⚠️ 確定要清除所有的學習進度嗎？清除後將無法復原。');
+            if (confirmReset) {
+                userProgress = {};
+                localStorage.removeItem('eink_vocab_progress');
+                renderMenu();
+                alert('✨ 學習進度已成功清除！');
+            }
+        }
+
+        // Fisher-Yates 隨機打亂算法
+        function shuffleArray(array) {
+            const arr = [...array];
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
 
         // 生成主選單
         function renderMenu() {
@@ -428,10 +511,17 @@
         function startLearning(bookKey, stageNum) {
             currentBookKey = bookKey;
             currentStageNum = stageNum;
-            currentWords = vocabDatabase[bookKey].stages[stageNum];
+            
+            let originalWords = vocabDatabase[bookKey].stages[stageNum];
+            if (isShuffleEnabled) {
+                currentWords = shuffleArray(originalWords);
+            } else {
+                currentWords = originalWords;
+            }
             currentIndex = 0;
 
-            // 切換畫面
+            // 切換畫面時隱藏工具列，進入安靜背書模式
+            document.getElementById('global-util-bar').classList.add('hidden');
             document.getElementById('view-menu').classList.add('hidden');
             document.getElementById('view-learn').classList.remove('hidden');
 
@@ -444,6 +534,7 @@
 
         // 返回選單畫面
         function backToMenu() {
+            document.getElementById('global-util-bar').classList.remove('hidden');
             document.getElementById('view-learn').classList.add('hidden');
             document.getElementById('view-menu').classList.remove('hidden');
 
